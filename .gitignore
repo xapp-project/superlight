@@ -1,0 +1,7 @@
+obj-*/
+build/
+debian/tmp
+debian/files
+debian/*.substvars
+debian/*debhelper*
+debian/superlight/

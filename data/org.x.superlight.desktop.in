@@ -1,0 +1,24 @@
+[Desktop Entry]
+Name=System Monitor
+Comment=Monitor system resources and processes
+Exec=superlight
+Icon=superlight
+Terminal=false
+Type=Application
+Categories=System;Monitor;
+Keywords=system;monitor;resources;processes;cpu;memory;task manager;
+StartupWMClass=org.x.superlight
+StartupNotify=true
+Actions=resources;processes;storage;
+
+[Desktop Action resources]
+Name=Resources
+Exec=superlight --page=resources
+
+[Desktop Action processes]
+Name=Processes
+Exec=superlight --page=processes
+
+[Desktop Action storage]
+Name=Storage
+Exec=superlight --page=storage

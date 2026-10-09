@@ -1,0 +1,13 @@
+#!/bin/bash
+
+xgettext --language=Desktop \
+    --output=superlight.pot \
+    data/org.x.superlight.desktop.in
+
+xgettext --language=Python \
+    --join-existing \
+    --from-code=UTF-8 \
+    --keyword=_ \
+    --keyword=N_ \
+    --output=superlight.pot \
+    superlight/*.py superlight/chunks/*.py

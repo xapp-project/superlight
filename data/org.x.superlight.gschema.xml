@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.x.superlight" path="/org/x/superlight/">
+    <!-- Global -->
+    <key name="page" type="s">
+      <choices>
+        <choice value="resources"/>
+        <choice value="apps"/>
+        <choice value="processes"/>
+        <choice value="storage"/>
+        <choice value="battery"/>
+      </choices>
+      <default>'resources'</default>
+      <summary>Page shown</summary>
+      <description>The page that was shown when the window was last used.</description>
+    </key>
+    <!-- Resources -->
+    <key name="expanded-graphs" type="as">
+      <default>['overall']</default>
+      <summary>Expanded graphs</summary>
+      <description>The graphs of the Resources page that are shown, the others being collapsed to their title. They are overall, cores, network, disk, temperature and fans.</description>
+    </key>
+    <!-- Battery -->
+    <key name="battery-history-type" type="s">
+      <choices>
+        <choice value="charge"/>
+        <choice value="rate"/>
+      </choices>
+      <default>'charge'</default>
+      <summary>Battery history</summary>
+      <description>What the history of a battery shows: its charge or its power.</description>
+    </key>
+    <key name="battery-history-span" type="s">
+      <choices>
+        <choice value="30m"/>
+        <choice value="3h"/>
+        <choice value="8h"/>
+        <choice value="1d"/>
+        <choice value="1w"/>
+      </choices>
+      <default>'3h'</default>
+      <summary>Battery history span</summary>
+      <description>How far back the history of a battery goes: 30 minutes, 3 hours, 8 hours, 1 day or 1 week.</description>
+    </key>
+    <!-- Processes -->
+    <key name="processes-view" type="s">
+      <choices>
+        <choice value="all"/>
+        <choice value="mine"/>
+        <choice value="active"/>
+      </choices>
+      <default>'all'</default>
+      <summary>Processes shown</summary>
+      <description>Which processes the list shows: all of them, the ones of the user, or the ones that are active.</description>
+    </key>
+    <key name="processes-tree" type="b">
+      <default>false</default>
+      <summary>Show the process tree</summary>
+      <description>Show each process under the one that started it.</description>
+    </key>
+    <key name="processes-sort-column" type="s">
+        <choices>
+          <choice value="name"/>
+          <choice value="pid"/>
+          <choice value="user"/>
+          <choice value="cpu"/>
+          <choice value="memory"/>
+          <choice value="state"/>
+          <choice value="priority"/>
+          <choice value="cpu-time"/>
+          <choice value="started"/>
+          <choice value="virtual"/>
+          <choice value="resident"/>
+          <choice value="shared"/>
+          <choice value="swap"/>
+          <choice value="command"/>
+          <choice value="unit"/>
+          <choice value="disk-read"/>
+          <choice value="disk-write"/>
+          <choice value="disk-read-total"/>
+          <choice value="disk-write-total"/>
+          <choice value="gpu"/>
+          <choice value="video-memory"/>
+          <choice value="video-encoder"/>
+          <choice value="video-decoder"/>
+        </choices>
+        <default>'memory'</default>
+        <summary>Processes sort column</summary>
+        <description>The column the list of processes is sorted by.</description>
+      </key>
+      <key name="processes-sort-order-ascending" type="b">
+        <default>false</default>
+        <summary>Processes sort order is ascending</summary>
+        <description>Whether the list of processes goes from the smallest to the largest, or the other way around.</description>
+      </key>
+      <key name="processes-visible-columns" type="as">
+        <default>['name', 'pid', 'user', 'cpu', 'memory']</default>
+        <summary>Processes columns shown</summary>
+        <description>The columns of the list of processes that are shown, in the order that they are in. The name always is.</description>
+      </key>
+      <!-- Apps -->
+      <key name="apps-sort-column" type="s">
+        <choices>
+          <choice value="name"/>
+          <choice value="processes"/>
+          <choice value="started"/>
+          <choice value="cpu"/>
+          <choice value="cpu-time"/>
+          <choice value="memory"/>
+          <choice value="swap"/>
+          <choice value="disk-read"/>
+          <choice value="disk-write"/>
+          <choice value="disk-read-total"/>
+          <choice value="disk-write-total"/>
+          <choice value="gpu"/>
+          <choice value="video-memory"/>
+          <choice value="video-encoder"/>
+          <choice value="video-decoder"/>
+        </choices>
+        <default>'memory'</default>
+        <summary>Applications sort column</summary>
+        <description>The column the list of applications is sorted by.</description>
+      </key>
+      <key name="apps-sort-order-ascending" type="b">
+        <default>false</default>
+        <summary>Applications sort order is ascending</summary>
+        <description>Whether the list of applications goes from the smallest to the largest, or the other way around.</description>
+      </key>
+      <key name="apps-visible-columns" type="as">
+        <default>['name', 'processes', 'cpu', 'memory']</default>
+        <summary>Applications columns shown</summary>
+        <description>The columns of the list of applications that are shown, in the order that they are in. The name always is.</description>
+      </key>
+    </schema>
+</schemalist>

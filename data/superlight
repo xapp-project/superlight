@@ -1,0 +1,6 @@
+#!/usr/bin/python3
+import sys
+
+from superlight.application import main
+
+sys.exit(main(sys.argv))

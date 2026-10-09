@@ -1,0 +1,23 @@
+#!/bin/bash
+version=$(sed -n "s/^project('superlight', version : '\([^']*\)'.*/\1/p" meson.build)
+module=/usr/lib/python3/dist-packages/superlight
+
+sudo rm -rf $module
+sudo cp -R superlight $module
+sudo rm -rf $module/__pycache__ $module/config.py.in
+sed "s|@version@|$version|" superlight/config.py.in > config.py.new
+sudo mv config.py.new $module/config.py
+
+sudo cp data/org.x.superlight.gschema.xml /usr/share/glib-2.0/schemas/
+sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
+
+sudo cp data/superlight.svg /usr/share/icons/hicolor/scalable/apps/
+sudo gtk-update-icon-cache -q -t -f /usr/share/icons/hicolor 2>/dev/null
+
+sudo cp data/org.x.superlight.desktop.in /usr/share/applications/org.x.superlight.desktop
+sudo update-desktop-database -q /usr/share/applications 2>/dev/null
+
+sudo cp data/superlight /usr/bin/superlight
+
+killall superlight 2>/dev/null
+superlight &
