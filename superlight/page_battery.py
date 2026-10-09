@@ -21,16 +21,33 @@ KINDS = {Kind.BATTERY: _("Battery"), Kind.UPS: _("Uninterruptible Power Supply")
          Kind.HEADSET: _("Headset"), Kind.HEADPHONES: _("Headphones"), Kind.SPEAKERS: _("Speakers"),
          Kind.MEDIA_PLAYER: _("Media Player"), Kind.PDA: _("Personal Digital Assistant"),
          Kind.COMPUTER: _("Computer"), Kind.REMOTE_CONTROL: _("Remote Control")}
-STATES = {State.CHARGING: _("Charging"), State.DISCHARGING: _("Discharging"), State.EMPTY: _("Empty"),
-          State.FULLY_CHARGED: _("Fully charged"), State.PENDING_CHARGE: _("Waiting to charge"),
-          State.PENDING_DISCHARGE: _("Waiting to discharge")}
+STATES = {
+    # Translators: Battery
+    State.CHARGING: _("Charging"),
+    # Translators: Battery
+    State.DISCHARGING: _("Discharging"),
+    # Translators: Battery
+    State.EMPTY: gettext.pgettext("battery state", "Empty"),
+    # Translators: Battery
+    State.FULLY_CHARGED: _("Fully charged"),
+    # Translators: Battery
+    State.PENDING_CHARGE: _("Waiting to charge"),
+    # Translators: Battery
+    State.PENDING_DISCHARGE: _("Waiting to discharge"),
+}
 TECHNOLOGIES = {Technology.LITHIUM_ION: _("Lithium Ion"), Technology.LITHIUM_POLYMER: _("Lithium Polymer"),
                 Technology.LITHIUM_IRON_PHOSPHATE: _("Lithium Iron Phosphate"),
                 Technology.LEAD_ACID: _("Lead acid"), Technology.NICKEL_CADMIUM: _("Nickel Cadmium"),
                 Technology.NICKEL_METAL_HYDRIDE: _("Nickel metal hydride")}
 # The series of the history graph, with their colors
-HISTORY_SERIES = ((_("Discharging"), rgb("#3373D9")), (_("Charging"), rgb("#1A8C52")),
-                  (_("Idle"), rgb("#8C8C8C")))
+HISTORY_SERIES = (
+    # Translators: Battery
+    (_("Discharging"), rgb("#3373D9")),
+    # Translators: Battery
+    (_("Charging"), rgb("#1A8C52")),
+    # Translators: Battery
+    (gettext.pgettext("battery history", "Idle"), rgb("#8C8C8C")),
+)
 DISCHARGING, CHARGING, IDLE = range(3)
 HISTORY_SERIES_OF_STATE = {State.DISCHARGING: DISCHARGING, State.PENDING_DISCHARGE: DISCHARGING,
                            State.EMPTY: DISCHARGING, State.CHARGING: CHARGING, State.PENDING_CHARGE: CHARGING}
@@ -272,6 +289,7 @@ class BatteryPage(Gtk.Box):
         props = self.device.props
         self.percentage.set_markup("<span size='xx-large' weight='bold'>%.0f%%</span>" % props.percentage)
         self.level.set_value(props.percentage)
+        # Translators: Battery
         status = STATES.get(props.state, _("Unknown"))
         if props.state in (State.DISCHARGING, State.PENDING_DISCHARGE) and props.time_to_empty > 0:
             status = _("%(state)s, %(time)s remaining") % {"state": status, "time": format_duration(props.time_to_empty)}

@@ -38,7 +38,7 @@ class SuperlightWindow(Gtk.ApplicationWindow):
         menu.append(Gtk.SeparatorMenuItem())
         menu.append(Gtk.MenuItem(label=_("Quit"), action_name="app.quit"))
         menu.show_all()
-        menu_button = Gtk.MenuButton(popup=menu, tooltip_text=_("Main menu"))
+        menu_button = Gtk.MenuButton(popup=menu)
         menu_button.set_image(Gtk.Image.new_from_icon_name("xsi-open-menu-symbolic", Gtk.IconSize.BUTTON))
         header.pack_end(menu_button)
         self.set_titlebar(header)

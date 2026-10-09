@@ -1,0 +1,1025 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-09 17:12+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: data/org.x.superlight.desktop.in:2 superlight/application.py:22
+#: superlight/application.py:35 superlight/application.py:162
+#: superlight/application.py:172
+msgid "System Monitor"
+msgstr ""
+
+#: data/org.x.superlight.desktop.in:3
+msgid "Monitor system resources and processes"
+msgstr ""
+
+#: data/org.x.superlight.desktop.in:9
+msgid "system;monitor;resources;processes;cpu;memory;task manager;"
+msgstr ""
+
+#: data/org.x.superlight.desktop.in:15 superlight/application.py:47
+msgid "Resources"
+msgstr ""
+
+#: data/org.x.superlight.desktop.in:19 superlight/application.py:51
+#: superlight/page_apps.py:18
+msgid "Processes"
+msgstr ""
+
+#: data/org.x.superlight.desktop.in:23 superlight/application.py:52
+msgid "Storage"
+msgstr ""
+
+#: superlight/application.py:37
+msgid "About"
+msgstr ""
+
+#: superlight/application.py:39
+msgid "Quit"
+msgstr ""
+
+#: superlight/application.py:49
+msgid "Apps"
+msgstr ""
+
+#: superlight/application.py:84 superlight/page_battery.py:18
+#: superlight/page_battery.py:260
+msgid "Battery"
+msgstr ""
+
+#: superlight/common_disk.py:70
+msgid "System drive"
+msgstr ""
+
+#: superlight/common_graphs.py:42
+msgid "< 1 kB/s"
+msgstr ""
+
+#: superlight/common_graphs.py:44 superlight/__init__.py:48
+#, python-format
+msgid "%s/s"
+msgstr ""
+
+#: superlight/common_graphs.py:134
+msgid "1 min"
+msgstr ""
+
+#: superlight/common_graphs.py:134
+#, python-format
+msgid "%d secs"
+msgstr ""
+
+#: superlight/common_graphs.py:410 superlight/page_resources.py:146
+#: superlight/page_resources.py:147
+#, python-format
+msgid "%d °C"
+msgstr ""
+
+#: superlight/common_graphs.py:431
+#, python-format
+msgid "Fan %d"
+msgstr ""
+
+#: superlight/common_graphs.py:447 superlight/page_resources.py:155
+#: superlight/page_resources.py:156
+#, python-format
+msgid "%d RPM"
+msgstr ""
+
+#: superlight/common_process.py:268
+msgid "Use Default"
+msgstr ""
+
+#: superlight/common_proc.py:28
+msgid "Unknown GPU"
+msgstr ""
+
+#. Translators: Priority
+#: superlight/__init__.py:56
+msgid "Very High"
+msgstr ""
+
+#. Translators: Priority
+#: superlight/__init__.py:59
+msgid "High"
+msgstr ""
+
+#. Translators: Priority
+#: superlight/__init__.py:62
+msgid "Normal"
+msgstr ""
+
+#. Translators: Priority
+#: superlight/__init__.py:65
+msgid "Low"
+msgstr ""
+
+#. Translators: Priority
+#: superlight/__init__.py:67
+msgid "Very Low"
+msgstr ""
+
+#: superlight/__init__.py:76
+#, python-format
+msgid "Today, %s"
+msgstr ""
+
+#: superlight/__init__.py:78
+#, python-format
+msgid "Yesterday, %s"
+msgstr ""
+
+#. Translators: Process
+#: superlight/__init__.py:83
+msgid "Running"
+msgstr ""
+
+#. Translators: Process
+#: superlight/__init__.py:85
+msgid "Sleeping"
+msgstr ""
+
+#: superlight/__init__.py:86
+msgid "Disk Sleep"
+msgstr ""
+
+#. Translators: Process
+#: superlight/__init__.py:88
+msgid "Stopped"
+msgstr ""
+
+#: superlight/__init__.py:89
+msgid "Tracing Stop"
+msgstr ""
+
+#: superlight/__init__.py:90
+msgid "Zombie"
+msgstr ""
+
+#. Translators: Process
+#: superlight/__init__.py:92
+msgid "Dead"
+msgstr ""
+
+#. Translators: Process
+#: superlight/__init__.py:94
+msgctxt "process state"
+msgid "Idle"
+msgstr ""
+
+#: superlight/page_apps.py:17 superlight/page_processes.py:16
+#: superlight/view_folders.py:61 superlight/chunks/flatpak.py:64
+#: superlight/chunks/steam.py:89
+msgid "Name"
+msgstr ""
+
+#. Translators: Application
+#. Translators: Process
+#: superlight/page_apps.py:20 superlight/page_processes.py:22
+msgid "Started"
+msgstr ""
+
+#: superlight/page_apps.py:21 superlight/page_processes.py:25
+#: superlight/page_resources.py:126 superlight/page_resources.py:141
+msgid "CPU"
+msgstr ""
+
+#: superlight/page_apps.py:22 superlight/page_processes.py:26
+msgid "CPU Time"
+msgstr ""
+
+#: superlight/page_apps.py:23 superlight/page_processes.py:27
+#: superlight/page_resources.py:133 superlight/page_resources.py:134
+msgid "Memory"
+msgstr ""
+
+#: superlight/page_apps.py:24 superlight/page_processes.py:31
+#: superlight/page_resources.py:136 superlight/page_resources.py:138
+#: superlight/page_resources.py:140 superlight/chunks/swap.py:11
+msgid "Swap"
+msgstr ""
+
+#: superlight/page_apps.py:25 superlight/page_processes.py:32
+msgid "Disk Read"
+msgstr ""
+
+#: superlight/page_apps.py:26 superlight/page_processes.py:33
+msgid "Disk Write"
+msgstr ""
+
+#: superlight/page_apps.py:27 superlight/page_processes.py:34
+msgid "Disk Read Total"
+msgstr ""
+
+#: superlight/page_apps.py:28 superlight/page_processes.py:35
+msgid "Disk Write Total"
+msgstr ""
+
+#: superlight/page_apps.py:29 superlight/page_processes.py:36
+#: superlight/page_resources.py:129 superlight/page_resources.py:130
+#: superlight/page_resources.py:132 superlight/page_resources.py:141
+msgid "GPU"
+msgstr ""
+
+#: superlight/page_apps.py:30 superlight/page_processes.py:37
+msgid "Video Memory"
+msgstr ""
+
+#: superlight/page_apps.py:31 superlight/page_processes.py:38
+msgid "Video Encoder"
+msgstr ""
+
+#: superlight/page_apps.py:32 superlight/page_processes.py:39
+msgid "Video Decoder"
+msgstr ""
+
+#: superlight/page_apps.py:48 superlight/page_apps.py:49
+#: superlight/page_apps.py:216
+msgid "End Application"
+msgstr ""
+
+#: superlight/page_apps.py:48 superlight/page_processes.py:50
+#, python-format
+msgid "End \"%s\"?"
+msgstr ""
+
+#: superlight/page_apps.py:49
+msgid "All its processes will be asked to quit. They may lose unsaved work."
+msgstr ""
+
+#: superlight/page_apps.py:50
+msgid "Could not end the application"
+msgstr ""
+
+#: superlight/page_apps.py:51 superlight/page_apps.py:52
+msgid "Kill Application"
+msgstr ""
+
+#: superlight/page_apps.py:51 superlight/page_processes.py:53
+#, python-format
+msgid "Kill \"%s\"?"
+msgstr ""
+
+#: superlight/page_apps.py:52
+msgid "All its processes will stop immediately. Unsaved work may be lost."
+msgstr ""
+
+#: superlight/page_apps.py:53
+msgid "Could not kill the application"
+msgstr ""
+
+#: superlight/page_apps.py:54
+msgid "Stop Application"
+msgstr ""
+
+#: superlight/page_apps.py:54
+msgid "Could not stop the application"
+msgstr ""
+
+#: superlight/page_apps.py:55
+msgid "Continue Application"
+msgstr ""
+
+#: superlight/page_apps.py:56
+msgid "Could not continue the application"
+msgstr ""
+
+#: superlight/page_apps.py:147
+msgid "Pauses the application"
+msgstr ""
+
+#: superlight/page_apps.py:210 superlight/page_processes.py:157
+msgid "Search"
+msgstr ""
+
+#: superlight/page_apps.py:336 superlight/page_processes.py:350
+#: superlight/page_storage.py:366 superlight/view_folders.py:349
+#: superlight/view_folders.py:372
+msgid "Cancel"
+msgstr ""
+
+#: superlight/page_battery.py:18
+msgid "Uninterruptible Power Supply"
+msgstr ""
+
+#: superlight/page_battery.py:18
+msgid "Mouse"
+msgstr ""
+
+#: superlight/page_battery.py:19
+msgid "Keyboard"
+msgstr ""
+
+#: superlight/page_battery.py:19
+msgid "Game Controller"
+msgstr ""
+
+#: superlight/page_battery.py:19
+msgid "Phone"
+msgstr ""
+
+#: superlight/page_battery.py:20
+msgid "Tablet"
+msgstr ""
+
+#: superlight/page_battery.py:20
+msgid "Pen"
+msgstr ""
+
+#: superlight/page_battery.py:20
+msgid "Touchpad"
+msgstr ""
+
+#: superlight/page_battery.py:21
+msgid "Headset"
+msgstr ""
+
+#: superlight/page_battery.py:21
+msgid "Headphones"
+msgstr ""
+
+#: superlight/page_battery.py:21
+msgid "Speakers"
+msgstr ""
+
+#: superlight/page_battery.py:22
+msgid "Media Player"
+msgstr ""
+
+#: superlight/page_battery.py:22
+msgid "Personal Digital Assistant"
+msgstr ""
+
+#: superlight/page_battery.py:23
+msgid "Computer"
+msgstr ""
+
+#: superlight/page_battery.py:23
+msgid "Remote Control"
+msgstr ""
+
+#. Translators: Battery
+#: superlight/page_battery.py:26 superlight/page_battery.py:47
+msgid "Charging"
+msgstr ""
+
+#. Translators: Battery
+#: superlight/page_battery.py:28 superlight/page_battery.py:45
+msgid "Discharging"
+msgstr ""
+
+#. Translators: Battery
+#: superlight/page_battery.py:30
+msgctxt "battery state"
+msgid "Empty"
+msgstr ""
+
+#. Translators: Battery
+#: superlight/page_battery.py:32
+msgid "Fully charged"
+msgstr ""
+
+#. Translators: Battery
+#: superlight/page_battery.py:34
+msgid "Waiting to charge"
+msgstr ""
+
+#. Translators: Battery
+#: superlight/page_battery.py:36
+msgid "Waiting to discharge"
+msgstr ""
+
+#: superlight/page_battery.py:38
+msgid "Lithium Ion"
+msgstr ""
+
+#: superlight/page_battery.py:38
+msgid "Lithium Polymer"
+msgstr ""
+
+#: superlight/page_battery.py:39
+msgid "Lithium Iron Phosphate"
+msgstr ""
+
+#: superlight/page_battery.py:40
+msgid "Lead acid"
+msgstr ""
+
+#: superlight/page_battery.py:40
+msgid "Nickel Cadmium"
+msgstr ""
+
+#: superlight/page_battery.py:41
+msgid "Nickel metal hydride"
+msgstr ""
+
+#. Translators: Battery
+#: superlight/page_battery.py:49
+msgctxt "battery history"
+msgid "Idle"
+msgstr ""
+
+#: superlight/page_battery.py:55
+msgid "30 minutes"
+msgstr ""
+
+#: superlight/page_battery.py:55
+msgid "3 hours"
+msgstr ""
+
+#: superlight/page_battery.py:55
+msgid "8 hours"
+msgstr ""
+
+#: superlight/page_battery.py:56
+msgid "1 day"
+msgstr ""
+
+#: superlight/page_battery.py:56
+msgid "1 week"
+msgstr ""
+
+#: superlight/page_battery.py:57
+msgid "Charge"
+msgstr ""
+
+#: superlight/page_battery.py:57 superlight/page_battery.py:191
+msgid "Power"
+msgstr ""
+
+#: superlight/page_battery.py:68
+#, python-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: superlight/page_battery.py:70
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: superlight/page_battery.py:152
+#, python-format
+msgid "%d d"
+msgstr ""
+
+#: superlight/page_battery.py:154
+#, python-format
+msgid "%s h"
+msgstr ""
+
+#: superlight/page_battery.py:155
+#, python-format
+msgid "%d min"
+msgstr ""
+
+#: superlight/page_battery.py:188
+msgid "Vendor"
+msgstr ""
+
+#: superlight/page_battery.py:188
+msgid "Model"
+msgstr ""
+
+#: superlight/page_battery.py:188
+msgid "Technology"
+msgstr ""
+
+#: superlight/page_battery.py:189
+msgid "Energy"
+msgstr ""
+
+#: superlight/page_battery.py:189
+msgid "Energy when full"
+msgstr ""
+
+#: superlight/page_battery.py:190
+msgid "Energy (design)"
+msgstr ""
+
+#: superlight/page_battery.py:190
+msgid "Capacity"
+msgstr ""
+
+#: superlight/page_battery.py:191
+msgid "Voltage"
+msgstr ""
+
+#: superlight/page_battery.py:192
+msgid "Charge cycles"
+msgstr ""
+
+#: superlight/page_battery.py:192 superlight/page_resources.py:56
+msgid "Temperature"
+msgstr ""
+
+#: superlight/page_battery.py:218
+msgid "No history is available for this device yet"
+msgstr ""
+
+#. Translators: Battery
+#: superlight/page_battery.py:293
+msgid "Unknown"
+msgstr ""
+
+#: superlight/page_battery.py:295
+#, python-format
+msgid "%(state)s, %(time)s remaining"
+msgstr ""
+
+#: superlight/page_battery.py:297
+#, python-format
+msgid "%(state)s, %(time)s until full"
+msgstr ""
+
+#: superlight/page_processes.py:17
+msgid "PID"
+msgstr ""
+
+#: superlight/page_processes.py:18 superlight/chunks/flatpak.py:132
+msgid "User"
+msgstr ""
+
+#: superlight/page_processes.py:19
+msgid "State"
+msgstr ""
+
+#: superlight/page_processes.py:20
+msgid "Priority"
+msgstr ""
+
+#: superlight/page_processes.py:23
+msgid "Systemd Unit"
+msgstr ""
+
+#: superlight/page_processes.py:24
+msgid "Command Line"
+msgstr ""
+
+#: superlight/page_processes.py:28
+msgid "Virtual Memory"
+msgstr ""
+
+#: superlight/page_processes.py:29
+msgid "Resident Memory"
+msgstr ""
+
+#: superlight/page_processes.py:30
+msgid "Shared Memory"
+msgstr ""
+
+#: superlight/page_processes.py:50 superlight/page_processes.py:51
+#: superlight/page_processes.py:174
+msgid "End Process"
+msgstr ""
+
+#: superlight/page_processes.py:51
+msgid "The process will be asked to quit. It may lose unsaved work."
+msgstr ""
+
+#: superlight/page_processes.py:52
+msgid "Could not end the process"
+msgstr ""
+
+#: superlight/page_processes.py:53 superlight/page_processes.py:54
+msgid "Kill Process"
+msgstr ""
+
+#: superlight/page_processes.py:54
+msgid "The process will stop immediately. Unsaved work may be lost."
+msgstr ""
+
+#: superlight/page_processes.py:55
+msgid "Could not kill the process"
+msgstr ""
+
+#: superlight/page_processes.py:56
+msgid "Stop Process"
+msgstr ""
+
+#: superlight/page_processes.py:56
+msgid "Could not stop the process"
+msgstr ""
+
+#: superlight/page_processes.py:57
+msgid "Continue Process"
+msgstr ""
+
+#: superlight/page_processes.py:58
+msgid "Could not continue the process"
+msgstr ""
+
+#: superlight/page_processes.py:60
+msgid "All Processes"
+msgstr ""
+
+#: superlight/page_processes.py:60
+msgid "My Processes"
+msgstr ""
+
+#: superlight/page_processes.py:60
+msgid "Active Processes"
+msgstr ""
+
+#: superlight/page_processes.py:70
+msgid "Pauses the process"
+msgstr ""
+
+#: superlight/page_processes.py:169
+msgid "Process tree"
+msgstr ""
+
+#: superlight/page_processes.py:170
+msgid "Show each process under the one that started it"
+msgstr ""
+
+#: superlight/page_processes.py:369
+msgid "The selected process has already exited."
+msgstr ""
+
+#: superlight/page_resources.py:37 superlight/page_resources.py:54
+#: superlight/page_resources.py:60
+msgid "Collecting data…"
+msgstr ""
+
+#: superlight/page_resources.py:39
+msgid "Overall usage"
+msgstr ""
+
+#: superlight/page_resources.py:43
+msgid "CPU cores"
+msgstr ""
+
+#: superlight/page_resources.py:45
+msgid "Receiving"
+msgstr ""
+
+#: superlight/page_resources.py:45
+msgid "Total Received"
+msgstr ""
+
+#: superlight/page_resources.py:46
+msgid "Sending"
+msgstr ""
+
+#: superlight/page_resources.py:46
+msgid "Total Sent"
+msgstr ""
+
+#: superlight/page_resources.py:47
+msgid "Network"
+msgstr ""
+
+#: superlight/page_resources.py:49
+msgid "Reading"
+msgstr ""
+
+#: superlight/page_resources.py:49
+msgid "Total Read"
+msgstr ""
+
+#: superlight/page_resources.py:50
+msgid "Writing"
+msgstr ""
+
+#: superlight/page_resources.py:50
+msgid "Total Written"
+msgstr ""
+
+#: superlight/page_resources.py:51 superlight/page_resources.py:141
+msgid "Disk"
+msgstr ""
+
+#: superlight/page_resources.py:62
+msgid "Fan Speed"
+msgstr ""
+
+#: superlight/page_resources.py:119
+msgid "Offline"
+msgstr ""
+
+#: superlight/page_resources.py:132
+msgid "Usage unavailable from driver"
+msgstr ""
+
+#: superlight/page_resources.py:140
+msgid "Not configured"
+msgstr ""
+
+#: superlight/page_resources.py:144 superlight/page_resources.py:153
+msgid "Unavailable"
+msgstr ""
+
+#: superlight/page_storage.py:113 superlight/view_folders.py:41
+#: superlight/chunks/flatpak.py:50 superlight/chunks/steam.py:75
+msgid "Measure again"
+msgstr ""
+
+#: superlight/page_storage.py:237
+#, python-format
+msgid "used of %s"
+msgstr ""
+
+#: superlight/page_storage.py:238
+#, python-format
+msgid "%s free"
+msgstr ""
+
+#: superlight/page_storage.py:241
+#, python-format
+msgid "%s are kept by the file system for the system and can't be used."
+msgstr ""
+
+#: superlight/page_storage.py:290
+msgid "Measuring…"
+msgstr ""
+
+#: superlight/page_storage.py:292
+msgid "There is nothing on this drive."
+msgstr ""
+
+#: superlight/page_storage.py:410
+msgid "Some files could not be deleted"
+msgstr ""
+
+#: superlight/page_storage.py:421
+msgid "Explore Home Folder…"
+msgstr ""
+
+#: superlight/page_storage.py:424
+msgid "Explore File System…"
+msgstr ""
+
+#: superlight/page_storage.py:424
+msgid "Explore Folders…"
+msgstr ""
+
+#: superlight/view_folders.py:29 superlight/chunks/flatpak.py:41
+msgid "Back to the overview"
+msgstr ""
+
+#: superlight/view_folders.py:75
+msgid "Share"
+msgstr ""
+
+#: superlight/view_folders.py:80 superlight/chunks/flatpak.py:75
+#: superlight/chunks/steam.py:99
+msgid "Size"
+msgstr ""
+
+#. Translators: File or folder
+#: superlight/view_folders.py:87
+msgid "Modified"
+msgstr ""
+
+#: superlight/view_folders.py:109
+msgid "Show in File Manager"
+msgstr ""
+
+#: superlight/view_folders.py:112 superlight/view_folders.py:290
+#: superlight/view_folders.py:350
+msgid "Move to Trash"
+msgstr ""
+
+#: superlight/view_folders.py:151
+msgid "Home"
+msgstr ""
+
+#: superlight/view_folders.py:155
+msgid "File System"
+msgstr ""
+
+#: superlight/view_folders.py:230
+msgid "There is nothing in this folder."
+msgstr ""
+
+#: superlight/view_folders.py:233
+msgid "Folders you can't read are left out of the sizes."
+msgstr ""
+
+#: superlight/view_folders.py:253
+msgid "Can't be read"
+msgstr ""
+
+#: superlight/view_folders.py:291 superlight/view_folders.py:373
+msgid "Delete"
+msgstr ""
+
+#: superlight/view_folders.py:331 superlight/chunks/flatpak.py:183
+#: superlight/chunks/steam.py:282
+#, python-format
+msgid "%(count)d selected, %(size)s"
+msgid_plural "%(count)d selected, %(size)s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: superlight/view_folders.py:334
+#, python-format
+msgid "%(count)d item, %(size)s"
+msgid_plural "%(count)d items, %(size)s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: superlight/view_folders.py:343
+#, python-format
+msgid "Move \"%s\" to the trash?"
+msgstr ""
+
+#: superlight/view_folders.py:345
+#, python-format
+msgid "Move %d item to the trash?"
+msgid_plural "Move %d items to the trash?"
+msgstr[0] ""
+msgstr[1] ""
+
+#: superlight/view_folders.py:348
+#, python-format
+msgid "%s will be freed when the trash is emptied."
+msgstr ""
+
+#: superlight/view_folders.py:359
+msgid "Could not move it to the trash"
+msgstr ""
+
+#: superlight/view_folders.py:366
+#, python-format
+msgid "Permanently delete \"%s\"?"
+msgstr ""
+
+#: superlight/view_folders.py:368
+#, python-format
+msgid "Permanently delete %d item?"
+msgid_plural "Permanently delete %d items?"
+msgstr[0] ""
+msgstr[1] ""
+
+#: superlight/view_folders.py:371
+#, python-format
+msgid "%s will be freed. This can't be undone."
+msgstr ""
+
+#: superlight/view_folders.py:382
+msgid "Could not delete it"
+msgstr ""
+
+#: superlight/chunks/cache.py:10
+msgid "Cache"
+msgstr ""
+
+#: superlight/chunks/cache.py:20
+msgid "Clear Cache…"
+msgstr ""
+
+#: superlight/chunks/cache.py:20
+msgid "Clear the cache?"
+msgstr ""
+
+#: superlight/chunks/cache.py:21
+#, python-format
+msgid ""
+"%s of temporary files will be deleted. Programs can be slower the first time "
+"they start afterwards."
+msgstr ""
+
+#: superlight/chunks/cache.py:23
+msgid "Clear Cache"
+msgstr ""
+
+#: superlight/chunks/flatpak.py:44 superlight/chunks/flatpak.py:201
+msgid "Flatpak"
+msgstr ""
+
+#: superlight/chunks/flatpak.py:70
+msgid "Type"
+msgstr ""
+
+#: superlight/chunks/flatpak.py:70
+msgid "Installation"
+msgstr ""
+
+#: superlight/chunks/flatpak.py:131
+msgid "App"
+msgstr ""
+
+#: superlight/chunks/flatpak.py:131
+msgid "Runtime"
+msgstr ""
+
+#: superlight/chunks/flatpak.py:132
+msgid "System"
+msgstr ""
+
+#: superlight/chunks/flatpak.py:187
+#, python-format
+msgid "%(count)d app, %(size)s"
+msgid_plural "%(count)d apps, %(size)s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: superlight/chunks/hidden_files.py:12
+msgid "Hidden files"
+msgstr ""
+
+#: superlight/chunks/logs.py:8
+msgid "Log files"
+msgstr ""
+
+#: superlight/chunks/other.py:10
+msgid "Other"
+msgstr ""
+
+#: superlight/chunks/personal_files.py:14
+msgid "Personal files"
+msgstr ""
+
+#: superlight/chunks/snapshots.py:14
+msgid "System Snapshots"
+msgstr ""
+
+#: superlight/chunks/steam.py:66
+msgid "Back"
+msgstr ""
+
+#: superlight/chunks/steam.py:69
+msgid "Steam games"
+msgstr ""
+
+#: superlight/chunks/steam.py:95
+msgid "Drive"
+msgstr ""
+
+#: superlight/chunks/steam.py:105
+msgid "Last played"
+msgstr ""
+
+#: superlight/chunks/steam.py:215
+msgid "Left over from removed games"
+msgstr ""
+
+#: superlight/chunks/steam.py:269
+msgid "Never"
+msgstr ""
+
+#: superlight/chunks/steam.py:286
+#, python-format
+msgid "%(count)d game, %(size)s"
+msgid_plural "%(count)d games, %(size)s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: superlight/chunks/steam.py:300
+msgid "Steam"
+msgstr ""
+
+#: superlight/chunks/system_cache.py:8
+msgid "System cache"
+msgstr ""
+
+#: superlight/chunks/temp_files.py:8
+msgid "Temp files"
+msgstr ""
+
+#: superlight/chunks/trash.py:15
+msgid "Trash"
+msgstr ""
+
+#. Translators: Trash
+#: superlight/chunks/trash.py:50
+msgctxt "trash"
+msgid "Empty"
+msgstr ""
+
+#: superlight/chunks/trash.py:69
+msgid "Empty Trash…"
+msgstr ""
+
+#: superlight/chunks/trash.py:69
+msgid "Empty the trash?"
+msgstr ""
+
+#: superlight/chunks/trash.py:70
+#, python-format
+msgid "%s will be deleted for good."
+msgstr ""
+
+#: superlight/chunks/trash.py:70
+msgid "Empty Trash"
+msgstr ""

@@ -16,6 +16,7 @@ from superlight.common_process import ProcessTable
 # The columns, as (key used in the settings, title, column number in the store, kind of value, shown by default)
 COLUMNS = (("name", _("Name"), 2, "text", True),
            ("processes", _("Processes"), 3, "number", True),
+           # Translators: Application
            ("started", _("Started"), 16, "time", False),
            ("cpu", _("CPU"), 4, "percent", True),
            ("cpu-time", _("CPU Time"), 10, "duration", False),
@@ -143,7 +144,7 @@ class AppsPage(ProcessTable, Gtk.Box):
     DEFAULT_VISIBLE = DEFAULT_VISIBLE
     STORE_COLUMNS = STORE_COLUMNS
     ACTIONS = ACTIONS
-    STOP_TOOLTIP = _("Pause all its processes, until they are continued")
+    STOP_TOOLTIP = _("Pauses the application")
 
     def __init__(self, window, settings, scanner, catalog):
         super().__init__(orientation=Gtk.Orientation.VERTICAL, spacing=0, border_width=MARGIN)
@@ -217,7 +218,7 @@ class AppsPage(ProcessTable, Gtk.Box):
         self.end_button.get_style_context().add_class("destructive-action")
         menu, self.action_items = self.actions_menu(("kill", "stop", "continue"))
         menu.connect("show", lambda *_: self.update_actions(self.action_items))
-        self.more_button = Gtk.MenuButton(popup=menu, sensitive=False, tooltip_text=_("More actions"))
+        self.more_button = Gtk.MenuButton(popup=menu, sensitive=False)
         self.more_button.set_image(Gtk.Image.new_from_icon_name("xsi-pan-down-symbolic", Gtk.IconSize.BUTTON))
         self.more_button.get_style_context().add_class("destructive-action")
         split = Gtk.Box()

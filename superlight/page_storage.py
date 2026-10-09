@@ -407,9 +407,7 @@ class StoragePage(Gtk.Stack):
         self.show_drive()
         if failures:
             dialog = Gtk.MessageDialog(transient_for=self.window, modal=True, message_type=Gtk.MessageType.WARNING,
-                                       buttons=Gtk.ButtonsType.CLOSE, text=_("Some of it could not be deleted"))
-            dialog.format_secondary_text(gettext.ngettext("%d item is still there. It may be in use, or not yours.",
-                                                         "%d items are still there. They may be in use, or not yours.", failures) % failures)
+                                       buttons=Gtk.ButtonsType.CLOSE, text=_("Some files could not be deleted"))
             dialog.connect("response", lambda dialog, _response: dialog.destroy())
             dialog.present()
 

@@ -115,47 +115,45 @@ class ResourcesPage(Gtk.ScrolledWindow):
         widest_core = max((name for name, _rgb in self.core_graph.series), key=len)
         for (name, _rgb), label, value in zip(
                 self.core_graph.series, self.core_labels, self.core_graph.current_usage):
-            set_legend(label, _("%(name)s: %(percent).0f%%") % {"name": name, "percent": value}
-                            if value is not None else _("%s: Offline") % name,
-                            _("%(name)s: %(percent).0f%%") % {"name": widest_core, "percent": 100})
+            if value is None:
+                text = "%s: %s" % (name, _("Offline"))
+            else:
+                text = "%s: %.0f%%" % (name, value)
+            set_legend(label, text, "%s: 100%%" % widest_core)
         cpu, gpu, memory, swap = self.cpu_graph.current_usage
         used, total, swap_used, swap_total = self.cpu_graph.memory_usage
         labels = self.legend_labels
-        set_legend(labels[0], _("CPU: %.0f%%") % cpu,
-                        _("CPU: %.0f%%") % 100)
+        set_legend(labels[0], "%s: %.0f%%" % (_("CPU"), cpu), "%s: 100%%" % _("CPU"))
         if gpu is not None:
-            set_legend(labels[1], _("GPU: %(percent).0f%% (%(name)s)") % {
-                                "percent": gpu, "name": self.cpu_graph.gpu_usage[1]},
-                            _("GPU: %(percent).0f%% (%(name)s)") % {
-                                "percent": 100, "name": self.cpu_graph.gpu_usage[1]})
+            gpu_name = self.cpu_graph.gpu_usage[1]
+            set_legend(labels[1], "%s: %.0f%% (%s)" % (_("GPU"), gpu, gpu_name),
+                       "%s: 100%% (%s)" % (_("GPU"), gpu_name))
         else:
-            set_legend(labels[1], _("GPU: Usage unavailable from driver"))
-        set_legend(labels[2], _("Memory: %(percent).0f%% (%(used)s of %(total)s)") % {
-                            "percent": memory, "used": format_size(used), "total": format_size(total)},
-                        _("Memory: %(percent).0f%% (%(used)s of %(total)s)") % {
-                            "percent": 100, "used": format_size(total), "total": format_size(total)})
+            set_legend(labels[1], "%s: %s" % (_("GPU"), _("Usage unavailable from driver")))
+        set_legend(labels[2], "%s: %.0f%% (%s / %s)" % (_("Memory"), memory, format_size(used), format_size(total)),
+                   "%s: 100%% (%s / %s)" % (_("Memory"), format_size(total), format_size(total)))
         if swap_total:
-            set_legend(labels[3], _("Swap: %(percent).0f%% (%(used)s of %(total)s)") % {
-                                "percent": swap, "used": format_size(swap_used),
-                                "total": format_size(swap_total)},
-                            _("Swap: %(percent).0f%% (%(used)s of %(total)s)") % {
-                                "percent": 100, "used": format_size(swap_total),
-                                "total": format_size(swap_total)})
+            set_legend(labels[3], "%s: %.0f%% (%s / %s)" % (_("Swap"), swap, format_size(swap_used),
+                                                            format_size(swap_total)),
+                       "%s: 100%% (%s / %s)" % (_("Swap"), format_size(swap_total), format_size(swap_total)))
         else:
-            set_legend(labels[3], _("Swap: Not configured"))
-        for label, text, unavailable, value in zip(
-                self.temperature_labels,
-                (_("CPU: %.0f °C"), _("GPU: %.0f °C"), _("Disk: %.0f °C")),
-                (_("CPU: Unavailable"), _("GPU: Unavailable"), _("Disk: Unavailable")),
-                self.temperature_graph.current_usage):
-            set_legend(label, text % value if value is not None else unavailable, text % 100)
+            set_legend(labels[3], "%s: %s" % (_("Swap"), _("Not configured")))
+        for label, name, value in zip(self.temperature_labels, (_("CPU"), _("GPU"), _("Disk")),
+                                      self.temperature_graph.current_usage):
+            if value is None:
+                text = "%s: %s" % (name, _("Unavailable"))
+            else:
+                text = "%s: %s" % (name, _("%d °C") % round(value))
+            set_legend(label, text, "%s: %s" % (name, _("%d °C") % 100))
         if self.fan_labels:
             widest = max((name for name, _rgb in self.fan_graph.series), key=len)
             for (name, _rgb), label, speed in zip(self.fan_graph.series, self.fan_labels,
                                                   self.fan_graph.current_usage):
-                set_legend(label, _("%(name)s: %(speed)d RPM") % {"name": name, "speed": speed}
-                                if speed is not None else _("%s: Unavailable") % name,
-                                _("%(name)s: %(speed)d RPM") % {"name": widest, "speed": 9999})
+                if speed is None:
+                    text = "%s: %s" % (name, _("Unavailable"))
+                else:
+                    text = "%s: %s" % (name, _("%d RPM") % speed)
+                set_legend(label, text, "%s: %s" % (widest, _("%d RPM") % 9999))
         self.show_rates(self.network_graph, self.network_labels)
         self.show_rates(self.disk_graph, self.disk_labels)
 

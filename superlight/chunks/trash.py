@@ -1,3 +1,4 @@
+import gettext
 import os
 
 from gi.repository import Gio, GLib
@@ -43,7 +44,10 @@ class Trash(Chunk):
         return False
 
     def get_display_size(self, size, paths):
-        return format_size(size) if self.holds_files(paths) else _("Empty")
+        if self.holds_files(paths):
+            return format_size(size)
+        # Translators: Trash
+        return gettext.pgettext("trash", "Empty")
 
     def get_cleanup_action(self, size, paths):
         if not self.holds_files(paths):
@@ -62,8 +66,8 @@ class Trash(Chunk):
                     pass
             return failures
 
-        return CleanupAction(_("Empty Trash…"), _("Empty the trash?"), _("%s will be deleted for good.") % format_size(size),
-                       _("Empty Trash"), empty)
+        return CleanupAction(_("Empty Trash…"), _("Empty the trash?"),
+                             _("%s will be deleted for good.") % format_size(size), _("Empty Trash"), empty)
 
     def click(self, page):
         # Open the trash in the file manager, which shows the files with their original names

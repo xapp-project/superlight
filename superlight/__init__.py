@@ -1,3 +1,4 @@
+import gettext
 import locale
 
 from gi.repository import GLib
@@ -51,13 +52,18 @@ def format_value(kind, value):
             return format_size(value)
         case "priority":
             if value < -7:
+                # Translators: Priority
                 return _("Very High")
             if value < -2:
+                # Translators: Priority
                 return _("High")
             if value < 3:
+                # Translators: Priority
                 return _("Normal")
             if value < 7:
+                # Translators: Priority
                 return _("Low")
+            # Translators: Priority
             return _("Very Low")
         case "duration":
             hours, remainder = divmod(int(value), 3600)
@@ -72,14 +78,21 @@ def format_value(kind, value):
                 return _("Yesterday, %s") % started.format("%H:%M")
             return started.format("%x %H:%M")
         case "state":
-            states = {"R": _("Running"),
-             		  "S": _("Sleeping"),
-             		  "D": _("Disk Sleep"),
-             		  "T": _("Stopped"),
-                      "t": _("Tracing Stop"),
-                      "Z": _("Zombie"),
-                      "X": _("Dead"),
-                      "I": _("Idle")}
+            states = {
+                # Translators: Process
+                "R": _("Running"),
+                # Translators: Process
+                "S": _("Sleeping"),
+                "D": _("Disk Sleep"),
+                # Translators: Process
+                "T": _("Stopped"),
+                "t": _("Tracing Stop"),
+                "Z": _("Zombie"),
+                # Translators: Process
+                "X": _("Dead"),
+                # Translators: Process
+                "I": gettext.pgettext("process state", "Idle"),
+            }
             return states.get(value, value)
 
 

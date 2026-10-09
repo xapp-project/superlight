@@ -83,6 +83,7 @@ class FolderView(Gtk.Box):
         size_column.set_min_width(90)
         view.append_column(size_column)
         modified_renderer = Gtk.CellRendererText(xalign=1.0)
+        # Translators: File or folder
         modified_column = Gtk.TreeViewColumn(_("Modified"), modified_renderer)
         modified_column.set_cell_data_func(modified_renderer, self.format_modified)
         modified_column.set_sort_column_id(4)

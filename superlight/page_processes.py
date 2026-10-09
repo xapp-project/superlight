@@ -18,6 +18,7 @@ COLUMNS = (("name", _("Name"), 0, "text", True),
            ("user", _("User"), 2, "text", True),
            ("state", _("State"), 7, "state", False),
            ("priority", _("Priority"), 8, "priority", False),
+           # Translators: Process
            ("started", _("Started"), 10, "time", False),
            ("unit", _("Systemd Unit"), 15, "text", False),
            ("command", _("Command Line"), 14, "text", False),
@@ -66,7 +67,7 @@ class ProcessesPage(ProcessTable, Gtk.Box):
     DEFAULT_VISIBLE = DEFAULT_VISIBLE
     STORE_COLUMNS = STORE_COLUMNS
     ACTIONS = ACTIONS
-    STOP_TOOLTIP = _("Pause the process, until it is continued")
+    STOP_TOOLTIP = _("Pauses the process")
 
     def __init__(self, window, settings, scanner):
         super().__init__(orientation=Gtk.Orientation.VERTICAL, spacing=0, border_width=MARGIN)
@@ -176,7 +177,7 @@ class ProcessesPage(ProcessTable, Gtk.Box):
         self.end_button.get_style_context().add_class("destructive-action")
         menu, self.action_items = self.actions_menu(("kill", "stop", "continue"))
         menu.connect("show", lambda *_: self.update_actions(self.action_items))
-        self.more_button = Gtk.MenuButton(popup=menu, sensitive=False, tooltip_text=_("More actions"))
+        self.more_button = Gtk.MenuButton(popup=menu, sensitive=False)
         self.more_button.set_image(Gtk.Image.new_from_icon_name("xsi-pan-down-symbolic", Gtk.IconSize.BUTTON))
         self.more_button.get_style_context().add_class("destructive-action")
         split = Gtk.Box()

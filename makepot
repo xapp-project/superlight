@@ -9,5 +9,7 @@ xgettext --language=Python \
     --from-code=UTF-8 \
     --keyword=_ \
     --keyword=N_ \
+    --keyword=pgettext:1c,2 \
+    --add-comments=Translators: \
     --output=superlight.pot \
     superlight/*.py superlight/chunks/*.py

@@ -15,14 +15,14 @@ from superlight.common_disk import Measurer, list_drives, mount_of, read_mounts
 
 # Tools that Steam uses to run games. They are not games, and the games need them
 TOOL_NAMES = ("Proton", "Steam Linux Runtime", "Steamworks Common Redistributables")
-# The other data of a game in the library, as (key, folder in steamapps, title)
-EXTRAS = (("compat", "compatdata", _("Proton prefix")), ("shader", "shadercache", _("Shader cache")),
-          ("mods", os.path.join("workshop", "content"), _("Workshop mods")), ("downloading", "downloading", _("Update in progress")))
+# Folders in steamapps with other data of games (Proton prefix, shader cache, workshop mods, updates being downloaded).
+# Each has a subfolder named after the game.
+EXTRAS = ("compatdata", "shadercache", os.path.join("workshop", "content"), "downloading")
 LEFTOVERS = "leftovers"
 # Folders that Steam creates in the libraries, which are not games
 STEAM_FOLDERS = ("Steam Controller Configs", "Steamworks Shared")
 
-Game = namedtuple("Game", ("appid", "name", "library", "install", "size", "played", "tool", "extras"))
+Game = namedtuple("Game", ("appid", "name", "library", "size", "played", "tool", "extras"))
 
 
 def steam_folders():
@@ -57,8 +57,8 @@ class GamesView(Gtk.Box):
         super().__init__(orientation=Gtk.Orientation.VERTICAL, spacing=0, border_width=MARGIN)
         self.window = window
         self.leave = leave
-        self.parts = {}        # the size of each part of a game, by key: {"game": n, "compat": n, ...}
-        self.owners = {}       # the game and the kind of part (game, compat..) of each measured path
+        self.parts = {}        # the size of each part of a game, by key: {"game": n, <path>: n, ...}
+        self.owners = {}       # the key of the game (or LEFTOVERS) that each measured path belongs to
         self.measurer = None
 
         header = Gtk.Box(spacing=MARGIN, margin_bottom=MARGIN)
@@ -77,12 +77,11 @@ class GamesView(Gtk.Box):
         header.pack_start(refresh, False, False, 0)
         self.pack_start(header, False, False, 0)
 
-        # key, name, drive, size, last played, is a tool, is leftovers, tooltip, install folder
-        self.store = Gtk.ListStore(str, str, str, GObject.TYPE_INT64, GObject.TYPE_INT64, bool, bool, str, str)
+        # key, name, drive, size, last played, is a tool, is leftovers
+        self.store = Gtk.ListStore(str, str, str, GObject.TYPE_INT64, GObject.TYPE_INT64, bool, bool)
         self.sorted_store = Gtk.TreeModelSort(model=self.store)
         view = Gtk.TreeView(model=self.sorted_store, headers_visible=True)
         view.set_enable_search(False)
-        view.set_tooltip_column(7)
         view.get_selection().set_mode(Gtk.SelectionMode.MULTIPLE)
         view.get_selection().connect("changed", self.on_selection_changed)
         self.view = view
@@ -128,7 +127,7 @@ class GamesView(Gtk.Box):
             self.measurer.stop()
         # The games of all the libraries, and the folders in common/ that don't belong to a game
         games = []
-        leftovers = []     # [(name, path)]
+        leftovers = []     # paths
         for library in steam_folders():
             steamapps = os.path.join(library, "steamapps")
             if not os.path.isdir(steamapps):
@@ -173,29 +172,27 @@ class GamesView(Gtk.Box):
                 known_ids.add(appid)
                 installdir = state.get("installdir", "")
                 known_dirs.add(installdir)
-                extras = {}
-                for kind, folder, _title in EXTRAS:
+                extras = []
+                for folder in EXTRAS:
                     path = os.path.join(steamapps, folder, appid)
                     if os.path.isdir(path):
-                        extras[kind] = path
+                        extras.append(path)
                 title = state.get("name") or installdir or appid
-                games.append(Game(appid, title, library,
-                                  os.path.join(steamapps, "common", installdir) if installdir else None,
-                                  int(state.get("SizeOnDisk") or 0), int(state.get("LastPlayed") or 0),
-                                  title.startswith(TOOL_NAMES), extras))
+                games.append(Game(appid, title, library, int(state.get("SizeOnDisk") or 0),
+                                  int(state.get("LastPlayed") or 0), title.startswith(TOOL_NAMES), extras))
             # Folders in common/ that belong to no game
             common = os.path.join(steamapps, "common")
             if os.path.isdir(common):
                 for name in sorted(os.listdir(common)):
                     path = os.path.join(common, name)
                     if os.path.isdir(path) and name not in known_dirs and name not in STEAM_FOLDERS:
-                        leftovers.append((os.path.join("common", name), path))
-            for _kind, folder, _title in EXTRAS:
+                        leftovers.append(path)
+            for folder in EXTRAS:
                 path = os.path.join(steamapps, folder)
                 if os.path.isdir(path):
                     for name in sorted(os.listdir(path)):
                         if name.isdigit() and name not in known_ids:
-                            leftovers.append((os.path.join(folder, name), os.path.join(path, name)))
+                            leftovers.append(os.path.join(path, name))
         names = {drive.device: drive.name for drive in list_drives()}
         mounts = read_mounts()
 
@@ -209,16 +206,15 @@ class GamesView(Gtk.Box):
         paths = []
         for game in games:
             self.parts[game.appid] = {"game": game.size}
-            self.store.append((game.appid, game.name, drive_name(game.library), game.size, game.played, game.tool, False,
-                               "", game.install or ""))
-            for kind, path in game.extras.items():
-                self.owners[path] = (game.appid, kind)
+            self.store.append((game.appid, game.name, drive_name(game.library), game.size, game.played, game.tool, False))
+            for path in game.extras:
+                self.owners[path] = game.appid
                 paths.append(path)
         if leftovers:
             self.parts[LEFTOVERS] = {}
-            self.store.append((LEFTOVERS, _("Left over from removed games"), "", 0, 0, False, True, "", ""))
-            for name, path in leftovers:
-                self.owners[path] = (LEFTOVERS, name)
+            self.store.append((LEFTOVERS, _("Left over from removed games"), "", 0, 0, False, True))
+            for path in leftovers:
+                self.owners[path] = LEFTOVERS
                 paths.append(path)
         for row in self.store:
             self.refresh_row(row)
@@ -233,11 +229,10 @@ class GamesView(Gtk.Box):
         self.update_summary()
 
     def on_measured(self, path, size):
-        owner = self.owners.get(path)
+        key = self.owners.get(path)
         self.pending.discard(path)
-        if owner and size is not None:
-            key, kind = owner
-            self.parts[key][kind if key != LEFTOVERS else path] = size
+        if key and size is not None:
+            self.parts[key][path] = size
             row = next((row for row in self.store if row[0] == key), None)
             if row is not None:
                 self.refresh_row(row)
@@ -252,24 +247,8 @@ class GamesView(Gtk.Box):
         return GLib.SOURCE_REMOVE
 
     def refresh_row(self, row):
-        """Sets the size of a row to the sum of its parts. The tooltip shows each part."""
-        parts = self.parts.get(row[0], {})
-        row[3] = sum(parts.values())
-        titles = {kind: title for kind, _folder, title in EXTRAS}
-        lines = []
-        if row[0] == LEFTOVERS:
-            for path, size in sorted(parts.items(), key=lambda item: -item[1]):
-                owner = self.owners.get(path)
-                lines.append("%s: %s" % (owner[1] if owner else os.path.basename(path), format_size(size)))
-            lines.append(_("The files of games that are not installed any more."))
-        else:
-            lines.append("%s: %s" % (_("Game"), format_size(parts.get("game", 0))))
-            for kind, _folder, title in EXTRAS:
-                if kind in parts and parts[kind] > 0:
-                    lines.append("%s: %s" % (titles[kind], format_size(parts[kind])))
-            if row[5]:
-                lines.append(_("Steam uses this to run games."))
-        row[7] = GLib.markup_escape_text("\n".join(lines))
+        """Sets the size of a row to the sum of its parts."""
+        row[3] = sum(self.parts.get(row[0], {}).values())
 
     def style_name(self, _column, renderer, model, iterator, _data=None):
         tool = model.get_value(iterator, 5) or model.get_value(iterator, 6)

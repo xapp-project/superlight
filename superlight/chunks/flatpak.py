@@ -52,12 +52,11 @@ class FlatpakView(Gtk.Box):
         header.pack_start(refresh, False, False, 0)
         self.pack_start(header, False, False, 0)
 
-        # key, name, type, installation, size, tooltip, is a runtime
-        self.store = Gtk.ListStore(str, str, str, str, GObject.TYPE_INT64, str, bool)
+        # key, name, type, installation, size, is a runtime
+        self.store = Gtk.ListStore(str, str, str, str, GObject.TYPE_INT64, bool)
         self.sorted_store = Gtk.TreeModelSort(model=self.store)
         view = Gtk.TreeView(model=self.sorted_store, headers_visible=True)
         view.set_enable_search(False)
-        view.set_tooltip_column(5)
         view.get_selection().set_mode(Gtk.SelectionMode.MULTIPLE)
         view.get_selection().connect("changed", lambda *_: self.update_summary())
         self.view = view
@@ -130,7 +129,7 @@ class FlatpakView(Gtk.Box):
         self.sizes = {ref.key: ref.size for ref in refs}
         for ref in refs:
             self.store.append((ref.key, ref.name, _("App") if ref.app else _("Runtime"),
-                               _("User") if ref.user else _("System"), ref.size, "", not ref.app))
+                               _("User") if ref.user else _("System"), ref.size, not ref.app))
             if ref.app:
                 path = os.path.join(GLib.get_home_dir(), ".var", "app", ref.id)
                 if os.path.isdir(path):
@@ -163,18 +162,11 @@ class FlatpakView(Gtk.Box):
         return GLib.SOURCE_REMOVE
 
     def refresh_row(self, row):
-        """Sets the size of a row: the install plus the data. The tooltip shows both."""
-        installed, kept = self.sizes.get(row[0], 0), self.data.get(row[0], 0)
-        row[4] = installed + kept
-        lines = ["%s: %s" % (_("Install"), format_size(installed))]
-        if kept > 0:
-            lines.append("%s: %s" % (_("Data"), format_size(kept)))
-        if row[6]:
-            lines.append(_("What apps run on, and extensions of it."))
-        row[5] = GLib.markup_escape_text("\n".join(lines))
+        """Sets the size of a row: the install plus the data."""
+        row[4] = self.sizes.get(row[0], 0) + self.data.get(row[0], 0)
 
     def style_name(self, _column, renderer, model, iterator, _data=None):
-        runtime = model.get_value(iterator, 6)
+        runtime = model.get_value(iterator, 5)
         renderer.set_property("sensitive", not runtime)
         renderer.set_property("style", Pango.Style.ITALIC if runtime else Pango.Style.NORMAL)
 
@@ -191,7 +183,7 @@ class FlatpakView(Gtk.Box):
             self.summary.set_text(gettext.ngettext("%(count)d selected, %(size)s", "%(count)d selected, %(size)s", len(rows)) % {
                 "count": len(rows), "size": format_size(sum(row[4] for row in rows))})
         else:
-            apps = [row for row in self.store if not row[6]]
+            apps = [row for row in self.store if not row[5]]
             self.summary.set_text(gettext.ngettext("%(count)d app, %(size)s", "%(count)d apps, %(size)s", len(apps)) % {
                 "count": len(apps), "size": format_size(sum(row[4] for row in self.store))})
 
