@@ -92,6 +92,7 @@ class Graph(Gtk.DrawingArea):
         self.current_usage = (0,) * len(series)
         self.alignment = Alignment()
         self.alignment.graphs.append(self)
+        self.plot_margins = (0, 0)   # the space left and right of the plotting area, known once the graph is drawn
         self.set_size_request(-1, 80)
         self.set_vexpand(True)
         self.connect("draw", self.draw_graph)
@@ -164,6 +165,7 @@ class Graph(Gtk.DrawingArea):
                     graph.queue_draw()
         left_margin = alignment.time_label_width / 2 + 4
         right_margin = alignment.axis_width + 16
+        self.plot_margins = (round(left_margin), round(right_margin))
         width = max(1, allocation.width - left_margin - right_margin)
         cr.save()
         cr.translate(left_margin, top_margin)

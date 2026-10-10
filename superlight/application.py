@@ -15,7 +15,7 @@ from superlight.page_apps import AppsPage, Catalog, group_apps
 from superlight.page_processes import ProcessesPage
 from superlight.page_storage import StoragePage
 
-PAGES = ("resources", "apps", "processes", "storage", "battery")
+PAGES = ("resources", "apps", "processes", "battery", "storage")
 
 class SuperlightWindow(Gtk.ApplicationWindow):
     def __init__(self, app):
@@ -83,6 +83,8 @@ class SuperlightWindow(Gtk.ApplicationWindow):
         if devices and not present:
             self.stack.add_titled(self.battery_page, "battery", _("Battery"))
             self.stack.child_set_property(self.battery_page, "icon-name", "xsi-battery-level-100-symbolic")
+            self.stack.child_set_property(self.battery_page, "position",
+                                          self.stack.child_get_property(self.storage_page, "position"))
             self.battery_page.show_all()
         elif not devices and present:
             if self.stack.get_visible_child() is self.battery_page:

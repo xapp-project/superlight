@@ -7,8 +7,8 @@
         <choice value="resources"/>
         <choice value="apps"/>
         <choice value="processes"/>
-        <choice value="storage"/>
         <choice value="battery"/>
+        <choice value="storage"/>
       </choices>
       <default>'resources'</default>
       <summary>Page shown</summary>

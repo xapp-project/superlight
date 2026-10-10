@@ -161,45 +161,61 @@ class BatteryPage(Gtk.Box):
     """The batteries of the computer and of connected devices: their state now, and their history."""
 
     def __init__(self, settings):
-        super().__init__(orientation=Gtk.Orientation.HORIZONTAL, spacing=12, border_width=MARGIN)
+        super().__init__(orientation=Gtk.Orientation.VERTICAL, border_width=MARGIN)
         self.settings = settings
         self.devices = []
         self.device = None
         self.watches = []
         self.history_loaded = 0
 
-        self.device_list = Gtk.ListBox()
-        self.device_list.connect("row-selected", self.on_row_selected)
-        self.device_scroll = Gtk.ScrolledWindow(no_show_all=True, shadow_type=Gtk.ShadowType.IN)
-        self.device_scroll.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
-        self.device_scroll.set_size_request(200, -1)
-        self.device_scroll.add(self.device_list)
-        self.pack_start(self.device_scroll, False, False, 0)
+        # The devices, as (icon name, name, percentage), in the order of self.devices
+        self.device_store = Gtk.ListStore(str, str, str)
+        self.device_combo = Gtk.ComboBox(model=self.device_store, no_show_all=True)
+        icon = Gtk.CellRendererPixbuf()
+        self.device_combo.pack_start(icon, False)
+        self.device_combo.add_attribute(icon, "icon-name", 0)
+        name = Gtk.CellRendererText(ellipsize=Pango.EllipsizeMode.END)
+        self.device_combo.pack_start(name, True)
+        self.device_combo.add_attribute(name, "text", 1)
+        percentage = Gtk.CellRendererText(xalign=1, xpad=12)
+        self.device_combo.pack_start(percentage, False)
+        self.device_combo.add_attribute(percentage, "text", 2)
+        self.device_combo.connect("changed", self.on_device_selected)
 
-        content = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12, margin_start=12)
-        self.percentage = Gtk.Label(xalign=0)
-        self.percentage.set_markup("<span size='xx-large' weight='bold'> </span>")
-        self.status = Gtk.Label(xalign=0, wrap=True)
+        self.content = content = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
+        self.name = Gtk.Label(xalign=0, valign=Gtk.Align.CENTER, ellipsize=Pango.EllipsizeMode.END)
+        self.name.set_markup("<span size='x-large' weight='bold'> </span>")
+        self.percentage = Gtk.Label(valign=Gtk.Align.CENTER)
+        self.status = Gtk.Label(xalign=0, wrap=True, no_show_all=True)
         self.level = Gtk.LevelBar(min_value=0, max_value=100)
-        content.pack_start(self.percentage, False, False, 0)
+        top = Gtk.Box(spacing=12)
+        self.icon = Gtk.Image(valign=Gtk.Align.CENTER)
+        top.pack_start(self.icon, False, False, 0)
+        top.pack_start(self.name, True, True, 0)
+        # The details are in a popover, to leave the room to the graph
+        self.grid = Gtk.Grid(column_spacing=24, row_spacing=4, margin=12)
+        details_button = Gtk.MenuButton(popover=Gtk.Popover(), valign=Gtk.Align.CENTER, tooltip_text=_("Details"))
+        details_button.set_image(Gtk.Image.new_from_icon_name("xsi-sign-info-symbolic", Gtk.IconSize.BUTTON))
+        details_button.get_popover().add(self.grid)
+        top.pack_end(details_button, False, False, 0)
+        top.pack_end(self.percentage, False, False, 0)
+        content.pack_start(top, False, False, 0)
         content.pack_start(self.level, False, False, 0)
         content.pack_start(self.status, False, False, 0)
 
-        self.grid = Gtk.Grid(column_spacing=24, row_spacing=4)
         self.rows = {}
         for name, title in (("vendor", _("Vendor")), ("model", _("Model")), ("technology", _("Technology")),
                             ("energy", _("Energy")), ("energy-full", _("Energy when full")),
-                            ("energy-full-design", _("Energy (design)")), ("capacity", _("Capacity")),
-                            ("rate", _("Power")), ("voltage", _("Voltage")),
+                            ("capacity", _("Health")), ("rate", _("Power")), ("voltage", _("Voltage")),
                             ("charge-cycles", _("Charge cycles")), ("temperature", _("Temperature"))):
             title_label = Gtk.Label(label=title, xalign=0, no_show_all=True)
             title_label.get_style_context().add_class("dim-label")
-            value_label = Gtk.Label(xalign=0, no_show_all=True, selectable=True)
+            value_label = Gtk.Label(xalign=0, no_show_all=True)
             row = len(self.rows)
             self.grid.attach(title_label, 0, row, 1, 1)
             self.grid.attach(value_label, 1, row, 1, 1)
             self.rows[name] = (title_label, value_label)
-        content.pack_start(self.grid, False, False, 0)
+        self.grid.show()
 
         controls = Gtk.Box(spacing=12)
         self.kind_combo = Gtk.ComboBoxText()
@@ -210,16 +226,18 @@ class BatteryPage(Gtk.Box):
         for key, _seconds, _divisions, title in SPANS:
             self.span_combo.append(key, title)
         self.span_combo.set_active_id(settings.get_string("battery-history-span"))
+        controls.pack_start(self.device_combo, True, True, 0)
         controls.pack_start(self.kind_combo, False, False, 0)
         controls.pack_start(self.span_combo, False, False, 0)
-        content.pack_start(controls, False, False, 0)
         self.graph = HistoryGraph()
         content.pack_start(self.graph, True, True, 0)
+        self.graph.connect_after("draw", self.on_graph_drawn)
         content.pack_start(build_legend(3, 24, [(rgb, name) for name, rgb in HISTORY_SERIES], []),
                            False, False, 0)
         self.no_history = Gtk.Label(label=_("No history is available for this device yet"), no_show_all=True)
         self.no_history.get_style_context().add_class("dim-label")
         content.pack_start(self.no_history, False, False, 0)
+        content.pack_start(controls, False, False, 0)
         self.kind_combo.connect("changed", self.on_history_choice_changed)
         self.span_combo.connect("changed", self.on_history_choice_changed)
 
@@ -234,51 +252,39 @@ class BatteryPage(Gtk.Box):
             device.disconnect(handler)
         self.watches = [(device, device.connect("notify", self.on_device_changed)) for device in devices]
         self.devices = devices
-        for row in self.device_list.get_children():
-            self.device_list.remove(row)
-        for device in devices:
-            row = Gtk.ListBoxRow()
-            row.device = device
-            box = Gtk.Box(spacing=8, margin=8)
-            row.image = Gtk.Image(icon_size=Gtk.IconSize.LARGE_TOOLBAR)
-            row.name = Gtk.Label(xalign=0, hexpand=True, ellipsize=Pango.EllipsizeMode.END)
-            row.percentage = Gtk.Label()
-            row.percentage.get_style_context().add_class("dim-label")
-            box.pack_start(row.image, False, False, 0)
-            box.pack_start(row.name, True, True, 0)
-            box.pack_start(row.percentage, False, False, 0)
-            row.add(box)
-            self.device_list.add(row)
-        self.device_list.show_all()
-        self.device_scroll.set_visible(len(devices) > 1)
+        self.device_store.clear()
+        for _device in devices:
+            self.device_store.append(["", "", ""])
         self.update_rows()
-        current = next((row for row in self.device_list.get_children() if row.device is self.device),
-                       self.device_list.get_row_at_index(0))
-        self.device_list.select_row(current)
+        self.device_combo.set_visible(len(devices) > 1)
+        self.device_combo.set_active(devices.index(self.device) if self.device in devices else 0)
 
     def update_rows(self):
-        for row in self.device_list.get_children():
-            props = row.device.props
+        for row, device in zip(self.device_store, self.devices):
+            props = device.props
             name = KINDS.get(props.kind, props.model or _("Battery"))
             # Name a battery by its kind. Name other devices by their model.
             if props.kind != Kind.BATTERY:
                 name = props.model or name
             elif props.model and sum(1 for other in self.devices if other.props.kind == Kind.BATTERY) > 1:
                 name = "%s (%s)" % (name, props.model)
-            row.name.set_text(name)
-            row.percentage.set_text("%.0f%%" % props.percentage)
-            row.image.set_from_icon_name(self.icon_name(props.icon_name), Gtk.IconSize.LARGE_TOOLBAR)
+            # Other devices often report no level, and UPower then gives them the "battery missing" icon
+            row[0] = self.icon_name(props.icon_name if props.kind == Kind.BATTERY else "battery-symbolic")
+            row[1] = name
+            row[2] = "%.0f%%" % props.percentage
 
     @staticmethod
     def icon_name(name):
         """Returns the name of the icon, from the theme or, if the theme has none, from xapp-symbolic-icons."""
+        if not name:
+            return "battery-symbolic"
         theme = Gtk.IconTheme.get_default()
         return next((icon for icon in ("xsi-" + name, name) if theme.has_icon(icon)), "battery-symbolic")
 
-    def on_row_selected(self, _list, row):
-        if row is None:
+    def on_device_selected(self, combo):
+        if combo.get_active() < 0:
             return
-        self.device = row.device
+        self.device = self.devices[combo.get_active()]
         self.update_details()
         self.load_history()
 
@@ -289,22 +295,24 @@ class BatteryPage(Gtk.Box):
 
     def update_details(self):
         props = self.device.props
-        self.percentage.set_markup("<span size='xx-large' weight='bold'>%.0f%%</span>" % props.percentage)
+        icon, name, _percentage = self.device_store[self.devices.index(self.device)]
+        self.icon.set_from_icon_name(icon, Gtk.IconSize.LARGE_TOOLBAR)
+        self.name.set_markup("<span size='x-large' weight='bold'>%s</span>" % GLib.markup_escape_text(name))
+        self.percentage.set_markup("<span size='x-large' weight='bold'>%.0f%%</span>" % props.percentage)
         self.level.set_value(props.percentage)
-        # Translators: Battery
-        status = STATES.get(props.state, _("Unknown"))
+        status = STATES.get(props.state)
         if props.state in (State.DISCHARGING, State.PENDING_DISCHARGE) and props.time_to_empty > 0:
             status = _("%(state)s, %(time)s remaining") % {"state": status, "time": format_duration(props.time_to_empty)}
         elif props.state == State.CHARGING and props.time_to_full > 0:
             status = _("%(state)s, %(time)s until full") % {"state": status, "time": format_duration(props.time_to_full)}
-        self.status.set_text(status)
+        if status:
+            self.status.set_text(status)
+        self.status.set_visible(bool(status))
         self.show_row("vendor", props.vendor)
         self.show_row("model", props.model)
         self.show_row("technology", TECHNOLOGIES.get(props.technology))
         self.show_row("energy", format_number(props.energy, "Wh") if props.energy > 0 else None)
         self.show_row("energy-full", format_number(props.energy_full, "Wh") if props.energy_full > 0 else None)
-        self.show_row("energy-full-design",
-                      format_number(props.energy_full_design, "Wh") if props.energy_full_design > 0 else None)
         self.show_row("capacity", format_number(props.capacity, "%") if props.capacity > 0 else None)
         self.show_row("rate", format_number(props.energy_rate, "W") if props.energy_rate > 0 else None)
         self.show_row("voltage", format_number(props.voltage, "V") if props.voltage > 0 else None)
@@ -318,6 +326,14 @@ class BatteryPage(Gtk.Box):
             value_label.set_text(text)
         title_label.set_visible(bool(text))
         value_label.set_visible(bool(text))
+
+    def on_graph_drawn(self, graph, _cr):
+        """Lines up the rest of the page with the edges of the plotting area of the graph."""
+        left, right = graph.plot_margins
+        for child in self.content.get_children():
+            if child is not graph and (child.get_margin_start(), child.get_margin_end()) != (left, right):
+                child.set_margin_start(left)
+                child.set_margin_end(right)
 
     def on_history_choice_changed(self, _combo):
         if self.kind_combo.get_active_id() is None or self.span_combo.get_active_id() is None:
