@@ -56,6 +56,7 @@ SPANS = (("30m", 1800, 6, _("30 minutes")), ("3h", 10800, 6, _("3 hours")), ("8h
          ("1d", 86400, 12, _("1 day")), ("1w", 604800, 7, _("1 week")))
 KINDS_OF_HISTORY = (("charge", _("Charge")), ("rate", _("Power")))
 HISTORY_POINTS = 150
+HISTORY_LOOKBACK = 2   # ask UPower for this many times the span, to know the value at the start of the span
 HISTORY_RELOAD_SECONDS = 30
 MINIMUM_POWER = 1   # the smallest top of the scale of the power graph, in watts
 
@@ -105,7 +106,7 @@ class PowerMonitor:
 class HistoryGraph(Graph):
     """A graph of the charge or the power of a battery over time, from the history that UPower keeps."""
 
-    hold_to_now = False   # the line stops at the last reading
+    hold_to_now = False   # a series that is not the latest one must still be drawn, set_history() reaches now itself
 
     def __init__(self):
         super().__init__(HISTORY_SERIES)
@@ -136,6 +137,13 @@ class HistoryGraph(Graph):
                 values[previous] = value
             samples.append((now - round((now_epoch - time) * 1_000_000), tuple(values)))
             previous = index
+        # UPower only logs a reading when the value changes, and load_history() asks for more than the span: keep
+        # only the last reading from before the span, so that the line reaches the left edge of the graph
+        first = now - span * 1_000_000
+        while len(samples) > 1 and samples[1][0] <= first:
+            samples.pop(0)
+        if samples:
+            samples.append((now, samples[-1][1]))   # the last reading still holds
         self.samples = samples
         self.queue_draw()
 
@@ -352,7 +360,8 @@ class BatteryPage(Gtk.Box):
         try:
             result = Gio.bus_get_sync(Gio.BusType.SYSTEM).call_sync(
                 "org.freedesktop.UPower", self.device.get_object_path(), "org.freedesktop.UPower.Device",
-                "GetHistory", GLib.Variant("(suu)", (kind, seconds, HISTORY_POINTS)), GLib.VariantType("(a(udu))"),
+                "GetHistory", GLib.Variant("(suu)", (kind, seconds * HISTORY_LOOKBACK, HISTORY_POINTS * HISTORY_LOOKBACK)),
+                GLib.VariantType("(a(udu))"),
                 Gio.DBusCallFlags.NONE, -1, None)
             items = result.unpack()[0]
         except GLib.Error:
