@@ -6,7 +6,7 @@ import gi
 
 gi.require_version("Gtk", "3.0")
 gi.require_version("UPowerGlib", "1.0")
-from gi.repository import GLib, Gtk, Pango, UPowerGlib
+from gi.repository import Gio, GLib, Gtk, Pango, UPowerGlib
 
 from superlight import MARGIN, _, format_decimal, rgb
 from superlight.common_graphs import Graph, build_legend, nice_maximum
@@ -122,17 +122,19 @@ class HistoryGraph(Graph):
         now_epoch = GLib.get_real_time() / 1_000_000
         samples = []
         previous = None
-        for item in sorted(items or [], key=lambda item: item.get_time()):
-            state = item.get_state()
+        for time, value, state in sorted(items):
             if state == State.UNKNOWN:
                 continue
-            index = HISTORY_SERIES_OF_STATE.get(state, IDLE)
+            try:
+                index = HISTORY_SERIES_OF_STATE.get(State(state), IDLE)
+            except ValueError:
+                index = IDLE
             values = [None] * len(HISTORY_SERIES)
-            values[index] = item.get_value()
+            values[index] = value
             if previous is not None and previous != index:
                 # Extend the previous line to this point, so that the lines touch
-                values[previous] = item.get_value()
-            samples.append((now - round((now_epoch - item.get_time()) * 1_000_000), tuple(values)))
+                values[previous] = value
+            samples.append((now - round((now_epoch - time) * 1_000_000), tuple(values)))
             previous = index
         self.samples = samples
         self.queue_draw()
@@ -330,10 +332,15 @@ class BatteryPage(Gtk.Box):
         kind = self.kind_combo.get_active_id() or "charge"
         span_key = self.span_combo.get_active_id() or "3h"
         _key, seconds, divisions, _title = next(span for span in SPANS if span[0] == span_key)
+        # Ask UPower directly: the items of get_history_sync() are freed twice by PyGObject, which crashes
         try:
-            items = self.device.get_history_sync(kind, seconds, HISTORY_POINTS, None)
+            result = Gio.bus_get_sync(Gio.BusType.SYSTEM).call_sync(
+                "org.freedesktop.UPower", self.device.get_object_path(), "org.freedesktop.UPower.Device",
+                "GetHistory", GLib.Variant("(suu)", (kind, seconds, HISTORY_POINTS)), GLib.VariantType("(a(udu))"),
+                Gio.DBusCallFlags.NONE, -1, None)
+            items = result.unpack()[0]
         except GLib.Error:
-            items = None
+            items = []
         self.graph.set_history(items, kind, seconds, divisions)
         self.graph.set_visible(bool(items))
         self.no_history.set_visible(not items)
