@@ -51,7 +51,8 @@ class ResourcesPage(Gtk.ScrolledWindow):
         page.pack_start(self.section("disk", _("Disk"), self.disk_graph, legend), False, True, 0)
         self.temperature_labels = []
         if self.temperature_graph.available():
-            legend = build_legend(3, 24, [(rgb, _("Collecting data…")) for _name, rgb in self.temperature_graph.series],
+            legend = build_legend(len(self.temperature_graph.series), 24,
+                                  [(rgb, _("Collecting data…")) for _name, rgb in self.temperature_graph.series],
                                  self.temperature_labels)
             page.pack_start(self.section("temperature", _("Temperature"), self.temperature_graph, legend),
                             False, True, 0)
@@ -138,8 +139,9 @@ class ResourcesPage(Gtk.ScrolledWindow):
                        "%s: 100%% (%s / %s)" % (_("Swap"), format_size(swap_total), format_size(swap_total)))
         else:
             set_legend(labels[3], "%s: %s" % (_("Swap"), _("Not configured")))
-        for label, name, value in zip(self.temperature_labels, (_("CPU"), _("GPU"), _("Disk")),
-                                      self.temperature_graph.current_usage):
+        for index, label in enumerate(self.temperature_labels):
+            name = _(self.temperature_graph.series[index][0])
+            value = self.temperature_graph.current_usage[index]
             if value is None:
                 text = "%s: %s" % (name, _("Unavailable"))
             else:

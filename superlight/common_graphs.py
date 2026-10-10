@@ -1,6 +1,7 @@
 import colorsys
 import os
 import re
+import time
 
 import cairo
 import gi
@@ -11,7 +12,7 @@ from gi.repository import GLib, Gtk, PangoCairo
 
 from superlight import _, format_size, rgb
 from superlight.common_proc import (TEMPERATURE_CHIPS, gpu_name, read_core_times, read_cpu_times, read_disk_bytes,
-                                    read_fans, read_memory_usage, read_network_bytes, read_temperatures, read_text)
+                                    read_fans, read_memory_usage, read_network_bytes, read_temperature, read_text)
 
 SERIES = (("CPU", rgb("#3373D9")),
           ("GPU", rgb("#9959BF")),
@@ -19,7 +20,9 @@ SERIES = (("CPU", rgb("#3373D9")),
           ("Swap", rgb("#1A8C52")))
 NETWORK_SERIES = (("Received", rgb("#3373D9")), ("Sent", rgb("#E6801A")))
 DISK_SERIES = (("Read", rgb("#3373D9")), ("Written", rgb("#E6801A")))
-TEMPERATURE_SERIES = (("CPU", rgb("#3373D9")), ("GPU", rgb("#9959BF")), ("Disk", rgb("#E6801A")))
+TEMPERATURE_SERIES = {"cpu": ("CPU", rgb("#3373D9")),
+                      "gpu": ("GPU", rgb("#9959BF")),
+                      "disk": ("Disk", rgb("#E6801A"))}
 MINIMUM_RATE = 100_000   # smallest maximum of the vertical scale of a RateGraph, in bytes per second
 MINIMUM_SPEED = 1000     # smallest maximum of the vertical scale of a FanGraph, in RPM
 IDLE_RATE = 1000         # RateGraph treats rates below this value (bytes per second) as zero
@@ -265,6 +268,10 @@ class CpuGraph(Graph):
         self.gpu_usage = (None, None)
         self.current_usage = (0, None, 0, 0)
         self.previous = read_cpu_times()
+        # Intel's i915 driver does not expose gpu_busy_percent.  Its RC6
+        # residency counter lets us derive the proportion of time the GPU was
+        # awake between refreshes instead.
+        self.previous_gpu_rc6 = {}
 
     def refresh(self):
         idle, total = read_cpu_times()
@@ -280,13 +287,38 @@ class CpuGraph(Graph):
             if not card.startswith("card") or not card[4:].isdigit():
                 continue
             path = os.path.realpath(f"/sys/class/drm/{card}/device")
-            try:
-                with open(f"{path}/gpu_busy_percent") as source:
-                    value = float(source.read())
-                if 0 <= value <= 100:
-                    readings.append((value, gpu_name(path)))
-            except (OSError, ValueError):
-                continue
+            busy_path = f"{path}/gpu_busy_percent"
+            driver = os.path.basename(os.path.realpath(f"{path}/driver"))
+            if driver == "amdgpu":
+                if not os.path.exists(busy_path):
+                    continue
+                try:
+                    with open(busy_path) as source:
+                        value = float(source.read())
+                    if 0 <= value <= 100:
+                        readings.append((value, gpu_name(path)))
+                except (OSError, ValueError):
+                    continue
+            elif driver == "i915":
+                # RC6 is i915's GPU sleep state. Its residency counter grows
+                # while the GPU sleeps, so its complement is GPU active time.
+                rc6_path = f"/sys/class/drm/{card}/power/rc6_residency_ms"
+                if not os.path.exists(rc6_path):
+                    continue
+                try:
+                    with open(rc6_path) as source:
+                        residency = int(source.read())
+                    now = time.monotonic()
+                    previous = self.previous_gpu_rc6.get(card)
+                    self.previous_gpu_rc6[card] = now, residency
+                    if previous is None:
+                        continue
+                    elapsed = (now - previous[0]) * 1000
+                    sleep = residency - previous[1]
+                    if elapsed > 0 and 0 <= sleep <= elapsed:
+                        readings.append((100 * (elapsed - sleep) / elapsed, gpu_name(path)))
+                except (OSError, ValueError):
+                    continue
         self.gpu_usage = max(readings) if readings else (None, None)
         self.add_sample((max(0, min(100, usage)),
                          self.gpu_usage[0],
@@ -398,15 +430,29 @@ class TemperatureGraph(Graph):
                         chosen = matches[0]
                         break
                 self.sensors[kind].append(f"{directory}/{chosen}")
-        super().__init__(TEMPERATURE_SERIES)
-        self.current_usage = read_temperatures(self.sensors)
+        # Do not reserve a legend entry or a graph line for hardware which
+        # does not report this kind of temperature.
+        self.temperature_kinds = []
+        series = []
+        current_usage = []
+        for kind in TEMPERATURE_CHIPS:
+            value = read_temperature(self.sensors[kind])
+            if value is not None:
+                self.temperature_kinds.append(kind)
+                series.append(TEMPERATURE_SERIES[kind])
+                current_usage.append(value)
+        super().__init__(series)
+        self.current_usage = current_usage
 
     def available(self):
         """Returns True if at least one temperature could be read."""
         return any(value is not None for value in self.current_usage)
 
     def refresh(self):
-        self.add_sample(read_temperatures(self.sensors))
+        current_usage = []
+        for kind in self.temperature_kinds:
+            current_usage.append(read_temperature(self.sensors[kind]))
+        self.add_sample(current_usage)
 
     def format_tick(self, value):
         return _("%d °C") % round(value)

@@ -23,6 +23,28 @@ def gpu_name(path):
                     if (int(fields[0], 16), int(fields[1], 16)) == (
                             identifiers["device"], identifiers["revision"]):
                         return fields[2].strip()
+        for filename in ("/usr/share/hwdata/pci.ids", "/usr/share/misc/pci.ids"):
+            try:
+                vendor = None
+                with open(filename, encoding="utf-8") as source:
+                    for line in source:
+                        if not line.startswith("\t"):
+                            fields = line.split(None, 1)
+                            try:
+                                if fields and len(fields[0]) == 4:
+                                    vendor = int(fields[0], 16)
+                            except ValueError:
+                                pass
+                        elif vendor == identifiers["vendor"] and not line.startswith("\t\t"):
+                            fields = line.strip().split(None, 1)
+                            try:
+                                matches = fields and int(fields[0], 16) == identifiers["device"]
+                            except ValueError:
+                                matches = False
+                            if matches:
+                                return fields[1].strip() if len(fields) == 2 else _("Unknown GPU")
+            except (OSError, ValueError):
+                continue
     except (OSError, ValueError):
         pass
     return _("Unknown GPU")
@@ -93,7 +115,7 @@ def read_disk_bytes():
 
 # The sensor chips to read for each kind, with the labels of the preferred sensor when a chip has several
 TEMPERATURE_CHIPS = {"cpu": {"coretemp": ("Package id 0",), "k10temp": ("Tdie", "Tctl"), "zenpower": ("Tdie",)},
-                     "gpu": {"amdgpu": ("edge",), "nouveau": (), "radeon": ()},
+                     "gpu": {"amdgpu": ("edge",), "i915": (), "nouveau": (), "radeon": (), "xe": ()},
                      "disk": {"nvme": ("Composite",), "drivetemp": ()}}
 
 
@@ -103,19 +125,15 @@ def read_text(path):
         return source.read().strip()
 
 
-def read_temperatures(sensors):
-    """Returns the highest temperature for each kind (cpu, gpu, disk) in degrees Celsius, or None if there is none."""
-    temperatures = []
-    for kind in TEMPERATURE_CHIPS:
-        values = []
-        for path in sensors[kind]:
-            try:
-                values.append(int(read_text(path)) / 1000)
-            except (OSError, ValueError):
-                continue
-        temperatures.append(max(values) if values else None)
-    return tuple(temperatures)
-
+def read_temperature(paths):
+    """Returns the highest readable temperature in paths, in degrees Celsius, or None if there is none."""
+    values = []
+    for path in paths:
+        try:
+            values.append(int(read_text(path)) / 1000)
+        except (OSError, ValueError):
+            continue
+    return max(values) if values else None
 
 def read_fans(fans):
     """Returns the speed of each fan in revolutions per minute, or None for a fan that can't be read."""
