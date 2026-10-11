@@ -7,6 +7,7 @@
         <choice value="resources"/>
         <choice value="apps"/>
         <choice value="processes"/>
+        <choice value="systemd"/>
         <choice value="battery"/>
         <choice value="storage"/>
       </choices>
@@ -75,6 +76,7 @@
           <choice value="swap"/>
           <choice value="command"/>
           <choice value="unit"/>
+          <choice value="cgroup"/>
           <choice value="disk-read"/>
           <choice value="disk-write"/>
           <choice value="disk-read-total"/>
@@ -97,6 +99,44 @@
         <default>['name', 'pid', 'user', 'cpu', 'memory']</default>
         <summary>Processes columns shown</summary>
         <description>The columns of the list of processes that are shown, in the order that they are in. The name always is.</description>
+      </key>
+      <!-- Systemd -->
+      <key name="systemd-view" type="s">
+        <choices>
+          <choice value="session"/>
+          <choice value="all"/>
+        </choices>
+        <default>'session'</default>
+        <summary>Systemd units shown</summary>
+        <description>Which control groups the Systemd page shows: the ones of the user's session, or all of them.</description>
+      </key>
+      <key name="systemd-sort-column" type="s">
+        <choices>
+          <choice value="name"/>
+          <choice value="description"/>
+          <choice value="processes"/>
+          <choice value="cpu"/>
+          <choice value="memory"/>
+          <choice value="oom-kills"/>
+          <choice value="oom"/>
+          <choice value="swap"/>
+          <choice value="peak-memory"/>
+          <choice value="pressure"/>
+          <choice value="cgroup"/>
+        </choices>
+        <default>'memory'</default>
+        <summary>Systemd sort column</summary>
+        <description>The column the Systemd page is sorted by.</description>
+      </key>
+      <key name="systemd-sort-order-ascending" type="b">
+        <default>false</default>
+        <summary>Systemd sort order is ascending</summary>
+        <description>Whether the Systemd page goes from the smallest to the largest, or the other way around.</description>
+      </key>
+      <key name="systemd-visible-columns" type="as">
+        <default>['name', 'description', 'processes', 'cpu', 'memory', 'oom-kills', 'oom']</default>
+        <summary>Systemd columns shown</summary>
+        <description>The columns of the Systemd page that are shown, in the order that they are in. The name always is.</description>
       </key>
       <!-- Apps -->
       <key name="apps-sort-column" type="s">

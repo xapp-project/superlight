@@ -1,3 +1,4 @@
+import os
 import signal
 import gi
 
@@ -8,14 +9,16 @@ from setproctitle import setproctitle
 
 from superlight import _
 from superlight.config import VERSION
+from superlight.common_cgroup import ROOT as CGROUP_ROOT
 from superlight.common_process import ProcessScanner
 from superlight.page_resources import ResourcesPage
 from superlight.page_battery import BatteryPage, PowerMonitor
 from superlight.page_apps import AppsPage, Catalog, group_apps
 from superlight.page_processes import ProcessesPage
 from superlight.page_storage import StoragePage
+from superlight.page_systemd import SystemdPage
 
-PAGES = ("resources", "apps", "processes", "battery", "storage")
+PAGES = ("resources", "apps", "processes", "systemd", "battery", "storage")
 
 class SuperlightWindow(Gtk.ApplicationWindow):
     def __init__(self, app):
@@ -27,6 +30,7 @@ class SuperlightWindow(Gtk.ApplicationWindow):
         self.resources = ResourcesPage(self.settings)
         self.scanner = ProcessScanner()
         self.processes = ProcessesPage(self, self.settings, self.scanner)
+        self.systemd_page = SystemdPage(self, self.settings, self.scanner)
         self.battery_page = BatteryPage(self.settings)
         self.storage_page = StoragePage(self)
         self.catalog = Catalog()
@@ -49,6 +53,9 @@ class SuperlightWindow(Gtk.ApplicationWindow):
             self.stack.add_titled(self.apps_page, "apps", _("Apps"))
             self.stack.child_set_property(self.apps_page, "icon-name", "xsi-apps-symbolic")
         self.stack.add_titled(self.processes, "processes", _("Processes"))
+        if os.path.exists(os.path.join(CGROUP_ROOT, "cgroup.controllers")):   # the unified hierarchy is mounted
+            self.stack.add_titled(self.systemd_page, "systemd", _("Systemd"))
+            self.stack.child_set_property(self.systemd_page, "icon-name", "xsi-applications-system-symbolic")
         self.stack.add_titled(self.storage_page, "storage", _("Storage"))
         self.stack.child_set_property(self.storage_page, "icon-name", "xsi-drive-harddisk-symbolic")
         self.stack.child_set_property(self.resources, "icon-name", "xsi-cpu-symbolic")
@@ -100,6 +107,8 @@ class SuperlightWindow(Gtk.ApplicationWindow):
         self.settings.set_string("page", name)
         if name == "processes":
             self.processes.refresh()
+        if name == "systemd":
+            self.systemd_page.refresh()
         if name == "apps":
             self.apps_page.refresh()
         if name == "storage":
@@ -118,6 +127,8 @@ class SuperlightWindow(Gtk.ApplicationWindow):
             self.processes.refresh()
         elif self.stack.get_visible_child() is self.apps_page:
             self.apps_page.refresh()
+        elif self.stack.get_visible_child() is self.systemd_page:
+            self.systemd_page.refresh()
         elif self.stack.get_visible_child() is self.battery_page:
             self.battery_page.refresh()
         return True

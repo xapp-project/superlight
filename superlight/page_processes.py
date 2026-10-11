@@ -5,11 +5,11 @@ import signal
 import gi
 
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gio, GLib, GObject, Gtk, Pango
+from gi.repository import Gio, GObject, Gtk, Pango
 
 from superlight import MARGIN, _, format_value
 from superlight.common_proc import process_stat, username
-from superlight.common_process import ProcessTable
+from superlight.common_process import ProcessIcons, ProcessTable
 
 
 # The columns, as (key used in the settings, title, column number in the store, kind of value, shown by default)
@@ -21,6 +21,7 @@ COLUMNS = (("name", _("Name"), 0, "text", True),
            # Translators: Process
            ("started", _("Started"), 10, "time", False),
            ("unit", _("Systemd Unit"), 15, "text", False),
+           ("cgroup", _("Control Group"), 26, "text", False),
            ("command", _("Command Line"), 14, "text", False),
            ("cpu", _("CPU"), 3, "percent", True),
            ("cpu-time", _("CPU Time"), 9, "duration", False),
@@ -39,6 +40,7 @@ COLUMNS = (("name", _("Name"), 0, "text", True),
            ("video-decoder", _("Video Decoder"), 24, "gpu", False))
 # In the menu of the columns, a separator is added after each of these
 GROUP_ENDS = ("command", "cpu-time", "swap", "disk-write-total")
+UNIT_KEYS = ("unit", "cgroup")
 IO_KEYS = ("disk-read", "disk-write", "disk-read-total", "disk-write-total")
 GPU_KEYS = ("gpu", "video-memory", "video-encoder", "video-decoder")
 
@@ -59,6 +61,13 @@ ACTIONS = {"end": (signal.SIGTERM, _("End Process"), _('End "%s"?'),
 # Which processes can be shown, as (key used in the settings, title)
 VIEWS = (("all", _("All Processes")), ("mine", _("My Processes")), ("active", _("Active Processes")))
 
+
+def process_row(p, icon):
+    """The values of the store columns for a process."""
+    return (p.name, p.pid, p.user, p.cpu, p.memory, p.start, icon, p.state, p.nice, p.cpu_time, p.started,
+            p.virtual, p.resident, p.shared, p.command, p.unit, p.disk_read, p.disk_write, p.disk_read_total,
+            p.disk_write_total, p.swap, p.gpu, p.video_memory, p.video_encoder, p.video_decoder, p.parent, p.cgroup)
+
 class ProcessesPage(ProcessTable, Gtk.Box):
     PREFIX = "processes"
     COLUMNS = COLUMNS
@@ -74,26 +83,14 @@ class ProcessesPage(ProcessTable, Gtk.Box):
         self.window = window
         self.settings = settings
         self.scanner = scanner
-        # name, PID, user, CPU, memory, start, icon, then the values of the other columns
+        # name, PID, user, CPU, memory, start, icon, then the values of the other columns, the parent PID and the
+        # control group
         self.process_store = Gtk.TreeStore(str, int, str, float, GObject.TYPE_UINT64, str, Gio.Icon,
                                            str, int, float, GObject.TYPE_UINT64, GObject.TYPE_UINT64,
                                            GObject.TYPE_UINT64, GObject.TYPE_UINT64, str, str, float, float,
                                            GObject.TYPE_INT64, GObject.TYPE_INT64, GObject.TYPE_INT64, float,
-                                           GObject.TYPE_INT64, float, float, int)
-        self.process_icons = {}
-        icon_theme = Gtk.IconTheme.get_default()
-        for info in Gio.AppInfo.get_all():
-            executable, icon = info.get_executable(), info.get_icon()
-            if executable and icon:
-                icon_info = icon_theme.lookup_by_gicon(icon, 16, Gtk.IconLookupFlags.FORCE_SIZE)
-                if icon_info is None:
-                    continue
-                try:
-                    icon_info.load_icon()
-                except GLib.Error:
-                    continue
-                self.process_icons.setdefault(os.path.basename(executable), icon)
-        self.generic_process_icon = Gio.ThemedIcon.new("application-x-executable")
+                                           GObject.TYPE_INT64, float, float, int, str)
+        self.icons = ProcessIcons()
         self.signaled = {}   # processes asked to end or killed that still run, by (pid, start)
 
         self.search_text = ""
@@ -130,7 +127,7 @@ class ProcessesPage(ProcessTable, Gtk.Box):
             column.set_sort_column_id(number)
             column.set_resizable(True)
             column.set_reorderable(True)
-            column.set_expand(key in ("name", "command", "unit"))
+            column.set_expand(key in ("name", "command", "unit", "cgroup"))
             column.key = key
             column.get_button().connect("button-press-event", self.on_header_pressed)
             self.columns[key] = column
@@ -188,42 +185,6 @@ class ProcessesPage(ProcessTable, Gtk.Box):
         self.pack_start(bar, False, False, 0)
         self.refresh()
 
-    def sync_rows(self, rows, desired):
-        """Updates the rows of the store in place, so that the selection and the expanded rows stay.
-
-        A row can't be moved to another parent, so when a process changes parent it is removed and added again,
-        with its children."""
-        store = self.process_store
-        children = {}
-        for key, parent in self.parents.items():
-            children.setdefault(parent, []).append(key)
-
-        def forget(key):
-            self.iters.pop(key, None)
-            self.parents.pop(key, None)
-            for child in children.get(key, ()):
-                forget(child)
-
-        for key in [key for key in self.parents if key not in rows or self.parents[key] != desired[key]]:
-            if key in self.iters:
-                store.remove(self.iters[key])
-                forget(key)
-        for key, iterator in self.iters.items():
-            store.set(iterator, list(range(26)), rows[key])
-
-        def depth(key):
-            levels = 0
-            while desired[key] is not None and levels < 100:
-                key = desired[key]
-                levels += 1
-            return levels
-
-        # Add the parents before their children
-        for key in sorted((key for key in rows if key not in self.iters), key=depth):
-            parent_iterator = self.iters.get(desired[key])
-            self.iters[key] = store.append(parent_iterator, rows[key])
-            self.parents[key] = desired[key] if parent_iterator is not None else None
-
     def row_matches(self, row):
         """Returns True if the row is allowed by the selected view (all, mine, active) and by the search text, which
         can be in the name, the user, the PID or the command line."""
@@ -235,22 +196,6 @@ class ProcessesPage(ProcessTable, Gtk.Box):
         if not self.search_text:
             return True
         return any(self.search_text in str(field).casefold() for field in (row[0], row[2], row[1], row[14]))
-
-    def matches_search(self, model, iterator, _data=None):
-        """Returns True if the process is shown. In the tree, a process is also shown if one of its children is."""
-        if self.row_matches(model[iterator]):
-            return True
-        if not self.show_tree:
-            return False
-        pending = [model.iter_children(iterator)]
-        while pending:
-            child = pending.pop()
-            while child is not None:
-                if self.row_matches(model[child]):
-                    return True
-                pending.append(model.iter_children(child))
-                child = model.iter_next(child)
-        return False
 
     def on_tree_toggled(self, button):
         self.show_tree = button.get_active()
@@ -266,12 +211,6 @@ class ProcessesPage(ProcessTable, Gtk.Box):
     def on_view_changed(self, combo):
         self.view_mode = combo.get_active_id() or "all"
         self.settings.set_string("processes-view", self.view_mode)
-        self.filter.refilter()
-        if self.show_tree:
-            self.view.expand_all()
-
-    def on_search_changed(self, entry):
-        self.search_text = entry.get_text().strip().casefold()
         self.filter.refilter()
         if self.show_tree:
             self.view.expand_all()
@@ -337,58 +276,26 @@ class ProcessesPage(ProcessTable, Gtk.Box):
         if iterator is None:
             return
         pid, start = model[iterator][1], model[iterator][5]
-        if ACTIONS[action][2] is None:
-            self.send_signal(action, pid, start)
-            return
-        _signal, _title, question, warning, button, _error = ACTIONS[action]
-        confirmation = Gtk.MessageDialog(
-            transient_for=self.window, modal=True,
-            message_type=Gtk.MessageType.QUESTION,
-            buttons=Gtk.ButtonsType.NONE,
-            text=question % model[iterator][0])
-        confirmation.format_secondary_text(warning)
-        confirmation.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
-        confirm = confirmation.add_button(button, Gtk.ResponseType.ACCEPT)
-        confirm.get_style_context().add_class("destructive-action")
-        confirmation.set_default_response(Gtk.ResponseType.ACCEPT)
-        confirmation.get_widget_for_response(Gtk.ResponseType.ACCEPT).grab_focus()
-        confirmation.connect("response", self.on_signal_response, action, pid, start)
-        confirmation.present()
-
-    def on_signal_response(self, dialog, response, action, pid, start):
-        dialog.destroy()
-        if response == Gtk.ResponseType.ACCEPT:
-            self.send_signal(action, pid, start)
+        self.confirm(action, model[iterator][0], lambda: self.send_signal(action, pid, start))
 
     def send_signal(self, action, pid, start):
         """Sends the signal of an action to a process, unless the selection changed in the meantime."""
-        descriptor = None
         try:
-            descriptor = os.pidfd_open(pid)
-            if process_stat(pid)[2] != start:
-                raise ProcessLookupError(_("The selected process has already exited."))
-            signal.pidfd_send_signal(descriptor, ACTIONS[action][0])
+            self.signal_process(pid, start, ACTIONS[action][0])
             if action in ("end", "kill"):
                 self.signaled[(pid, start)] = action
         except (OSError, ValueError) as error:
-            error_dialog = Gtk.MessageDialog(transient_for=self.window, modal=True,
-                                             message_type=Gtk.MessageType.ERROR,
-                                             buttons=Gtk.ButtonsType.CLOSE,
-                                             text=ACTIONS[action][5])
-            error_dialog.format_secondary_text(str(error))
-            error_dialog.connect("response", lambda dialog, _response: dialog.destroy())
-            error_dialog.present()
-        finally:
-            if descriptor is not None:
-                os.close(descriptor)
+            self.show_error(ACTIONS[action][5], str(error))
         self.refresh()
 
     def features(self):
         """Returns what the scan has to read for the visible columns, besides the basics."""
         wanted = set()
-        for key, feature in (("command", "command"), ("unit", "unit"), ("swap", "swap")):
+        for key in ("command", "swap"):
             if self.columns[key].get_visible():
-                wanted.add(feature)
+                wanted.add(key)
+        if any(self.columns[key].get_visible() for key in UNIT_KEYS):
+            wanted.add("unit")
         if any(self.columns[key].get_visible() for key in IO_KEYS):
             wanted.add("io")
         if any(self.columns[key].get_visible() for key in GPU_KEYS):
@@ -401,22 +308,8 @@ class ProcessesPage(ProcessTable, Gtk.Box):
     def on_scanned(self, processes):
         """Called with the new list of processes: updates the rows."""
         rows = {}
-        icon_theme = Gtk.IconTheme.get_default()
         for p in processes:
-            icon = self.process_icons.get(p.name)
-            if icon is None and icon_theme.has_icon(p.name):
-                icon = Gio.ThemedIcon.new(p.name)
-            if icon is None:
-                interpreter = p.executable.startswith(("python", "pypy")) or p.executable in (
-                    "bash", "sh", "dash", "perl", "ruby", "node", "nodejs")
-                if not interpreter or p.name == p.executable:
-                    icon = self.process_icons.get(p.executable)
-            if icon is None:
-                icon = self.generic_process_icon
-            rows[p.key] = (p.name, p.pid, p.user, p.cpu, p.memory, p.start, icon, p.state, p.nice, p.cpu_time,
-                           p.started, p.virtual, p.resident, p.shared, p.command, p.unit, p.disk_read,
-                           p.disk_write, p.disk_read_total, p.disk_write_total, p.swap, p.gpu, p.video_memory,
-                           p.video_encoder, p.video_decoder, p.parent)
+            rows[p.key] = process_row(p, self.icons.icon_for(p))
         # Forget the processes that are gone
         self.signaled = {key: action for key, action in self.signaled.items() if key in rows}
         # In the tree, a process goes under its parent. Without a parent, or if the parent is gone, it is at the top.

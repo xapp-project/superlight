@@ -9,7 +9,6 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gio, GLib, GObject, Gtk, Pango
 
 from superlight import MARGIN, _, format_value
-from superlight.common_proc import process_stat
 from superlight.common_process import ProcessTable
 
 
@@ -324,55 +323,24 @@ class AppsPage(ProcessTable, Gtk.Box):
         model, iterator = self.selection.get_selected()
         if iterator is None:
             return
-        _signal, _title, question, warning, button, _error = ACTIONS[action]
-        key = model[iterator][0]
-        if question is None:
-            self.send_signal(action, list(self.members.get(key, ())), key)
-            return
-        confirmation = Gtk.MessageDialog(transient_for=self.window, modal=True,
-                                         message_type=Gtk.MessageType.QUESTION, buttons=Gtk.ButtonsType.NONE,
-                                         text=question % model[iterator][2])
-        confirmation.format_secondary_text(warning)
-        confirmation.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
-        confirm = confirmation.add_button(button, Gtk.ResponseType.ACCEPT)
-        confirm.get_style_context().add_class("destructive-action")
-        confirmation.set_default_response(Gtk.ResponseType.ACCEPT)
-        confirmation.get_widget_for_response(Gtk.ResponseType.ACCEPT).grab_focus()
-        confirmation.connect("response", self.on_signal_response, action, list(self.members.get(key, ())), key)
-        confirmation.present()
-
-    def on_signal_response(self, dialog, response, action, members, key):
-        dialog.destroy()
-        if response == Gtk.ResponseType.ACCEPT:
-            self.send_signal(action, members, key)
+        key, members = model[iterator][0], list(self.members.get(model[iterator][0], ()))
+        self.confirm(action, model[iterator][2], lambda: self.send_signal(action, members, key))
 
     def send_signal(self, action, members, key):
         """Sends the signal of an action to each process of an application."""
         failure = None
         sent = False
         for pid, start in members:
-            descriptor = None
             try:
-                descriptor = os.pidfd_open(pid)
-                # Skip it if the PID now belongs to another process
-                if process_stat(pid)[2] == start:
-                    signal.pidfd_send_signal(descriptor, ACTIONS[action][0])
-                    sent = True
+                self.signal_process(pid, start, ACTIONS[action][0])
+                sent = True
             except ProcessLookupError:
-                continue
+                continue   # the process is gone, or the PID now belongs to another one
             except (OSError, ValueError) as error:
                 failure = failure or error
-            finally:
-                if descriptor is not None:
-                    os.close(descriptor)
         if sent and action in ("end", "kill"):
             self.signaled.add(key)
             self.view.queue_draw()
         if failure is not None:
-            error_dialog = Gtk.MessageDialog(transient_for=self.window, modal=True,
-                                             message_type=Gtk.MessageType.ERROR, buttons=Gtk.ButtonsType.CLOSE,
-                                             text=ACTIONS[action][5])
-            error_dialog.format_secondary_text(str(failure))
-            error_dialog.connect("response", lambda dialog, _response: dialog.destroy())
-            error_dialog.present()
+            self.show_error(ACTIONS[action][5], str(failure))
         self.refresh()

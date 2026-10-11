@@ -25,6 +25,7 @@ python_module_dir = join_paths(python_module_dir, 'superlight')
 install_data(
   'superlight/__init__.py',
   'superlight/application.py',
+  'superlight/common_cgroup.py',
   'superlight/common_disk.py',
   'superlight/common_graphs.py',
   'superlight/common_proc.py',
@@ -34,6 +35,7 @@ install_data(
   'superlight/page_processes.py',
   'superlight/page_resources.py',
   'superlight/page_storage.py',
+  'superlight/page_systemd.py',
   'superlight/view_folders.py',
   install_dir: python_module_dir,
 )

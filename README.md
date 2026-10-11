@@ -14,6 +14,7 @@ System monitor for Linux desktops.
 - Resources
 - Apps
 - Processes
+- Systemd
 - Battery (only shows if you have a battery)
 - Storage
 - Logs (not implemented yet)

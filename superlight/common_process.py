@@ -1,19 +1,21 @@
 import os
+import signal
 from collections import namedtuple
 
 import gi
 
 gi.require_version("Gtk", "3.0")
-from gi.repository import GLib, Gtk
+from gi.repository import Gio, GLib, Gtk
 from xapp.threading import run_async, run_idle
 
 from superlight import _
+from superlight.common_cgroup import CgroupRates, parse_proc_cgroup, read_cgroups
 from superlight.common_proc import boot_time, process_stat, username
 
 # Everything we know about a process. Rates are measured since the previous scan. -1 means not known.
 Process = namedtuple("Process", (
     "key", "start", "pid", "parent", "name", "executable", "user", "state", "nice", "cpu", "cpu_time", "started",
-    "memory", "virtual", "resident", "shared", "swap", "command", "unit", "disk_read", "disk_write",
+    "memory", "virtual", "resident", "shared", "swap", "command", "unit", "cgroup", "disk_read", "disk_write",
     "disk_read_total", "disk_write_total", "gpu", "video_memory", "video_encoder", "video_decoder"))
 
 # The GPU engines for each kind of work. For each kind, the busiest engine is the one that counts.
@@ -26,7 +28,8 @@ class ProcessScanner:
     """Reads the list of running processes from /proc for the pages that show them.
 
     Only one scan runs at a time. Reading some information (command line, unit, disk I/O, swap, GPU) costs more,
-    so the page says which of these it needs."""
+    so the page says which of these it needs. With the "cgroups" feature, the control groups are read too and
+    the callback gets them as a second argument."""
 
     def __init__(self):
         self.scanning = False
@@ -35,11 +38,12 @@ class ProcessScanner:
         self.previous_ticks = {}
         self.previous_io = {}
         self.previous_engines = {}
+        self.cgroup_rates = CgroupRates()
 
     def request(self, features, callback):
         """Scans in a thread, then calls callback with the list of processes, in the main loop.
 
-        features is the extra information to read: any of "command", "unit", "io", "swap" and "gpu"."""
+        features is the extra information to read: any of "command", "unit", "io", "swap", "gpu" and "cgroups"."""
         if self.scanning:
             self.queued = (features, callback)
             return
@@ -47,18 +51,18 @@ class ProcessScanner:
         self.read(frozenset(features), callback)
 
     def scan_now(self, features):
-        """Scans right now and returns the processes. This takes a few milliseconds."""
-        now, found = self.collect(frozenset(features))
-        return self.build(now, found)
+        """Scans right now and returns the processes (and the cgroups with the "cgroups" feature). This takes a few
+        milliseconds."""
+        return self.build(*self.collect(frozenset(features)))
 
     @run_async
     def read(self, features, callback):
-        now, found = self.collect(features)
-        self.finish(now, found, callback)
+        self.finish(*self.collect(features), callback)
 
     @staticmethod
     def collect(features):
-        """Reads /proc and returns the time and a tuple of values for each process. This runs in a thread."""
+        """Reads /proc and returns the time, a tuple of values for each process, and the cgroups or None. This runs
+        in a thread."""
         now = GLib.get_monotonic_time()
         page_size = os.sysconf("SC_PAGE_SIZE")
         ticks_per_second = os.sysconf("SC_CLK_TCK")
@@ -109,17 +113,10 @@ class ProcessScanner:
                     with open(f"/proc/{pid}/cmdline", "rb") as source:
                         command = " ".join(arg.decode("utf-8", errors="replace")
                                            for arg in source.read().rstrip(b"\0").split(b"\0"))
-                unit = ""
-                if "unit" in features:
+                unit = cgroup = ""
+                if features & {"unit", "cgroups"}:
                     with open(f"/proc/{pid}/cgroup", encoding="utf-8") as source:
-                        for line in source:
-                            _hierarchy, controllers, path = line.rstrip("\n").split(":", 2)
-                            if controllers in ("", "name=systemd"):
-                                names = [part for part in path.split("/") if part]
-                                # The last .service or .scope in the path, because a service can contain other groups
-                                unit = next((part for part in reversed(names) if part.endswith((".service", ".scope"))),
-                                            names[-1] if names else "")
-                                break
+                        cgroup, unit = parse_proc_cgroup(source.read())
                 # Only the processes of the user can be read here, the others stay at -1
                 disk = (-1, -1)
                 if "io" in features:
@@ -167,24 +164,28 @@ class ProcessScanner:
                 found.append((pid, start, parent, name, executable, username(entry.stat().st_uid), state, nice, ticks,
                               ticks / ticks_per_second, started_at + int(start) // ticks_per_second,
                               max(0, resident - shared) * page_size, virtual, resident * page_size,
-                              shared * page_size, swap, command, unit, disk, gpu))
+                              shared * page_size, swap, command, unit, cgroup, disk, gpu))
             except (OSError, ValueError, IndexError):
                 continue
-        return now, found
+        return now, found, read_cgroups() if "cgroups" in features else None
 
     @run_idle
-    def finish(self, now, found, callback):
+    def finish(self, now, found, cgroups, callback):
         """Called in the main loop when a scan is done. Gives the processes to the page, then starts the queued
         request."""
-        processes = self.build(now, found)
+        result = self.build(now, found, cgroups)
         self.scanning = False
         queued, self.queued = self.queued, None
-        callback(processes)
+        if cgroups is None:
+            callback(result)
+        else:
+            callback(*result)
         if queued is not None:
             self.request(*queued)
 
-    def build(self, now, found):
-        """Returns the list of Process, with the rates calculated since the previous scan."""
+    def build(self, now, found, cgroups=None):
+        """Returns the list of Process, with the rates calculated since the previous scan. If cgroups were read,
+        returns them too, with their CPU rates."""
         if self.last_time is None or now - self.last_time > GAP:
             # There is nothing to compare with, all the rates are zero
             self.previous_ticks, self.previous_io, self.previous_engines = {}, {}, {}
@@ -197,7 +198,7 @@ class ProcessScanner:
         ticks_now, io_now, engines_now = {}, {}, {}
         processes = []
         for (pid, start, parent, name, executable, user, state, nice, ticks, cpu_time, started, memory, virtual,
-             resident, shared, swap, command, unit, io, gpu) in found:
+             resident, shared, swap, command, unit, cgroup, io, gpu) in found:
             key = (pid, start)
             ticks_now[key] = ticks
             # 100% means that every processor core is busy, like in the graphs
@@ -220,15 +221,153 @@ class ProcessScanner:
             else:
                 gpu_values = (-1.0, -1, -1.0, -1.0)
             processes.append(Process(key, start, pid, parent, name, executable, user, state, nice, cpu, cpu_time,
-                                     started, memory, virtual, resident, shared, swap, command, unit, *io_rates,
-                                     *io, *gpu_values))
+                                     started, memory, virtual, resident, shared, swap, command, unit, cgroup,
+                                     *io_rates, *io, *gpu_values))
         self.previous_ticks, self.previous_io, self.previous_engines = ticks_now, io_now, engines_now
         self.last_time = now
-        return processes
+        if cgroups is None:
+            return processes
+        rates = self.cgroup_rates.update(now, cgroups)
+        return processes, [cgroup._replace(cpu=rates[cgroup.path]) for cgroup in cgroups]
+
+
+class ProcessIcons:
+    """Finds an icon for a process: the icon of the application whose program it runs, or a generic one."""
+
+    def __init__(self):
+        self.by_program = {}
+        icon_theme = Gtk.IconTheme.get_default()
+        for info in Gio.AppInfo.get_all():
+            executable, icon = info.get_executable(), info.get_icon()
+            if executable and icon:
+                icon_info = icon_theme.lookup_by_gicon(icon, 16, Gtk.IconLookupFlags.FORCE_SIZE)
+                if icon_info is None:
+                    continue
+                try:
+                    icon_info.load_icon()
+                except GLib.Error:
+                    continue
+                self.by_program.setdefault(os.path.basename(executable), icon)
+        self.generic = Gio.ThemedIcon.new("application-x-executable")
+
+    def icon_for(self, p):
+        icon = self.by_program.get(p.name)
+        if icon is None and Gtk.IconTheme.get_default().has_icon(p.name):
+            icon = Gio.ThemedIcon.new(p.name)
+        if icon is None:
+            interpreter = p.executable.startswith(("python", "pypy")) or p.executable in (
+                "bash", "sh", "dash", "perl", "ruby", "node", "nodejs")
+            if not interpreter or p.name == p.executable:
+                icon = self.by_program.get(p.executable)
+        return icon or self.generic
 
 
 class ProcessTable:
-    """Shared by the Processes and Apps pages. PREFIX is different for each page."""
+    """Shared by the Processes, Apps and Systemd pages. PREFIX is different for each page."""
+
+    CONTEXT_ACTIONS = ("end", "kill", "stop", "continue")
+
+    def matches_search(self, model, iterator, _data=None):
+        """Returns True if the row is shown: it matches (see row_matches), or in a tree one of its children does."""
+        if self.row_matches(model[iterator]):
+            return True
+        if not self.show_tree:
+            return False
+        pending = [model.iter_children(iterator)]
+        while pending:
+            child = pending.pop()
+            while child is not None:
+                if self.row_matches(model[child]):
+                    return True
+                pending.append(model.iter_children(child))
+                child = model.iter_next(child)
+        return False
+
+    def on_search_changed(self, entry):
+        self.search_text = entry.get_text().strip().casefold()
+        self.filter.refilter()
+        if self.show_tree:
+            self.view.expand_all()
+
+    def confirm(self, action, name, on_accept):
+        """Asks before an action that can lose work, then calls on_accept. Actions without a question run right
+        away."""
+        _signal, _title, question, warning, button, _error = self.ACTIONS[action]
+        if question is None:
+            on_accept()
+            return
+        confirmation = Gtk.MessageDialog(transient_for=self.window, modal=True,
+                                         message_type=Gtk.MessageType.QUESTION, buttons=Gtk.ButtonsType.NONE,
+                                         text=question % name)
+        confirmation.format_secondary_text(warning)
+        confirmation.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
+        confirm = confirmation.add_button(button, Gtk.ResponseType.ACCEPT)
+        confirm.get_style_context().add_class("destructive-action")
+        confirmation.set_default_response(Gtk.ResponseType.ACCEPT)
+        confirmation.get_widget_for_response(Gtk.ResponseType.ACCEPT).grab_focus()
+
+        def on_response(dialog, response):
+            dialog.destroy()
+            if response == Gtk.ResponseType.ACCEPT:
+                on_accept()
+
+        confirmation.connect("response", on_response)
+        confirmation.present()
+
+    def show_error(self, title, message):
+        error_dialog = Gtk.MessageDialog(transient_for=self.window, modal=True, message_type=Gtk.MessageType.ERROR,
+                                         buttons=Gtk.ButtonsType.CLOSE, text=title)
+        error_dialog.format_secondary_text(message)
+        error_dialog.connect("response", lambda dialog, _response: dialog.destroy())
+        error_dialog.present()
+
+    @staticmethod
+    def signal_process(pid, start, signum):
+        """Sends a signal to a process, unless the PID now belongs to another process. Raises OSError or
+        ValueError when it can't."""
+        descriptor = os.pidfd_open(pid)
+        try:
+            if process_stat(pid)[2] != start:
+                raise ProcessLookupError(_("The selected process has already exited."))
+            signal.pidfd_send_signal(descriptor, signum)
+        finally:
+            os.close(descriptor)
+
+    def sync_rows(self, rows, desired):
+        """Updates the rows of process_store in place, so that the selection and the expanded rows stay.
+
+        rows is {key: values} and desired is {key: parent key or None}, for any hashable keys. A row can't be
+        moved to another parent, so when a row changes parent it is removed and added again, with its children."""
+        store = self.process_store
+        children = {}
+        for key, parent in self.parents.items():
+            children.setdefault(parent, []).append(key)
+
+        def forget(key):
+            self.iters.pop(key, None)
+            self.parents.pop(key, None)
+            for child in children.get(key, ()):
+                forget(child)
+
+        for key in [key for key in self.parents if key not in rows or self.parents[key] != desired[key]]:
+            if key in self.iters:
+                store.remove(self.iters[key])
+                forget(key)
+        for key, iterator in self.iters.items():
+            store.set(iterator, list(range(len(rows[key]))), rows[key])
+
+        def depth(key):
+            levels = 0
+            while desired[key] is not None and levels < 100:
+                key = desired[key]
+                levels += 1
+            return levels
+
+        # Add the parents before their children
+        for key in sorted((key for key in rows if key not in self.iters), key=depth):
+            parent_iterator = self.iters.get(desired[key])
+            self.iters[key] = store.append(parent_iterator, rows[key])
+            self.parents[key] = desired[key] if parent_iterator is not None else None
 
     def set_column_order(self, order):
         previous = None
@@ -308,7 +447,7 @@ class ProcessTable:
         if found is None:
             return False
         view.set_cursor(found[0])
-        menu, items = self.actions_menu(("end", "kill", "stop", "continue"))
+        menu, items = self.actions_menu(self.CONTEXT_ACTIONS)
         self.update_actions(items)
         menu.popup_at_pointer(event)
         return True
