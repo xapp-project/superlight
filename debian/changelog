@@ -1,3 +1,13 @@
+superlight (1.0.1) adrien; urgency=medium
+
+  * l10n: Update POT
+  * Fix a crash when showing the battery history
+  * Improve battery page
+  * gpu: Add support for Intel i915 and xe
+  * battery: Ask upower for earlier data
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 13 Oct 2026 15:08:42 +0100
+
 superlight (1.0.0) adrien; urgency=medium
 
   * Initial release
