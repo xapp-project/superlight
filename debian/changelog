@@ -1,3 +1,9 @@
+superlight (1.0.2) adrien; urgency=medium
+
+  * l10n: Update POT
+
+ -- Clement Lefebvre <root@linuxmint.com>  Mon, 26 Oct 2026 13:30:49 +0000
+
 superlight (1.0.1) adrien; urgency=medium
 
   * l10n: Update POT
