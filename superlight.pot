@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 17:12+0100\n"
+"POT-Creation-Date: 2026-10-26 13:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,8 +19,8 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: data/org.x.superlight.desktop.in:2 superlight/application.py:22
-#: superlight/application.py:35 superlight/application.py:162
-#: superlight/application.py:172
+#: superlight/application.py:35 superlight/application.py:164
+#: superlight/application.py:174
 msgid "System Monitor"
 msgstr ""
 
@@ -58,7 +58,7 @@ msgid "Apps"
 msgstr ""
 
 #: superlight/application.py:84 superlight/page_battery.py:18
-#: superlight/page_battery.py:260
+#: superlight/page_battery.py:273
 msgid "Battery"
 msgstr ""
 
@@ -66,37 +66,37 @@ msgstr ""
 msgid "System drive"
 msgstr ""
 
-#: superlight/common_graphs.py:42
+#: superlight/common_graphs.py:45
 msgid "< 1 kB/s"
 msgstr ""
 
-#: superlight/common_graphs.py:44 superlight/__init__.py:48
+#: superlight/common_graphs.py:47 superlight/__init__.py:48
 #, python-format
 msgid "%s/s"
 msgstr ""
 
-#: superlight/common_graphs.py:134
+#: superlight/common_graphs.py:138
 msgid "1 min"
 msgstr ""
 
-#: superlight/common_graphs.py:134
+#: superlight/common_graphs.py:138
 #, python-format
 msgid "%d secs"
 msgstr ""
 
-#: superlight/common_graphs.py:410 superlight/page_resources.py:146
-#: superlight/page_resources.py:147
+#: superlight/common_graphs.py:458 superlight/page_resources.py:148
+#: superlight/page_resources.py:149
 #, python-format
 msgid "%d °C"
 msgstr ""
 
-#: superlight/common_graphs.py:431
+#: superlight/common_graphs.py:479
 #, python-format
 msgid "Fan %d"
 msgstr ""
 
-#: superlight/common_graphs.py:447 superlight/page_resources.py:155
-#: superlight/page_resources.py:156
+#: superlight/common_graphs.py:495 superlight/page_resources.py:157
+#: superlight/page_resources.py:158
 #, python-format
 msgid "%d RPM"
 msgstr ""
@@ -105,7 +105,7 @@ msgstr ""
 msgid "Use Default"
 msgstr ""
 
-#: superlight/common_proc.py:28
+#: superlight/common_proc.py:45 superlight/common_proc.py:50
 msgid "Unknown GPU"
 msgstr ""
 
@@ -195,7 +195,7 @@ msgid "Started"
 msgstr ""
 
 #: superlight/page_apps.py:21 superlight/page_processes.py:25
-#: superlight/page_resources.py:126 superlight/page_resources.py:141
+#: superlight/page_resources.py:127
 msgid "CPU"
 msgstr ""
 
@@ -204,13 +204,13 @@ msgid "CPU Time"
 msgstr ""
 
 #: superlight/page_apps.py:23 superlight/page_processes.py:27
-#: superlight/page_resources.py:133 superlight/page_resources.py:134
+#: superlight/page_resources.py:134 superlight/page_resources.py:135
 msgid "Memory"
 msgstr ""
 
 #: superlight/page_apps.py:24 superlight/page_processes.py:31
-#: superlight/page_resources.py:136 superlight/page_resources.py:138
-#: superlight/page_resources.py:140 superlight/chunks/swap.py:11
+#: superlight/page_resources.py:137 superlight/page_resources.py:139
+#: superlight/page_resources.py:141 superlight/chunks/swap.py:11
 msgid "Swap"
 msgstr ""
 
@@ -231,8 +231,8 @@ msgid "Disk Write Total"
 msgstr ""
 
 #: superlight/page_apps.py:29 superlight/page_processes.py:36
-#: superlight/page_resources.py:129 superlight/page_resources.py:130
-#: superlight/page_resources.py:132 superlight/page_resources.py:141
+#: superlight/page_resources.py:130 superlight/page_resources.py:131
+#: superlight/page_resources.py:133
 msgid "GPU"
 msgstr ""
 
@@ -458,94 +458,89 @@ msgstr ""
 msgid "Charge"
 msgstr ""
 
-#: superlight/page_battery.py:57 superlight/page_battery.py:191
+#: superlight/page_battery.py:57 superlight/page_battery.py:217
 msgid "Power"
 msgstr ""
 
-#: superlight/page_battery.py:68
+#: superlight/page_battery.py:69
 #, python-format
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: superlight/page_battery.py:70
+#: superlight/page_battery.py:71
 #, python-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: superlight/page_battery.py:152
+#: superlight/page_battery.py:162
 #, python-format
 msgid "%d d"
 msgstr ""
 
-#: superlight/page_battery.py:154
+#: superlight/page_battery.py:164
 #, python-format
 msgid "%s h"
 msgstr ""
 
-#: superlight/page_battery.py:155
+#: superlight/page_battery.py:165
 #, python-format
 msgid "%d min"
 msgstr ""
 
-#: superlight/page_battery.py:188
+#: superlight/page_battery.py:205
+msgid "Details"
+msgstr ""
+
+#: superlight/page_battery.py:215
 msgid "Vendor"
 msgstr ""
 
-#: superlight/page_battery.py:188
+#: superlight/page_battery.py:215
 msgid "Model"
 msgstr ""
 
-#: superlight/page_battery.py:188
+#: superlight/page_battery.py:215
 msgid "Technology"
 msgstr ""
 
-#: superlight/page_battery.py:189
+#: superlight/page_battery.py:216
 msgid "Energy"
 msgstr ""
 
-#: superlight/page_battery.py:189
+#: superlight/page_battery.py:216
 msgid "Energy when full"
 msgstr ""
 
-#: superlight/page_battery.py:190
-msgid "Energy (design)"
+#: superlight/page_battery.py:217
+msgid "Health"
 msgstr ""
 
-#: superlight/page_battery.py:190
-msgid "Capacity"
-msgstr ""
-
-#: superlight/page_battery.py:191
+#: superlight/page_battery.py:217
 msgid "Voltage"
 msgstr ""
 
-#: superlight/page_battery.py:192
+#: superlight/page_battery.py:218
 msgid "Charge cycles"
 msgstr ""
 
-#: superlight/page_battery.py:192 superlight/page_resources.py:56
+#: superlight/page_battery.py:218 superlight/page_resources.py:57
 msgid "Temperature"
 msgstr ""
 
-#: superlight/page_battery.py:218
+#: superlight/page_battery.py:245
 msgid "No history is available for this device yet"
 msgstr ""
 
-#. Translators: Battery
-#: superlight/page_battery.py:293
-msgid "Unknown"
-msgstr ""
-
-#: superlight/page_battery.py:295
+#: superlight/page_battery.py:313
 #, python-format
 msgid "%(state)s, %(time)s remaining"
 msgstr ""
 
-#: superlight/page_battery.py:297
+#: superlight/page_battery.py:315
 #, python-format
 msgid "%(state)s, %(time)s until full"
 msgstr ""
@@ -655,8 +650,8 @@ msgstr ""
 msgid "The selected process has already exited."
 msgstr ""
 
-#: superlight/page_resources.py:37 superlight/page_resources.py:54
-#: superlight/page_resources.py:60
+#: superlight/page_resources.py:37 superlight/page_resources.py:55
+#: superlight/page_resources.py:61
 msgid "Collecting data…"
 msgstr ""
 
@@ -704,27 +699,27 @@ msgstr ""
 msgid "Total Written"
 msgstr ""
 
-#: superlight/page_resources.py:51 superlight/page_resources.py:141
+#: superlight/page_resources.py:51
 msgid "Disk"
 msgstr ""
 
-#: superlight/page_resources.py:62
+#: superlight/page_resources.py:63
 msgid "Fan Speed"
 msgstr ""
 
-#: superlight/page_resources.py:119
+#: superlight/page_resources.py:120
 msgid "Offline"
 msgstr ""
 
-#: superlight/page_resources.py:132
+#: superlight/page_resources.py:133
 msgid "Usage unavailable from driver"
 msgstr ""
 
-#: superlight/page_resources.py:140
+#: superlight/page_resources.py:141
 msgid "Not configured"
 msgstr ""
 
-#: superlight/page_resources.py:144 superlight/page_resources.py:153
+#: superlight/page_resources.py:146 superlight/page_resources.py:155
 msgid "Unavailable"
 msgstr ""
 
