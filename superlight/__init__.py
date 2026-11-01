@@ -4,7 +4,12 @@ import locale
 from gi.repository import GLib
 from xapp.util import l10n
 
-_ = l10n("superlight")
+l10n("superlight")
+# gettext.gettext() looks for the catalog on disk at every call, which is slow in the graphs that redraw every frame
+try:
+    _ = gettext.translation("superlight", gettext.bindtextdomain("superlight"), fallback=True).gettext
+except OSError:
+    _ = gettext.gettext
 
 # pixels between page content and edges, and between tables and their button box
 MARGIN = 10
