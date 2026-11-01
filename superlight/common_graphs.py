@@ -96,6 +96,7 @@ class Graph(Gtk.DrawingArea):
         self.alignment = Alignment()
         self.alignment.graphs.append(self)
         self.plot_margins = (0, 0)   # the space left and right of the plotting area, known once the graph is drawn
+        self.last_drawn = 0          # monotonic time of the last draw, in microseconds
         self.set_size_request(-1, 80)
         self.set_vexpand(True)
         self.connect("draw", self.draw_graph)
@@ -111,9 +112,11 @@ class Graph(Gtk.DrawingArea):
             self.samples.pop(0)
         self.queue_draw()
 
-    def animate(self, _widget, _frame_clock):
-        """Tick callback (Gtk.Widget.add_tick_callback) that redraws on every frame, to scroll smoothly."""
-        self.queue_draw()
+    def animate(self, _widget, frame_clock):
+        """Tick callback (Gtk.Widget.add_tick_callback) that redraws once the lines have scrolled a pixel."""
+        width = (self.get_allocated_width() - sum(self.plot_margins)) * self.get_scale_factor()
+        if width > 0 and (frame_clock.get_frame_time() - self.last_drawn) * width / (self.span * 1_000_000) >= 1:
+            self.queue_draw()
         return True
 
     def axis_maximum(self):
@@ -206,6 +209,7 @@ class Graph(Gtk.DrawingArea):
             PangoCairo.show_layout(cr, label)
 
         now = GLib.get_monotonic_time()
+        self.last_drawn = now
         cr.save()
         cr.rectangle(0, 0, width, height)
         cr.clip()
