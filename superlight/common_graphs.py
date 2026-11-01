@@ -312,6 +312,12 @@ class CpuGraph(Graph):
                 try:
                     with open(rc6_path) as source:
                         residency = int(source.read())
+                    # Ivy Bridge also sleeps in the deeper RC6p state, which has its own counter. The kernel adds it
+                    # to RC6 for its rc6-residency PMU counter too.
+                    rc6p_path = f"/sys/class/drm/{card}/power/rc6p_residency_ms"
+                    if os.path.exists(rc6p_path):
+                        with open(rc6p_path) as source:
+                            residency += int(source.read())
                     now = time.monotonic()
                     previous = self.previous_gpu_rc6.get(card)
                     self.previous_gpu_rc6[card] = now, residency
