@@ -1,0 +1,1030 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: superl\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-26 13:29+0000\n"
+"PO-Revision-Date: 2026-10-29 20:00+0000\n"
+"Last-Translator: K9 <Unknown>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
+"X-Launchpad-Export-Date: 2026-11-16 12:02+0000\n"
+"X-Generator: Launchpad (build 72ba15af7e009b17d4aa1467977127ac8392a4de)\n"
+"Language: lv\n"
+
+#: data/org.x.superlight.desktop.in:2 superlight/application.py:22
+#: superlight/application.py:35 superlight/application.py:164
+#: superlight/application.py:174
+msgid "System Monitor"
+msgstr "Sistēmas pārraugs"
+
+#: data/org.x.superlight.desktop.in:3
+msgid "Monitor system resources and processes"
+msgstr "Pārraudzīt sistēmas resursus un procesus"
+
+#: data/org.x.superlight.desktop.in:9
+msgid "system;monitor;resources;processes;cpu;memory;task manager;"
+msgstr "sistēma;pārraugs;resursi;procesi;cpu;atmiņa;uzdevumu pārvaldnieks;"
+
+#: data/org.x.superlight.desktop.in:15 superlight/application.py:47
+msgid "Resources"
+msgstr "Resursi"
+
+#: data/org.x.superlight.desktop.in:19 superlight/application.py:51
+#: superlight/page_apps.py:18
+msgid "Processes"
+msgstr "Procesi"
+
+#: data/org.x.superlight.desktop.in:23 superlight/application.py:52
+msgid "Storage"
+msgstr "Krātuve"
+
+#: superlight/application.py:37
+msgid "About"
+msgstr "Par"
+
+#: superlight/application.py:39
+msgid "Quit"
+msgstr "Iziet"
+
+#: superlight/application.py:49
+msgid "Apps"
+msgstr "Lietotnes"
+
+#: superlight/application.py:84 superlight/page_battery.py:18
+#: superlight/page_battery.py:273
+msgid "Battery"
+msgstr "Akumulators"
+
+#: superlight/common_disk.py:70
+msgid "System drive"
+msgstr "Sistēmas diskdzinis"
+
+#: superlight/common_graphs.py:45
+msgid "< 1 kB/s"
+msgstr "< 1 kB/s"
+
+#: superlight/common_graphs.py:47 superlight/__init__.py:48
+#, python-format
+msgid "%s/s"
+msgstr "%s/s"
+
+#: superlight/common_graphs.py:138
+msgid "1 min"
+msgstr "1 min"
+
+#: superlight/common_graphs.py:138
+#, python-format
+msgid "%d secs"
+msgstr "%d sek"
+
+#: superlight/common_graphs.py:458 superlight/page_resources.py:148
+#: superlight/page_resources.py:149
+#, python-format
+msgid "%d °C"
+msgstr "%d °C"
+
+#: superlight/common_graphs.py:479
+#, python-format
+msgid "Fan %d"
+msgstr "Ventilators %d"
+
+#: superlight/common_graphs.py:495 superlight/page_resources.py:157
+#: superlight/page_resources.py:158
+#, python-format
+msgid "%d RPM"
+msgstr "%d RPM"
+
+#: superlight/common_process.py:268
+msgid "Use Default"
+msgstr "Izmantot noklusējumu"
+
+#: superlight/common_proc.py:45 superlight/common_proc.py:50
+msgid "Unknown GPU"
+msgstr "Nezināms GPU"
+
+#. Translators: Priority
+#: superlight/__init__.py:56
+msgid "Very High"
+msgstr "Ļoti augsta"
+
+#. Translators: Priority
+#: superlight/__init__.py:59
+msgid "High"
+msgstr "Augsta"
+
+#. Translators: Priority
+#: superlight/__init__.py:62
+msgid "Normal"
+msgstr "Normāla"
+
+#. Translators: Priority
+#: superlight/__init__.py:65
+msgid "Low"
+msgstr "Zema"
+
+#. Translators: Priority
+#: superlight/__init__.py:67
+msgid "Very Low"
+msgstr "Ļoti zema"
+
+#: superlight/__init__.py:76
+#, python-format
+msgid "Today, %s"
+msgstr "Šodien, %s"
+
+#: superlight/__init__.py:78
+#, python-format
+msgid "Yesterday, %s"
+msgstr "Vakar, %s"
+
+#. Translators: Process
+#: superlight/__init__.py:83
+msgid "Running"
+msgstr "Darbojas"
+
+#. Translators: Process
+#: superlight/__init__.py:85
+msgid "Sleeping"
+msgstr "Gaidstāvē"
+
+#: superlight/__init__.py:86
+msgid "Disk Sleep"
+msgstr "Diska gaidstāve"
+
+#. Translators: Process
+#: superlight/__init__.py:88
+msgid "Stopped"
+msgstr "Apturēts"
+
+#: superlight/__init__.py:89
+msgid "Tracing Stop"
+msgstr "Izsekošana apturēta"
+
+#: superlight/__init__.py:90
+msgid "Zombie"
+msgstr "Zombijs"
+
+#. Translators: Process
+#: superlight/__init__.py:92
+msgid "Dead"
+msgstr "Miris"
+
+#. Translators: Process
+#: superlight/__init__.py:94
+msgctxt "process state"
+msgid "Idle"
+msgstr "Dīkstāvē"
+
+#: superlight/page_apps.py:17 superlight/page_processes.py:16
+#: superlight/view_folders.py:61 superlight/chunks/flatpak.py:64
+#: superlight/chunks/steam.py:89
+msgid "Name"
+msgstr "Nosaukums"
+
+#. Translators: Application
+#. Translators: Process
+#: superlight/page_apps.py:20 superlight/page_processes.py:22
+msgid "Started"
+msgstr "Palaists"
+
+#: superlight/page_apps.py:21 superlight/page_processes.py:25
+#: superlight/page_resources.py:127
+msgid "CPU"
+msgstr "CPU"
+
+#: superlight/page_apps.py:22 superlight/page_processes.py:26
+msgid "CPU Time"
+msgstr "CPU laiks"
+
+#: superlight/page_apps.py:23 superlight/page_processes.py:27
+#: superlight/page_resources.py:134 superlight/page_resources.py:135
+msgid "Memory"
+msgstr "Atmiņa"
+
+#: superlight/page_apps.py:24 superlight/page_processes.py:31
+#: superlight/page_resources.py:137 superlight/page_resources.py:139
+#: superlight/page_resources.py:141 superlight/chunks/swap.py:11
+msgid "Swap"
+msgstr "Steika vieta"
+
+#: superlight/page_apps.py:25 superlight/page_processes.py:32
+msgid "Disk Read"
+msgstr "Diska lasīšana"
+
+#: superlight/page_apps.py:26 superlight/page_processes.py:33
+msgid "Disk Write"
+msgstr "Diska rakstīšana"
+
+#: superlight/page_apps.py:27 superlight/page_processes.py:34
+msgid "Disk Read Total"
+msgstr "Kopā nolasīts no diska"
+
+#: superlight/page_apps.py:28 superlight/page_processes.py:35
+msgid "Disk Write Total"
+msgstr "Kopā ierakstīts diskā"
+
+#: superlight/page_apps.py:29 superlight/page_processes.py:36
+#: superlight/page_resources.py:130 superlight/page_resources.py:131
+#: superlight/page_resources.py:133
+msgid "GPU"
+msgstr "GPU"
+
+#: superlight/page_apps.py:30 superlight/page_processes.py:37
+msgid "Video Memory"
+msgstr "Video atmiņa"
+
+#: superlight/page_apps.py:31 superlight/page_processes.py:38
+msgid "Video Encoder"
+msgstr "Video kodētājs"
+
+#: superlight/page_apps.py:32 superlight/page_processes.py:39
+msgid "Video Decoder"
+msgstr "Video dekodētājs"
+
+#: superlight/page_apps.py:48 superlight/page_apps.py:49
+#: superlight/page_apps.py:216
+msgid "End Application"
+msgstr "Beigt lietotni"
+
+#: superlight/page_apps.py:48 superlight/page_processes.py:50
+#, python-format
+msgid "End \"%s\"?"
+msgstr "Beigt \"%s\"?"
+
+#: superlight/page_apps.py:49
+msgid "All its processes will be asked to quit. They may lose unsaved work."
+msgstr ""
+"Visiem tā procesiem tiks lūgts iziet. Nesaglabātais darbs var tikt pazaudēts."
+
+#: superlight/page_apps.py:50
+msgid "Could not end the application"
+msgstr "Neizdevās beigt lietotni"
+
+#: superlight/page_apps.py:51 superlight/page_apps.py:52
+msgid "Kill Application"
+msgstr "Apturēt lietotni"
+
+#: superlight/page_apps.py:51 superlight/page_processes.py:53
+#, python-format
+msgid "Kill \"%s\"?"
+msgstr "Apturēt \"%s\"?"
+
+#: superlight/page_apps.py:52
+msgid "All its processes will stop immediately. Unsaved work may be lost."
+msgstr ""
+"Visi tās procesi nekavējoties apstāsies. Nesaglabātais darbs var tikt "
+"pazaudēts."
+
+#: superlight/page_apps.py:53
+msgid "Could not kill the application"
+msgstr "Neizdevās apturēt lietotni"
+
+#: superlight/page_apps.py:54
+msgid "Stop Application"
+msgstr "Apturēt lietotni"
+
+#: superlight/page_apps.py:54
+msgid "Could not stop the application"
+msgstr "Neizdevās apturēt lietotni"
+
+#: superlight/page_apps.py:55
+msgid "Continue Application"
+msgstr "Turpināt lietotni"
+
+#: superlight/page_apps.py:56
+msgid "Could not continue the application"
+msgstr "Neizdevās turpināt lietotni"
+
+#: superlight/page_apps.py:147
+msgid "Pauses the application"
+msgstr "Pauzē lietotni"
+
+#: superlight/page_apps.py:210 superlight/page_processes.py:157
+msgid "Search"
+msgstr "Meklēt"
+
+#: superlight/page_apps.py:336 superlight/page_processes.py:350
+#: superlight/page_storage.py:366 superlight/view_folders.py:349
+#: superlight/view_folders.py:372
+msgid "Cancel"
+msgstr "Atcelt"
+
+#: superlight/page_battery.py:18
+msgid "Uninterruptible Power Supply"
+msgstr "Nepārtraucamās barošanas avots"
+
+#: superlight/page_battery.py:18
+msgid "Mouse"
+msgstr "Pele"
+
+#: superlight/page_battery.py:19
+msgid "Keyboard"
+msgstr "Tastatūra"
+
+#: superlight/page_battery.py:19
+msgid "Game Controller"
+msgstr "Spēļu kontrolleris"
+
+#: superlight/page_battery.py:19
+msgid "Phone"
+msgstr "Tālrunis"
+
+#: superlight/page_battery.py:20
+msgid "Tablet"
+msgstr "Planšetdators"
+
+#: superlight/page_battery.py:20
+msgid "Pen"
+msgstr "Pildspalva"
+
+#: superlight/page_battery.py:20
+msgid "Touchpad"
+msgstr "Skārienpaliktnis"
+
+#: superlight/page_battery.py:21
+msgid "Headset"
+msgstr "Austiņas ar mikrofonu"
+
+#: superlight/page_battery.py:21
+msgid "Headphones"
+msgstr "Austiņas"
+
+#: superlight/page_battery.py:21
+msgid "Speakers"
+msgstr "Skaļruņi"
+
+#: superlight/page_battery.py:22
+msgid "Media Player"
+msgstr "Multivides atskaņotājs"
+
+#: superlight/page_battery.py:22
+msgid "Personal Digital Assistant"
+msgstr "Personīgais digitālais asistents"
+
+#: superlight/page_battery.py:23
+msgid "Computer"
+msgstr "Dators"
+
+#: superlight/page_battery.py:23
+msgid "Remote Control"
+msgstr "Tālvadības pults"
+
+#. Translators: Battery
+#: superlight/page_battery.py:26 superlight/page_battery.py:47
+msgid "Charging"
+msgstr "Lādējas"
+
+#. Translators: Battery
+#: superlight/page_battery.py:28 superlight/page_battery.py:45
+msgid "Discharging"
+msgstr "Izklādējas"
+
+#. Translators: Battery
+#: superlight/page_battery.py:30
+msgctxt "battery state"
+msgid "Empty"
+msgstr "Tukšs"
+
+#. Translators: Battery
+#: superlight/page_battery.py:32
+msgid "Fully charged"
+msgstr "Pilnībā uzlādēts"
+
+#. Translators: Battery
+#: superlight/page_battery.py:34
+msgid "Waiting to charge"
+msgstr "Gaida uzlādi"
+
+#. Translators: Battery
+#: superlight/page_battery.py:36
+msgid "Waiting to discharge"
+msgstr "Gaida izlādi"
+
+#: superlight/page_battery.py:38
+msgid "Lithium Ion"
+msgstr "Litija jonu"
+
+#: superlight/page_battery.py:38
+msgid "Lithium Polymer"
+msgstr "Litija polimēru"
+
+#: superlight/page_battery.py:39
+msgid "Lithium Iron Phosphate"
+msgstr "Litija dzelzs fosfāta"
+
+#: superlight/page_battery.py:40
+msgid "Lead acid"
+msgstr "Svina skābes"
+
+#: superlight/page_battery.py:40
+msgid "Nickel Cadmium"
+msgstr "Niķeļa kadmija"
+
+#: superlight/page_battery.py:41
+msgid "Nickel metal hydride"
+msgstr "Niķeļa metāla hidrīda"
+
+#. Translators: Battery
+#: superlight/page_battery.py:49
+msgctxt "battery history"
+msgid "Idle"
+msgstr "Dīkstāvē"
+
+#: superlight/page_battery.py:55
+msgid "30 minutes"
+msgstr "30 minūtes"
+
+#: superlight/page_battery.py:55
+msgid "3 hours"
+msgstr "3 stundas"
+
+#: superlight/page_battery.py:55
+msgid "8 hours"
+msgstr "8 stundas"
+
+#: superlight/page_battery.py:56
+msgid "1 day"
+msgstr "1 diena"
+
+#: superlight/page_battery.py:56
+msgid "1 week"
+msgstr "1 nedēļa"
+
+#: superlight/page_battery.py:57
+msgid "Charge"
+msgstr "Uzlādēt"
+
+#: superlight/page_battery.py:57 superlight/page_battery.py:217
+msgid "Power"
+msgstr "Enerģija"
+
+#: superlight/page_battery.py:69
+#, python-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d stunda"
+msgstr[1] "%d stundas"
+msgstr[2] "%d stundu"
+
+#: superlight/page_battery.py:71
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d minūte"
+msgstr[1] "%d minūtes"
+msgstr[2] "%d minūšu"
+
+#: superlight/page_battery.py:162
+#, python-format
+msgid "%d d"
+msgstr "%d d"
+
+#: superlight/page_battery.py:164
+#, python-format
+msgid "%s h"
+msgstr "%s h"
+
+#: superlight/page_battery.py:165
+#, python-format
+msgid "%d min"
+msgstr "%d min"
+
+#: superlight/page_battery.py:205
+msgid "Details"
+msgstr "Sīkāka informācija"
+
+#: superlight/page_battery.py:215
+msgid "Vendor"
+msgstr "Ražotājs"
+
+#: superlight/page_battery.py:215
+msgid "Model"
+msgstr "Modelis"
+
+#: superlight/page_battery.py:215
+msgid "Technology"
+msgstr "Tehnoloģija"
+
+#: superlight/page_battery.py:216
+msgid "Energy"
+msgstr "Enerģija"
+
+#: superlight/page_battery.py:216
+msgid "Energy when full"
+msgstr "Enerģija, kad pilns"
+
+#: superlight/page_battery.py:217
+msgid "Health"
+msgstr "Veselība"
+
+#: superlight/page_battery.py:217
+msgid "Voltage"
+msgstr "Spriegums"
+
+#: superlight/page_battery.py:218
+msgid "Charge cycles"
+msgstr "Uzlādes cikli"
+
+#: superlight/page_battery.py:218 superlight/page_resources.py:57
+msgid "Temperature"
+msgstr "Temperatūra"
+
+#: superlight/page_battery.py:245
+msgid "No history is available for this device yet"
+msgstr "Šai ierīcei vēl nav pieejama vēsture"
+
+#: superlight/page_battery.py:313
+#, python-format
+msgid "%(state)s, %(time)s remaining"
+msgstr "%(state)s, atlicis %(time)s"
+
+#: superlight/page_battery.py:315
+#, python-format
+msgid "%(state)s, %(time)s until full"
+msgstr "%(state)s, līdz pilnam %(time)s"
+
+#: superlight/page_processes.py:17
+msgid "PID"
+msgstr "PID"
+
+#: superlight/page_processes.py:18 superlight/chunks/flatpak.py:132
+msgid "User"
+msgstr "Lietotājs"
+
+#: superlight/page_processes.py:19
+msgid "State"
+msgstr "Stāvoklis"
+
+#: superlight/page_processes.py:20
+msgid "Priority"
+msgstr "Prioritāte"
+
+#: superlight/page_processes.py:23
+msgid "Systemd Unit"
+msgstr "Systemd vienība"
+
+#: superlight/page_processes.py:24
+msgid "Command Line"
+msgstr "Komandrinda"
+
+#: superlight/page_processes.py:28
+msgid "Virtual Memory"
+msgstr "Virtuālā atmiņa"
+
+#: superlight/page_processes.py:29
+msgid "Resident Memory"
+msgstr "Pastāvīgā atmiņa"
+
+#: superlight/page_processes.py:30
+msgid "Shared Memory"
+msgstr "Koplietotā atmiņa"
+
+#: superlight/page_processes.py:50 superlight/page_processes.py:51
+#: superlight/page_processes.py:174
+msgid "End Process"
+msgstr "Beigt procesu"
+
+#: superlight/page_processes.py:51
+msgid "The process will be asked to quit. It may lose unsaved work."
+msgstr "Procesam tiks lūgts iziet. Nesaglabātais darbs var tikt pazaudēts."
+
+#: superlight/page_processes.py:52
+msgid "Could not end the process"
+msgstr "Nevarēja beigt procesu"
+
+#: superlight/page_processes.py:53 superlight/page_processes.py:54
+msgid "Kill Process"
+msgstr "Pārtraukt procesu"
+
+#: superlight/page_processes.py:54
+msgid "The process will stop immediately. Unsaved work may be lost."
+msgstr ""
+"Process nekavējoties apstāsies. Nesaglabātais darbs var tikt pazaudēts."
+
+#: superlight/page_processes.py:55
+msgid "Could not kill the process"
+msgstr "Nevarēja pārtraukt procesu"
+
+#: superlight/page_processes.py:56
+msgid "Stop Process"
+msgstr "Apturēt procesu"
+
+#: superlight/page_processes.py:56
+msgid "Could not stop the process"
+msgstr "Nevarēja apturēt procesu"
+
+#: superlight/page_processes.py:57
+msgid "Continue Process"
+msgstr "Turpināt procesu"
+
+#: superlight/page_processes.py:58
+msgid "Could not continue the process"
+msgstr "Nevarēja turpināt procesu"
+
+#: superlight/page_processes.py:60
+msgid "All Processes"
+msgstr "Visi procesi"
+
+#: superlight/page_processes.py:60
+msgid "My Processes"
+msgstr "Mani procesi"
+
+#: superlight/page_processes.py:60
+msgid "Active Processes"
+msgstr "Aktīvie procesi"
+
+#: superlight/page_processes.py:70
+msgid "Pauses the process"
+msgstr "Pauzē procesu"
+
+#: superlight/page_processes.py:169
+msgid "Process tree"
+msgstr "Procesu koks"
+
+#: superlight/page_processes.py:170
+msgid "Show each process under the one that started it"
+msgstr "Rādīt katru procesu zem tā, kas to uzsāka"
+
+#: superlight/page_processes.py:369
+msgid "The selected process has already exited."
+msgstr "Atlasītais process jau ir beidzies."
+
+#: superlight/page_resources.py:37 superlight/page_resources.py:55
+#: superlight/page_resources.py:61
+msgid "Collecting data…"
+msgstr "Apkopo datus..."
+
+#: superlight/page_resources.py:39
+msgid "Overall usage"
+msgstr "Kopējais izmantojums"
+
+#: superlight/page_resources.py:43
+msgid "CPU cores"
+msgstr "CPU kodoli"
+
+#: superlight/page_resources.py:45
+msgid "Receiving"
+msgstr "Saņem"
+
+#: superlight/page_resources.py:45
+msgid "Total Received"
+msgstr "Kopā saņemts"
+
+#: superlight/page_resources.py:46
+msgid "Sending"
+msgstr "Sūta"
+
+#: superlight/page_resources.py:46
+msgid "Total Sent"
+msgstr "Kopā nosūtīts"
+
+#: superlight/page_resources.py:47
+msgid "Network"
+msgstr "Tīkls"
+
+#: superlight/page_resources.py:49
+msgid "Reading"
+msgstr "Lasīšana"
+
+#: superlight/page_resources.py:49
+msgid "Total Read"
+msgstr "Kopā izlasīts"
+
+#: superlight/page_resources.py:50
+msgid "Writing"
+msgstr "Rakstīšana"
+
+#: superlight/page_resources.py:50
+msgid "Total Written"
+msgstr "Kopā ierakstīts"
+
+#: superlight/page_resources.py:51
+msgid "Disk"
+msgstr "Disks"
+
+#: superlight/page_resources.py:63
+msgid "Fan Speed"
+msgstr "Ventilatora ātrums"
+
+#: superlight/page_resources.py:120
+msgid "Offline"
+msgstr "Bezsaistē"
+
+#: superlight/page_resources.py:133
+msgid "Usage unavailable from driver"
+msgstr "Lietošana nav pieejama no draivera"
+
+#: superlight/page_resources.py:141
+msgid "Not configured"
+msgstr "Nav konfigurēts"
+
+#: superlight/page_resources.py:146 superlight/page_resources.py:155
+msgid "Unavailable"
+msgstr "Nav pieejams"
+
+#: superlight/page_storage.py:113 superlight/view_folders.py:41
+#: superlight/chunks/flatpak.py:50 superlight/chunks/steam.py:75
+msgid "Measure again"
+msgstr "Mērīt vēlreiz"
+
+#: superlight/page_storage.py:237
+#, python-format
+msgid "used of %s"
+msgstr "izmantots no %s"
+
+#: superlight/page_storage.py:238
+#, python-format
+msgid "%s free"
+msgstr "%s brīvs"
+
+#: superlight/page_storage.py:241
+#, python-format
+msgid "%s are kept by the file system for the system and can't be used."
+msgstr "%s failu sistēma ir paturējusi sistēmai, un tos nevar izmantot."
+
+#: superlight/page_storage.py:290
+msgid "Measuring…"
+msgstr "Mēra..."
+
+#: superlight/page_storage.py:292
+msgid "There is nothing on this drive."
+msgstr "Šajā diskā nekā nav."
+
+#: superlight/page_storage.py:410
+msgid "Some files could not be deleted"
+msgstr "Dažus failus nevarēja izdzēst"
+
+#: superlight/page_storage.py:421
+msgid "Explore Home Folder…"
+msgstr "Izpētīt mājasmapi..."
+
+#: superlight/page_storage.py:424
+msgid "Explore File System…"
+msgstr "Izpētīt failu sistēmu..."
+
+#: superlight/page_storage.py:424
+msgid "Explore Folders…"
+msgstr "Izpētīt mapes..."
+
+#: superlight/view_folders.py:29 superlight/chunks/flatpak.py:41
+msgid "Back to the overview"
+msgstr "Atpakaļ uz pārskatu"
+
+#: superlight/view_folders.py:75
+msgid "Share"
+msgstr "Kopīgot"
+
+#: superlight/view_folders.py:80 superlight/chunks/flatpak.py:75
+#: superlight/chunks/steam.py:99
+msgid "Size"
+msgstr "Izmērs"
+
+#. Translators: File or folder
+#: superlight/view_folders.py:87
+msgid "Modified"
+msgstr "Modificēts"
+
+#: superlight/view_folders.py:109
+msgid "Show in File Manager"
+msgstr "Rādīt failu pārvaldniekā"
+
+#: superlight/view_folders.py:112 superlight/view_folders.py:290
+#: superlight/view_folders.py:350
+msgid "Move to Trash"
+msgstr "Pārvietot uz atkritni"
+
+#: superlight/view_folders.py:151
+msgid "Home"
+msgstr "Mājas"
+
+#: superlight/view_folders.py:155
+msgid "File System"
+msgstr "Failu sistēma"
+
+#: superlight/view_folders.py:230
+msgid "There is nothing in this folder."
+msgstr "Šajā mapē nekā nav."
+
+#: superlight/view_folders.py:233
+msgid "Folders you can't read are left out of the sizes."
+msgstr "Mapes, kuras nevarat nolasīt, netiek iekļautas izmēros."
+
+#: superlight/view_folders.py:253
+msgid "Can't be read"
+msgstr "Nevar nolasīt"
+
+#: superlight/view_folders.py:291 superlight/view_folders.py:373
+msgid "Delete"
+msgstr "Dzēst"
+
+#: superlight/view_folders.py:331 superlight/chunks/flatpak.py:183
+#: superlight/chunks/steam.py:282
+#, python-format
+msgid "%(count)d selected, %(size)s"
+msgid_plural "%(count)d selected, %(size)s"
+msgstr[0] "%(count)d atlasīts, %(size)s"
+msgstr[1] "%(count)d atlasīti, %(size)s"
+msgstr[2] "%(count)d atlasītu, %(size)s"
+
+#: superlight/view_folders.py:334
+#, python-format
+msgid "%(count)d item, %(size)s"
+msgid_plural "%(count)d items, %(size)s"
+msgstr[0] "%(count)d vienums, %(size)s"
+msgstr[1] "%(count)d vienumi, %(size)s"
+msgstr[2] "%(count)d vienumu, %(size)s"
+
+#: superlight/view_folders.py:343
+#, python-format
+msgid "Move \"%s\" to the trash?"
+msgstr "Pārvietot \"%s\" uz atkritni?"
+
+#: superlight/view_folders.py:345
+#, python-format
+msgid "Move %d item to the trash?"
+msgid_plural "Move %d items to the trash?"
+msgstr[0] "Pārvietot %d vienumu uz atkritni?"
+msgstr[1] "Pārvietot %d vienumus uz atkritni?"
+msgstr[2] "Pārvietot %d vienumus uz atkritni?"
+
+#: superlight/view_folders.py:348
+#, python-format
+msgid "%s will be freed when the trash is emptied."
+msgstr "%s tiks atbrīvots, kad atkritne tiks iztukšota."
+
+#: superlight/view_folders.py:359
+msgid "Could not move it to the trash"
+msgstr "Nevarēja pārvietot uz atkritni"
+
+#: superlight/view_folders.py:366
+#, python-format
+msgid "Permanently delete \"%s\"?"
+msgstr "Vai neatgriezeniski dzēst \"%s\"?"
+
+#: superlight/view_folders.py:368
+#, python-format
+msgid "Permanently delete %d item?"
+msgid_plural "Permanently delete %d items?"
+msgstr[0] "Neatgriezeniski dzēst %d vienumu?"
+msgstr[1] "Neatgriezeniski dzēst %d vienumus?"
+msgstr[2] "Neatgriezeniski dzēst %d vienumus?"
+
+#: superlight/view_folders.py:371
+#, python-format
+msgid "%s will be freed. This can't be undone."
+msgstr "%s tiks atbrīvots. To nevarēs atcelt."
+
+#: superlight/view_folders.py:382
+msgid "Could not delete it"
+msgstr "Nevarēja izdzēst"
+
+#: superlight/chunks/cache.py:10
+msgid "Cache"
+msgstr "Kešatmiņa"
+
+#: superlight/chunks/cache.py:20
+msgid "Clear Cache…"
+msgstr "Tīrīt kešatmiņu..."
+
+#: superlight/chunks/cache.py:20
+msgid "Clear the cache?"
+msgstr "Tīrīt kešatmiņu?"
+
+#: superlight/chunks/cache.py:21
+#, python-format
+msgid ""
+"%s of temporary files will be deleted. Programs can be slower the first time "
+"they start afterwards."
+msgstr ""
+"Tiks dzēsti %s pagaidu faili. Pēc tam, kad programmas ir palaistas pirmo "
+"reizi, to darbība var būt lēnāka."
+
+#: superlight/chunks/cache.py:23
+msgid "Clear Cache"
+msgstr "Tīrīt kešatmiņu"
+
+#: superlight/chunks/flatpak.py:44 superlight/chunks/flatpak.py:201
+msgid "Flatpak"
+msgstr "Flatpak"
+
+#: superlight/chunks/flatpak.py:70
+msgid "Type"
+msgstr "Tips"
+
+#: superlight/chunks/flatpak.py:70
+msgid "Installation"
+msgstr "Instalācija"
+
+#: superlight/chunks/flatpak.py:131
+msgid "App"
+msgstr "Lietotne"
+
+#: superlight/chunks/flatpak.py:131
+msgid "Runtime"
+msgstr "Izpildlaiks"
+
+#: superlight/chunks/flatpak.py:132
+msgid "System"
+msgstr "Sistēma"
+
+#: superlight/chunks/flatpak.py:187
+#, python-format
+msgid "%(count)d app, %(size)s"
+msgid_plural "%(count)d apps, %(size)s"
+msgstr[0] "%(count)d lietotne, %(size)s"
+msgstr[1] "%(count)d lietotnes, %(size)s"
+msgstr[2] "%(count)d lietotņu, %(size)s"
+
+#: superlight/chunks/hidden_files.py:12
+msgid "Hidden files"
+msgstr "Slēptie faili"
+
+#: superlight/chunks/logs.py:8
+msgid "Log files"
+msgstr "Žurnālfaili"
+
+#: superlight/chunks/other.py:10
+msgid "Other"
+msgstr "Citi"
+
+#: superlight/chunks/personal_files.py:14
+msgid "Personal files"
+msgstr "Personīgie faili"
+
+#: superlight/chunks/snapshots.py:14
+msgid "System Snapshots"
+msgstr "Sistēmas momentuzņēmumi"
+
+#: superlight/chunks/steam.py:66
+msgid "Back"
+msgstr "Atpakaļ"
+
+#: superlight/chunks/steam.py:69
+msgid "Steam games"
+msgstr "Steam spēles"
+
+#: superlight/chunks/steam.py:95
+msgid "Drive"
+msgstr "Disks"
+
+#: superlight/chunks/steam.py:105
+msgid "Last played"
+msgstr "Pēdējo reizi spēlēts"
+
+#: superlight/chunks/steam.py:215
+msgid "Left over from removed games"
+msgstr "Pāri palicis no noņemtām spēlēm"
+
+#: superlight/chunks/steam.py:269
+msgid "Never"
+msgstr "Nekad"
+
+#: superlight/chunks/steam.py:286
+#, python-format
+msgid "%(count)d game, %(size)s"
+msgid_plural "%(count)d games, %(size)s"
+msgstr[0] "%(count)d spēle, %(size)s"
+msgstr[1] "%(count)d spēles, %(size)s"
+msgstr[2] "%(count)d spēļu, %(size)s"
+
+#: superlight/chunks/steam.py:300
+msgid "Steam"
+msgstr "Steam"
+
+#: superlight/chunks/system_cache.py:8
+msgid "System cache"
+msgstr "Sistēmas kešatmiņa"
+
+#: superlight/chunks/temp_files.py:8
+msgid "Temp files"
+msgstr "Pagaidu faili"
+
+#: superlight/chunks/trash.py:15
+msgid "Trash"
+msgstr "Atkritne"
+
+#. Translators: Trash
+#: superlight/chunks/trash.py:50
+msgctxt "trash"
+msgid "Empty"
+msgstr "Tukša"
+
+#: superlight/chunks/trash.py:69
+msgid "Empty Trash…"
+msgstr "Iztukšot atkritni..."
+
+#: superlight/chunks/trash.py:69
+msgid "Empty the trash?"
+msgstr "Iztukšot atkritni?"
+
+#: superlight/chunks/trash.py:70
+#, python-format
+msgid "%s will be deleted for good."
+msgstr "%s tiks dzēsts pavisam."
+
+#: superlight/chunks/trash.py:70
+msgid "Empty Trash"
+msgstr "Iztukšot atkritni"

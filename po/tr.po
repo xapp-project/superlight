@@ -1,0 +1,1026 @@
+# Turkish translation for linuxmint
+# Copyright (c) 2026 Rosetta Contributors and Canonical Ltd 2026
+# This file is distributed under the same license as the linuxmint package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: linuxmint\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2026-10-26 13:29+0000\n"
+"PO-Revision-Date: 2026-10-26 15:14+0000\n"
+"Last-Translator: Butterfly <Unknown>\n"
+"Language-Team: Turkish <tr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Launchpad-Export-Date: 2026-11-16 12:02+0000\n"
+"X-Generator: Launchpad (build 72ba15af7e009b17d4aa1467977127ac8392a4de)\n"
+
+#: data/org.x.superlight.desktop.in:2 superlight/application.py:22
+#: superlight/application.py:35 superlight/application.py:164
+#: superlight/application.py:174
+msgid "System Monitor"
+msgstr "Sistem Gözlemcisi"
+
+#: data/org.x.superlight.desktop.in:3
+msgid "Monitor system resources and processes"
+msgstr "Sistem kaynaklarını ve süreçlerini izleyin"
+
+#: data/org.x.superlight.desktop.in:9
+msgid "system;monitor;resources;processes;cpu;memory;task manager;"
+msgstr "sistem;izle;kaynaklar;süreçler;cpu;hafıza;görev yöneticisi;"
+
+#: data/org.x.superlight.desktop.in:15 superlight/application.py:47
+msgid "Resources"
+msgstr "Kaynaklar"
+
+#: data/org.x.superlight.desktop.in:19 superlight/application.py:51
+#: superlight/page_apps.py:18
+msgid "Processes"
+msgstr "Süreçler"
+
+#: data/org.x.superlight.desktop.in:23 superlight/application.py:52
+msgid "Storage"
+msgstr "Depolama"
+
+#: superlight/application.py:37
+msgid "About"
+msgstr "Hakkında"
+
+#: superlight/application.py:39
+msgid "Quit"
+msgstr "Kapat"
+
+#: superlight/application.py:49
+msgid "Apps"
+msgstr "Uygulamalar"
+
+#: superlight/application.py:84 superlight/page_battery.py:18
+#: superlight/page_battery.py:273
+msgid "Battery"
+msgstr "Pil"
+
+#: superlight/common_disk.py:70
+msgid "System drive"
+msgstr "Sistem sürücüsü"
+
+#: superlight/common_graphs.py:45
+msgid "< 1 kB/s"
+msgstr "< 1 kB/s"
+
+#: superlight/common_graphs.py:47 superlight/__init__.py:48
+#, python-format
+msgid "%s/s"
+msgstr "%s/s"
+
+#: superlight/common_graphs.py:138
+msgid "1 min"
+msgstr "1 dk"
+
+#: superlight/common_graphs.py:138
+#, python-format
+msgid "%d secs"
+msgstr "%d sn"
+
+#: superlight/common_graphs.py:458 superlight/page_resources.py:148
+#: superlight/page_resources.py:149
+#, python-format
+msgid "%d °C"
+msgstr "%d °C"
+
+#: superlight/common_graphs.py:479
+#, python-format
+msgid "Fan %d"
+msgstr "Fan %d"
+
+#: superlight/common_graphs.py:495 superlight/page_resources.py:157
+#: superlight/page_resources.py:158
+#, python-format
+msgid "%d RPM"
+msgstr "%d RPM"
+
+#: superlight/common_process.py:268
+msgid "Use Default"
+msgstr "Varsayılanı Kullan"
+
+#: superlight/common_proc.py:45 superlight/common_proc.py:50
+msgid "Unknown GPU"
+msgstr "Bilinmeyen GPU"
+
+#. Translators: Priority
+#: superlight/__init__.py:56
+msgid "Very High"
+msgstr "Çok Yüksek"
+
+#. Translators: Priority
+#: superlight/__init__.py:59
+msgid "High"
+msgstr "Yüksek"
+
+#. Translators: Priority
+#: superlight/__init__.py:62
+msgid "Normal"
+msgstr "Normal"
+
+#. Translators: Priority
+#: superlight/__init__.py:65
+msgid "Low"
+msgstr "Düşük"
+
+#. Translators: Priority
+#: superlight/__init__.py:67
+msgid "Very Low"
+msgstr "Çok Düşük"
+
+#: superlight/__init__.py:76
+#, python-format
+msgid "Today, %s"
+msgstr "Bugün, %s"
+
+#: superlight/__init__.py:78
+#, python-format
+msgid "Yesterday, %s"
+msgstr "Dün, %s"
+
+#. Translators: Process
+#: superlight/__init__.py:83
+msgid "Running"
+msgstr "Çalışıyor"
+
+#. Translators: Process
+#: superlight/__init__.py:85
+msgid "Sleeping"
+msgstr "Uyuyor"
+
+#: superlight/__init__.py:86
+msgid "Disk Sleep"
+msgstr "Disk Uyku Kipi"
+
+#. Translators: Process
+#: superlight/__init__.py:88
+msgid "Stopped"
+msgstr "Durdurulan"
+
+#: superlight/__init__.py:89
+msgid "Tracing Stop"
+msgstr "İzlemeyi Durdur"
+
+#: superlight/__init__.py:90
+msgid "Zombie"
+msgstr "Zombi"
+
+#. Translators: Process
+#: superlight/__init__.py:92
+msgid "Dead"
+msgstr "Ölü"
+
+#. Translators: Process
+#: superlight/__init__.py:94
+msgctxt "process state"
+msgid "Idle"
+msgstr "Boşta"
+
+#: superlight/page_apps.py:17 superlight/page_processes.py:16
+#: superlight/view_folders.py:61 superlight/chunks/flatpak.py:64
+#: superlight/chunks/steam.py:89
+msgid "Name"
+msgstr "İsim"
+
+#. Translators: Application
+#. Translators: Process
+#: superlight/page_apps.py:20 superlight/page_processes.py:22
+msgid "Started"
+msgstr "Başlatma"
+
+#: superlight/page_apps.py:21 superlight/page_processes.py:25
+#: superlight/page_resources.py:127
+msgid "CPU"
+msgstr "CPU"
+
+#: superlight/page_apps.py:22 superlight/page_processes.py:26
+msgid "CPU Time"
+msgstr "CPU Zamanı"
+
+#: superlight/page_apps.py:23 superlight/page_processes.py:27
+#: superlight/page_resources.py:134 superlight/page_resources.py:135
+msgid "Memory"
+msgstr "Bellek"
+
+#: superlight/page_apps.py:24 superlight/page_processes.py:31
+#: superlight/page_resources.py:137 superlight/page_resources.py:139
+#: superlight/page_resources.py:141 superlight/chunks/swap.py:11
+msgid "Swap"
+msgstr "Takas"
+
+#: superlight/page_apps.py:25 superlight/page_processes.py:32
+msgid "Disk Read"
+msgstr "Diskten Okuma"
+
+#: superlight/page_apps.py:26 superlight/page_processes.py:33
+msgid "Disk Write"
+msgstr "Diske Yazma"
+
+#: superlight/page_apps.py:27 superlight/page_processes.py:34
+msgid "Disk Read Total"
+msgstr "Toplam Diskten Okuma"
+
+#: superlight/page_apps.py:28 superlight/page_processes.py:35
+msgid "Disk Write Total"
+msgstr "Toplam Diske Yazma"
+
+#: superlight/page_apps.py:29 superlight/page_processes.py:36
+#: superlight/page_resources.py:130 superlight/page_resources.py:131
+#: superlight/page_resources.py:133
+msgid "GPU"
+msgstr "GPU"
+
+#: superlight/page_apps.py:30 superlight/page_processes.py:37
+msgid "Video Memory"
+msgstr "Video Belleği"
+
+#: superlight/page_apps.py:31 superlight/page_processes.py:38
+msgid "Video Encoder"
+msgstr "Video Kodlayıcı"
+
+#: superlight/page_apps.py:32 superlight/page_processes.py:39
+msgid "Video Decoder"
+msgstr "Video Çözücü"
+
+#: superlight/page_apps.py:48 superlight/page_apps.py:49
+#: superlight/page_apps.py:216
+msgid "End Application"
+msgstr "Uygulamayı Sonlandır"
+
+#: superlight/page_apps.py:48 superlight/page_processes.py:50
+#, python-format
+msgid "End \"%s\"?"
+msgstr "\"%s\" sonlandırısın mı?"
+
+#: superlight/page_apps.py:49
+msgid "All its processes will be asked to quit. They may lose unsaved work."
+msgstr ""
+"Tüm süreçlerinin sonlandırılması istenecektir. Kaydedilmemiş çalışmalar "
+"kaybolabilir."
+
+#: superlight/page_apps.py:50
+msgid "Could not end the application"
+msgstr "Uygulama sonlandırılamadı"
+
+#: superlight/page_apps.py:51 superlight/page_apps.py:52
+msgid "Kill Application"
+msgstr "Uygulamayı Öldür"
+
+#: superlight/page_apps.py:51 superlight/page_processes.py:53
+#, python-format
+msgid "Kill \"%s\"?"
+msgstr "\"%s\" öldürülsün mü?"
+
+#: superlight/page_apps.py:52
+msgid "All its processes will stop immediately. Unsaved work may be lost."
+msgstr ""
+"Tüm işlemler hemen durdurulacaktır. Kaydedilmemiş çalışmalar kaybolabilir."
+
+#: superlight/page_apps.py:53
+msgid "Could not kill the application"
+msgstr "Uygulama öldürülemedi"
+
+#: superlight/page_apps.py:54
+msgid "Stop Application"
+msgstr "Uygulamayı Durdur"
+
+#: superlight/page_apps.py:54
+msgid "Could not stop the application"
+msgstr "Uygulama durdurulamadı"
+
+#: superlight/page_apps.py:55
+msgid "Continue Application"
+msgstr "Uygulamayı Sürdür"
+
+#: superlight/page_apps.py:56
+msgid "Could not continue the application"
+msgstr "Uygulamaya devam edilemedi"
+
+#: superlight/page_apps.py:147
+msgid "Pauses the application"
+msgstr "Uygulamarı durdurur"
+
+#: superlight/page_apps.py:210 superlight/page_processes.py:157
+msgid "Search"
+msgstr "Ara"
+
+#: superlight/page_apps.py:336 superlight/page_processes.py:350
+#: superlight/page_storage.py:366 superlight/view_folders.py:349
+#: superlight/view_folders.py:372
+msgid "Cancel"
+msgstr "İptal"
+
+#: superlight/page_battery.py:18
+msgid "Uninterruptible Power Supply"
+msgstr "Kesintisiz Güç Kaynağı"
+
+#: superlight/page_battery.py:18
+msgid "Mouse"
+msgstr "Fare"
+
+#: superlight/page_battery.py:19
+msgid "Keyboard"
+msgstr "Klavye"
+
+#: superlight/page_battery.py:19
+msgid "Game Controller"
+msgstr "Oyun Kolu"
+
+#: superlight/page_battery.py:19
+msgid "Phone"
+msgstr "Telefon"
+
+#: superlight/page_battery.py:20
+msgid "Tablet"
+msgstr "Tablet"
+
+#: superlight/page_battery.py:20
+msgid "Pen"
+msgstr "Kalem"
+
+#: superlight/page_battery.py:20
+msgid "Touchpad"
+msgstr "Dokunmatik Yüzey"
+
+#: superlight/page_battery.py:21
+msgid "Headset"
+msgstr "Kulaklık Seti"
+
+#: superlight/page_battery.py:21
+msgid "Headphones"
+msgstr "Kulaklıklar"
+
+#: superlight/page_battery.py:21
+msgid "Speakers"
+msgstr "Hoparlörler"
+
+#: superlight/page_battery.py:22
+msgid "Media Player"
+msgstr "Ortam Oynatıcısı"
+
+#: superlight/page_battery.py:22
+msgid "Personal Digital Assistant"
+msgstr "Kişisel Dijital Asistanı (PDA)"
+
+#: superlight/page_battery.py:23
+msgid "Computer"
+msgstr "Bilgisayar"
+
+#: superlight/page_battery.py:23
+msgid "Remote Control"
+msgstr "Uzaktan Kumanda"
+
+#. Translators: Battery
+#: superlight/page_battery.py:26 superlight/page_battery.py:47
+msgid "Charging"
+msgstr "Doluyor"
+
+#. Translators: Battery
+#: superlight/page_battery.py:28 superlight/page_battery.py:45
+msgid "Discharging"
+msgstr "Boşalıyor"
+
+#. Translators: Battery
+#: superlight/page_battery.py:30
+msgctxt "battery state"
+msgid "Empty"
+msgstr "Boş"
+
+#. Translators: Battery
+#: superlight/page_battery.py:32
+msgid "Fully charged"
+msgstr "Tam dolu"
+
+#. Translators: Battery
+#: superlight/page_battery.py:34
+msgid "Waiting to charge"
+msgstr "Dolması bekleniyor"
+
+#. Translators: Battery
+#: superlight/page_battery.py:36
+msgid "Waiting to discharge"
+msgstr "Boşalması bekleniyor"
+
+#: superlight/page_battery.py:38
+msgid "Lithium Ion"
+msgstr "Lityum İyon"
+
+#: superlight/page_battery.py:38
+msgid "Lithium Polymer"
+msgstr "Lityum Polimer"
+
+#: superlight/page_battery.py:39
+msgid "Lithium Iron Phosphate"
+msgstr "Lityum Demir Fosfat"
+
+#: superlight/page_battery.py:40
+msgid "Lead acid"
+msgstr "Kurşun Asit"
+
+#: superlight/page_battery.py:40
+msgid "Nickel Cadmium"
+msgstr "Nikel Kadmiyum"
+
+#: superlight/page_battery.py:41
+msgid "Nickel metal hydride"
+msgstr "Nikel Metal Hidrit"
+
+#. Translators: Battery
+#: superlight/page_battery.py:49
+msgctxt "battery history"
+msgid "Idle"
+msgstr "Boşta"
+
+#: superlight/page_battery.py:55
+msgid "30 minutes"
+msgstr "30 dakika"
+
+#: superlight/page_battery.py:55
+msgid "3 hours"
+msgstr "3 saat"
+
+#: superlight/page_battery.py:55
+msgid "8 hours"
+msgstr "8 saat"
+
+#: superlight/page_battery.py:56
+msgid "1 day"
+msgstr "1 gün"
+
+#: superlight/page_battery.py:56
+msgid "1 week"
+msgstr "1 hafta"
+
+#: superlight/page_battery.py:57
+msgid "Charge"
+msgstr "Şarj"
+
+#: superlight/page_battery.py:57 superlight/page_battery.py:217
+msgid "Power"
+msgstr "Güç"
+
+#: superlight/page_battery.py:69
+#, python-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d saat"
+msgstr[1] "%d saat"
+
+#: superlight/page_battery.py:71
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d dakika"
+msgstr[1] "%d dakika"
+
+#: superlight/page_battery.py:162
+#, python-format
+msgid "%d d"
+msgstr "%d g"
+
+#: superlight/page_battery.py:164
+#, python-format
+msgid "%s h"
+msgstr "%s sa"
+
+#: superlight/page_battery.py:165
+#, python-format
+msgid "%d min"
+msgstr "%d dak"
+
+#: superlight/page_battery.py:205
+msgid "Details"
+msgstr "Ayrıntılar"
+
+#: superlight/page_battery.py:215
+msgid "Vendor"
+msgstr "Üretici"
+
+#: superlight/page_battery.py:215
+msgid "Model"
+msgstr "Model"
+
+#: superlight/page_battery.py:215
+msgid "Technology"
+msgstr "Teknoloji"
+
+#: superlight/page_battery.py:216
+msgid "Energy"
+msgstr "Enerji"
+
+#: superlight/page_battery.py:216
+msgid "Energy when full"
+msgstr "Enerji doluyken"
+
+#: superlight/page_battery.py:217
+msgid "Health"
+msgstr "Sağlık"
+
+#: superlight/page_battery.py:217
+msgid "Voltage"
+msgstr "Gerilim"
+
+#: superlight/page_battery.py:218
+msgid "Charge cycles"
+msgstr "Şarj döngüleri"
+
+#: superlight/page_battery.py:218 superlight/page_resources.py:57
+msgid "Temperature"
+msgstr "Isı"
+
+#: superlight/page_battery.py:245
+msgid "No history is available for this device yet"
+msgstr "Bu cihaz için henüz bir geçmiş bilgisi yok"
+
+#: superlight/page_battery.py:313
+#, python-format
+msgid "%(state)s, %(time)s remaining"
+msgstr "%(state)s, %(time)s kaldı"
+
+#: superlight/page_battery.py:315
+#, python-format
+msgid "%(state)s, %(time)s until full"
+msgstr "%(state)s, tam doluma %(time)s kaldı"
+
+#: superlight/page_processes.py:17
+msgid "PID"
+msgstr "PID"
+
+#: superlight/page_processes.py:18 superlight/chunks/flatpak.py:132
+msgid "User"
+msgstr "Kullanıcı"
+
+#: superlight/page_processes.py:19
+msgid "State"
+msgstr "Durum"
+
+#: superlight/page_processes.py:20
+msgid "Priority"
+msgstr "Öncelik"
+
+#: superlight/page_processes.py:23
+msgid "Systemd Unit"
+msgstr "Systemd Birimi"
+
+#: superlight/page_processes.py:24
+msgid "Command Line"
+msgstr "Komut Satırı"
+
+#: superlight/page_processes.py:28
+msgid "Virtual Memory"
+msgstr "Sanal Bellek"
+
+#: superlight/page_processes.py:29
+msgid "Resident Memory"
+msgstr "Yerleşik Bellek"
+
+#: superlight/page_processes.py:30
+msgid "Shared Memory"
+msgstr "Paylaşılan Bellek"
+
+#: superlight/page_processes.py:50 superlight/page_processes.py:51
+#: superlight/page_processes.py:174
+msgid "End Process"
+msgstr "Süreci Sonlandır"
+
+#: superlight/page_processes.py:51
+msgid "The process will be asked to quit. It may lose unsaved work."
+msgstr ""
+"Sürecin sonlandırılması istenecektir. Kaydedilmemiş çalışmalar kaybolabilir."
+
+#: superlight/page_processes.py:52
+msgid "Could not end the process"
+msgstr "Süreç sonlandırılamadı"
+
+#: superlight/page_processes.py:53 superlight/page_processes.py:54
+msgid "Kill Process"
+msgstr "Süreci Öldür"
+
+#: superlight/page_processes.py:54
+msgid "The process will stop immediately. Unsaved work may be lost."
+msgstr "Süreç hemen durdurulacaktır. Kaydedilmemiş çalışmalar kaybolabilir."
+
+#: superlight/page_processes.py:55
+msgid "Could not kill the process"
+msgstr "Süreç öldürülemedi"
+
+#: superlight/page_processes.py:56
+msgid "Stop Process"
+msgstr "Süreci Durdur"
+
+#: superlight/page_processes.py:56
+msgid "Could not stop the process"
+msgstr "Süreç durdurulamadı"
+
+#: superlight/page_processes.py:57
+msgid "Continue Process"
+msgstr "Süreci Sürdür"
+
+#: superlight/page_processes.py:58
+msgid "Could not continue the process"
+msgstr "Sürece devam edilmedi"
+
+#: superlight/page_processes.py:60
+msgid "All Processes"
+msgstr "Tüm Süreçler"
+
+#: superlight/page_processes.py:60
+msgid "My Processes"
+msgstr "Süreçlerim"
+
+#: superlight/page_processes.py:60
+msgid "Active Processes"
+msgstr "Etkin Süreçler"
+
+#: superlight/page_processes.py:70
+msgid "Pauses the process"
+msgstr "Süreci durdurur"
+
+#: superlight/page_processes.py:169
+msgid "Process tree"
+msgstr "Süreç ağacı"
+
+#: superlight/page_processes.py:170
+msgid "Show each process under the one that started it"
+msgstr "Her bir süreci, onu başlatan sürecin altında gösterir"
+
+#: superlight/page_processes.py:369
+msgid "The selected process has already exited."
+msgstr "Seçilen işlem zaten sona erdi."
+
+#: superlight/page_resources.py:37 superlight/page_resources.py:55
+#: superlight/page_resources.py:61
+msgid "Collecting data…"
+msgstr "Veri toplanıyor…"
+
+#: superlight/page_resources.py:39
+msgid "Overall usage"
+msgstr "Genel kullanım"
+
+#: superlight/page_resources.py:43
+msgid "CPU cores"
+msgstr "CPU çekirdekleri"
+
+#: superlight/page_resources.py:45
+msgid "Receiving"
+msgstr "Alınıyor"
+
+#: superlight/page_resources.py:45
+msgid "Total Received"
+msgstr "Toplam Alınan"
+
+#: superlight/page_resources.py:46
+msgid "Sending"
+msgstr "Gönderiliyor"
+
+#: superlight/page_resources.py:46
+msgid "Total Sent"
+msgstr "Toplam Gönderilen"
+
+#: superlight/page_resources.py:47
+msgid "Network"
+msgstr "Ağ"
+
+#: superlight/page_resources.py:49
+msgid "Reading"
+msgstr "Okunuyor"
+
+#: superlight/page_resources.py:49
+msgid "Total Read"
+msgstr "Toplam Okuma"
+
+#: superlight/page_resources.py:50
+msgid "Writing"
+msgstr "Yazılıyor"
+
+#: superlight/page_resources.py:50
+msgid "Total Written"
+msgstr "Toplam Yazma"
+
+#: superlight/page_resources.py:51
+msgid "Disk"
+msgstr "Disk"
+
+#: superlight/page_resources.py:63
+msgid "Fan Speed"
+msgstr "Fan Hızı"
+
+#: superlight/page_resources.py:120
+msgid "Offline"
+msgstr "Çevrimdışı"
+
+#: superlight/page_resources.py:133
+msgid "Usage unavailable from driver"
+msgstr "Sürücüden kullanıma erişilemiyor"
+
+#: superlight/page_resources.py:141
+msgid "Not configured"
+msgstr "Yapılandırılmamış"
+
+#: superlight/page_resources.py:146 superlight/page_resources.py:155
+msgid "Unavailable"
+msgstr "Erişilemiyor"
+
+#: superlight/page_storage.py:113 superlight/view_folders.py:41
+#: superlight/chunks/flatpak.py:50 superlight/chunks/steam.py:75
+msgid "Measure again"
+msgstr "Tekrar hesaplayın"
+
+#: superlight/page_storage.py:237
+#, python-format
+msgid "used of %s"
+msgstr "%s kullanımı"
+
+#: superlight/page_storage.py:238
+#, python-format
+msgid "%s free"
+msgstr "%s boş"
+
+#: superlight/page_storage.py:241
+#, python-format
+msgid "%s are kept by the file system for the system and can't be used."
+msgstr "%s dosya sistemi tarafından sistem için tutulur ve kullanılamaz."
+
+#: superlight/page_storage.py:290
+msgid "Measuring…"
+msgstr "Hesaplanıyor…"
+
+#: superlight/page_storage.py:292
+msgid "There is nothing on this drive."
+msgstr "Bu sürücüde hiçbir şey yok."
+
+#: superlight/page_storage.py:410
+msgid "Some files could not be deleted"
+msgstr "Bazı dosyalar silinemedi"
+
+#: superlight/page_storage.py:421
+msgid "Explore Home Folder…"
+msgstr "Ev Dizinine Gözatın…"
+
+#: superlight/page_storage.py:424
+msgid "Explore File System…"
+msgstr "Dosya Sistemine Gözatın…"
+
+#: superlight/page_storage.py:424
+msgid "Explore Folders…"
+msgstr "Dizinlere Gözatın…"
+
+#: superlight/view_folders.py:29 superlight/chunks/flatpak.py:41
+msgid "Back to the overview"
+msgstr "Genel görünüme dön"
+
+#: superlight/view_folders.py:75
+msgid "Share"
+msgstr "Pay"
+
+#: superlight/view_folders.py:80 superlight/chunks/flatpak.py:75
+#: superlight/chunks/steam.py:99
+msgid "Size"
+msgstr "Boyut"
+
+#. Translators: File or folder
+#: superlight/view_folders.py:87
+msgid "Modified"
+msgstr "Değiştirilme"
+
+#: superlight/view_folders.py:109
+msgid "Show in File Manager"
+msgstr "Dosya Yöneticisinde Göster"
+
+#: superlight/view_folders.py:112 superlight/view_folders.py:290
+#: superlight/view_folders.py:350
+msgid "Move to Trash"
+msgstr "Çöpe Taşı"
+
+#: superlight/view_folders.py:151
+msgid "Home"
+msgstr "Ev Dizini"
+
+#: superlight/view_folders.py:155
+msgid "File System"
+msgstr "Dosya Sistemi"
+
+#: superlight/view_folders.py:230
+msgid "There is nothing in this folder."
+msgstr "Bu dizinde hiçbir şey yok."
+
+#: superlight/view_folders.py:233
+msgid "Folders you can't read are left out of the sizes."
+msgstr "Okuyamadığınız dizinler boyutlandırma işlemine dahil edilmez."
+
+#: superlight/view_folders.py:253
+msgid "Can't be read"
+msgstr "Okunamıyor"
+
+#: superlight/view_folders.py:291 superlight/view_folders.py:373
+msgid "Delete"
+msgstr "Sil"
+
+#: superlight/view_folders.py:331 superlight/chunks/flatpak.py:183
+#: superlight/chunks/steam.py:282
+#, python-format
+msgid "%(count)d selected, %(size)s"
+msgid_plural "%(count)d selected, %(size)s"
+msgstr[0] "%(count)d seçili, %(size)s"
+msgstr[1] "%(count)d seçili, %(size)s"
+
+#: superlight/view_folders.py:334
+#, python-format
+msgid "%(count)d item, %(size)s"
+msgid_plural "%(count)d items, %(size)s"
+msgstr[0] "%(count)d öge, %(size)s"
+msgstr[1] "%(count)d öge, %(size)s"
+
+#: superlight/view_folders.py:343
+#, python-format
+msgid "Move \"%s\" to the trash?"
+msgstr "\"%s\" çöpe taşınsın mı?"
+
+#: superlight/view_folders.py:345
+#, python-format
+msgid "Move %d item to the trash?"
+msgid_plural "Move %d items to the trash?"
+msgstr[0] "%d öge çöpe taşınsın mı?"
+msgstr[1] "%d öge çöpe taşınsın mı?"
+
+#: superlight/view_folders.py:348
+#, python-format
+msgid "%s will be freed when the trash is emptied."
+msgstr "Çöp boşaltıldığında %s alan serbest kalacak."
+
+#: superlight/view_folders.py:359
+msgid "Could not move it to the trash"
+msgstr "Çöp kutusuna taşınamadı"
+
+#: superlight/view_folders.py:366
+#, python-format
+msgid "Permanently delete \"%s\"?"
+msgstr "\"%s\" kalıcı olarak silinsin mi?"
+
+#: superlight/view_folders.py:368
+#, python-format
+msgid "Permanently delete %d item?"
+msgid_plural "Permanently delete %d items?"
+msgstr[0] "%d öge kalıcı olarak silinsin mi?"
+msgstr[1] "%d öge kalıcı olarak silinsin mi?"
+
+#: superlight/view_folders.py:371
+#, python-format
+msgid "%s will be freed. This can't be undone."
+msgstr "%s alan boşaltılacak. Bu işlem geri alınamaz."
+
+#: superlight/view_folders.py:382
+msgid "Could not delete it"
+msgstr "Silinemedi"
+
+#: superlight/chunks/cache.py:10
+msgid "Cache"
+msgstr "Önbellek"
+
+#: superlight/chunks/cache.py:20
+msgid "Clear Cache…"
+msgstr "Önbelleği Temizle…"
+
+#: superlight/chunks/cache.py:20
+msgid "Clear the cache?"
+msgstr "Önbellek temizlensin mi?"
+
+#: superlight/chunks/cache.py:21
+#, python-format
+msgid ""
+"%s of temporary files will be deleted. Programs can be slower the first time "
+"they start afterwards."
+msgstr ""
+"%s geçici dosyalar silinecektir. Sonrasında uygulamalar ilk "
+"çalıştırılmalarında daha yavaş başlayabilir."
+
+#: superlight/chunks/cache.py:23
+msgid "Clear Cache"
+msgstr "Önbelleği Temizle"
+
+#: superlight/chunks/flatpak.py:44 superlight/chunks/flatpak.py:201
+msgid "Flatpak"
+msgstr "Flatpak"
+
+#: superlight/chunks/flatpak.py:70
+msgid "Type"
+msgstr "Tür"
+
+#: superlight/chunks/flatpak.py:70
+msgid "Installation"
+msgstr "Kurulum"
+
+#: superlight/chunks/flatpak.py:131
+msgid "App"
+msgstr "Uygulama"
+
+#: superlight/chunks/flatpak.py:131
+msgid "Runtime"
+msgstr "Çalıştırma ortamı"
+
+#: superlight/chunks/flatpak.py:132
+msgid "System"
+msgstr "Sistem"
+
+#: superlight/chunks/flatpak.py:187
+#, python-format
+msgid "%(count)d app, %(size)s"
+msgid_plural "%(count)d apps, %(size)s"
+msgstr[0] "%(count)d uygulama, %(size)s"
+msgstr[1] "%(count)d uygulama, %(size)s"
+
+#: superlight/chunks/hidden_files.py:12
+msgid "Hidden files"
+msgstr "Gizli dosyalar"
+
+#: superlight/chunks/logs.py:8
+msgid "Log files"
+msgstr "Günlük dosyaları"
+
+#: superlight/chunks/other.py:10
+msgid "Other"
+msgstr "Diğer"
+
+#: superlight/chunks/personal_files.py:14
+msgid "Personal files"
+msgstr "Bireysel dosyalar"
+
+#: superlight/chunks/snapshots.py:14
+msgid "System Snapshots"
+msgstr "Sistem Anlık Görüntüleri"
+
+#: superlight/chunks/steam.py:66
+msgid "Back"
+msgstr "Geri"
+
+#: superlight/chunks/steam.py:69
+msgid "Steam games"
+msgstr "Steam oyunları"
+
+#: superlight/chunks/steam.py:95
+msgid "Drive"
+msgstr "Sürücü"
+
+#: superlight/chunks/steam.py:105
+msgid "Last played"
+msgstr "Son oynatılan"
+
+#: superlight/chunks/steam.py:215
+msgid "Left over from removed games"
+msgstr "Kaldırılan oyunlardan geriye kalanlar"
+
+#: superlight/chunks/steam.py:269
+msgid "Never"
+msgstr "Asla"
+
+#: superlight/chunks/steam.py:286
+#, python-format
+msgid "%(count)d game, %(size)s"
+msgid_plural "%(count)d games, %(size)s"
+msgstr[0] "%(count)d oyun, %(size)s"
+msgstr[1] "%(count)d oyun, %(size)s"
+
+#: superlight/chunks/steam.py:300
+msgid "Steam"
+msgstr "Steam"
+
+#: superlight/chunks/system_cache.py:8
+msgid "System cache"
+msgstr "Steam önbelleği"
+
+#: superlight/chunks/temp_files.py:8
+msgid "Temp files"
+msgstr "Geçici dosyalar"
+
+#: superlight/chunks/trash.py:15
+msgid "Trash"
+msgstr "Çöp"
+
+#. Translators: Trash
+#: superlight/chunks/trash.py:50
+msgctxt "trash"
+msgid "Empty"
+msgstr "Boş"
+
+#: superlight/chunks/trash.py:69
+msgid "Empty Trash…"
+msgstr "Çöpü Boşalt…"
+
+#: superlight/chunks/trash.py:69
+msgid "Empty the trash?"
+msgstr "Çöp boşaltılsın mı?"
+
+#: superlight/chunks/trash.py:70
+#, python-format
+msgid "%s will be deleted for good."
+msgstr "%s kalıcı olarak silinecektir."
+
+#: superlight/chunks/trash.py:70
+msgid "Empty Trash"
+msgstr "Çöpü Boşalt"

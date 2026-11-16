@@ -1,0 +1,1049 @@
+# Welsh translation for linuxmint
+# Copyright (c) 2026 Rosetta Contributors and Canonical Ltd 2026
+# This file is distributed under the same license as the linuxmint package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: linuxmint\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2026-10-26 13:29+0000\n"
+"PO-Revision-Date: 2026-11-10 16:19+0000\n"
+"Last-Translator: Rhoslyn Prys <rprys@posteo.net>\n"
+"Language-Team: Welsh <cy@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n==3 ? 3 "
+": n==6 ? 4 : 5);\n"
+"X-Launchpad-Export-Date: 2026-11-16 12:02+0000\n"
+"X-Generator: Launchpad (build 72ba15af7e009b17d4aa1467977127ac8392a4de)\n"
+"Language: cy\n"
+
+#: data/org.x.superlight.desktop.in:2 superlight/application.py:22
+#: superlight/application.py:35 superlight/application.py:164
+#: superlight/application.py:174
+msgid "System Monitor"
+msgstr "Monitr System"
+
+#: data/org.x.superlight.desktop.in:3
+msgid "Monitor system resources and processes"
+msgstr "Monitro adnoddau a phrosesau'r system"
+
+#: data/org.x.superlight.desktop.in:9
+msgid "system;monitor;resources;processes;cpu;memory;task manager;"
+msgstr "system;monitor;adnoddau;prosesau;cpu;cof;rheolwr tasgau;"
+
+#: data/org.x.superlight.desktop.in:15 superlight/application.py:47
+msgid "Resources"
+msgstr "Adnoddau"
+
+#: data/org.x.superlight.desktop.in:19 superlight/application.py:51
+#: superlight/page_apps.py:18
+msgid "Processes"
+msgstr "Prosesau"
+
+#: data/org.x.superlight.desktop.in:23 superlight/application.py:52
+msgid "Storage"
+msgstr "Storfa"
+
+#: superlight/application.py:37
+msgid "About"
+msgstr "Ynghylch"
+
+#: superlight/application.py:39
+msgid "Quit"
+msgstr "Gorffen"
+
+#: superlight/application.py:49
+msgid "Apps"
+msgstr "Apiau"
+
+#: superlight/application.py:84 superlight/page_battery.py:18
+#: superlight/page_battery.py:273
+msgid "Battery"
+msgstr "Batri"
+
+#: superlight/common_disk.py:70
+msgid "System drive"
+msgstr "Disg system"
+
+#: superlight/common_graphs.py:45
+msgid "< 1 kB/s"
+msgstr "< 1 kB/s"
+
+#: superlight/common_graphs.py:47 superlight/__init__.py:48
+#, python-format
+msgid "%s/s"
+msgstr "%s/eiliad"
+
+#: superlight/common_graphs.py:138
+msgid "1 min"
+msgstr "1 munud"
+
+#: superlight/common_graphs.py:138
+#, python-format
+msgid "%d secs"
+msgstr "%d eiliad"
+
+#: superlight/common_graphs.py:458 superlight/page_resources.py:148
+#: superlight/page_resources.py:149
+#, python-format
+msgid "%d °C"
+msgstr "%d °C"
+
+#: superlight/common_graphs.py:479
+#, python-format
+msgid "Fan %d"
+msgstr "Ffan %d"
+
+#: superlight/common_graphs.py:495 superlight/page_resources.py:157
+#: superlight/page_resources.py:158
+#, python-format
+msgid "%d RPM"
+msgstr "%d RPM"
+
+#: superlight/common_process.py:268
+msgid "Use Default"
+msgstr "Defnyddio'r Rhagosodiad"
+
+#: superlight/common_proc.py:45 superlight/common_proc.py:50
+msgid "Unknown GPU"
+msgstr "GPU anhysbys"
+
+#. Translators: Priority
+#: superlight/__init__.py:56
+msgid "Very High"
+msgstr "Uchel Iawn"
+
+#. Translators: Priority
+#: superlight/__init__.py:59
+msgid "High"
+msgstr "Uchel"
+
+#. Translators: Priority
+#: superlight/__init__.py:62
+msgid "Normal"
+msgstr "Arferol"
+
+#. Translators: Priority
+#: superlight/__init__.py:65
+msgid "Low"
+msgstr "Isel"
+
+#. Translators: Priority
+#: superlight/__init__.py:67
+msgid "Very Low"
+msgstr "Isel Iawn"
+
+#: superlight/__init__.py:76
+#, python-format
+msgid "Today, %s"
+msgstr "Heddiw, %s"
+
+#: superlight/__init__.py:78
+#, python-format
+msgid "Yesterday, %s"
+msgstr "Ddoe, %s"
+
+#. Translators: Process
+#: superlight/__init__.py:83
+msgid "Running"
+msgstr "Yn rhedeg"
+
+#. Translators: Process
+#: superlight/__init__.py:85
+msgid "Sleeping"
+msgstr "Yn cysgu"
+
+#: superlight/__init__.py:86
+msgid "Disk Sleep"
+msgstr "Cwsg Disg"
+
+#. Translators: Process
+#: superlight/__init__.py:88
+msgid "Stopped"
+msgstr "Ataliwyd"
+
+#: superlight/__init__.py:89
+msgid "Tracing Stop"
+msgstr "Stop Olrhain"
+
+#: superlight/__init__.py:90
+msgid "Zombie"
+msgstr "Sombi"
+
+#. Translators: Process
+#: superlight/__init__.py:92
+msgid "Dead"
+msgstr "Marw"
+
+#. Translators: Process
+#: superlight/__init__.py:94
+msgctxt "process state"
+msgid "Idle"
+msgstr "Yn segur"
+
+#: superlight/page_apps.py:17 superlight/page_processes.py:16
+#: superlight/view_folders.py:61 superlight/chunks/flatpak.py:64
+#: superlight/chunks/steam.py:89
+msgid "Name"
+msgstr "Enw"
+
+#. Translators: Application
+#. Translators: Process
+#: superlight/page_apps.py:20 superlight/page_processes.py:22
+msgid "Started"
+msgstr "Wedi dechrau"
+
+#: superlight/page_apps.py:21 superlight/page_processes.py:25
+#: superlight/page_resources.py:127
+msgid "CPU"
+msgstr "CPU"
+
+#: superlight/page_apps.py:22 superlight/page_processes.py:26
+msgid "CPU Time"
+msgstr "Amser CPU"
+
+#: superlight/page_apps.py:23 superlight/page_processes.py:27
+#: superlight/page_resources.py:134 superlight/page_resources.py:135
+msgid "Memory"
+msgstr "Cof"
+
+#: superlight/page_apps.py:24 superlight/page_processes.py:31
+#: superlight/page_resources.py:137 superlight/page_resources.py:139
+#: superlight/page_resources.py:141 superlight/chunks/swap.py:11
+msgid "Swap"
+msgstr "Cyfnewid"
+
+#: superlight/page_apps.py:25 superlight/page_processes.py:32
+msgid "Disk Read"
+msgstr "Darllen Disg"
+
+#: superlight/page_apps.py:26 superlight/page_processes.py:33
+msgid "Disk Write"
+msgstr "Ysgrifennu i'r Disg"
+
+#: superlight/page_apps.py:27 superlight/page_processes.py:34
+msgid "Disk Read Total"
+msgstr "Cyfanswm Darllen y Disg"
+
+#: superlight/page_apps.py:28 superlight/page_processes.py:35
+msgid "Disk Write Total"
+msgstr "Cyfanswm Ysgrifennu Disg"
+
+#: superlight/page_apps.py:29 superlight/page_processes.py:36
+#: superlight/page_resources.py:130 superlight/page_resources.py:131
+#: superlight/page_resources.py:133
+msgid "GPU"
+msgstr "GPU"
+
+#: superlight/page_apps.py:30 superlight/page_processes.py:37
+msgid "Video Memory"
+msgstr "Cof Fideo"
+
+#: superlight/page_apps.py:31 superlight/page_processes.py:38
+msgid "Video Encoder"
+msgstr "Amgodiwr Fideo"
+
+#: superlight/page_apps.py:32 superlight/page_processes.py:39
+msgid "Video Decoder"
+msgstr "Datgodiwr Fideo"
+
+#: superlight/page_apps.py:48 superlight/page_apps.py:49
+#: superlight/page_apps.py:216
+msgid "End Application"
+msgstr "Gorffen Rhaglen"
+
+#: superlight/page_apps.py:48 superlight/page_processes.py:50
+#, python-format
+msgid "End \"%s\"?"
+msgstr "Gorffen \"%s\"?"
+
+#: superlight/page_apps.py:49
+msgid "All its processes will be asked to quit. They may lose unsaved work."
+msgstr ""
+"Bydd gofyn i bob un o’i brosesau orffen. Efallai byddan nhw'n colli gwaith "
+"heb ei gadw."
+
+#: superlight/page_apps.py:50
+msgid "Could not end the application"
+msgstr "Methu dod â'r rhaglen i ben"
+
+#: superlight/page_apps.py:51 superlight/page_apps.py:52
+msgid "Kill Application"
+msgstr "Lladd Rhaglen"
+
+#: superlight/page_apps.py:51 superlight/page_processes.py:53
+#, python-format
+msgid "Kill \"%s\"?"
+msgstr "Lladd \"%s\"?"
+
+#: superlight/page_apps.py:52
+msgid "All its processes will stop immediately. Unsaved work may be lost."
+msgstr ""
+"Bydd pob un o’i brosesau yn stopio ar unwaith. Gall gwaith heb ei gadw gael "
+"ei golli."
+
+#: superlight/page_apps.py:53
+msgid "Could not kill the application"
+msgstr "Methu lladd y rhaglen"
+
+#: superlight/page_apps.py:54
+msgid "Stop Application"
+msgstr "Atal y Rhaglen"
+
+#: superlight/page_apps.py:54
+msgid "Could not stop the application"
+msgstr "Methu atal y rhaglen"
+
+#: superlight/page_apps.py:55
+msgid "Continue Application"
+msgstr "Parhau â'r Rhaglen"
+
+#: superlight/page_apps.py:56
+msgid "Could not continue the application"
+msgstr "Methu parhau â'r rhaglen"
+
+#: superlight/page_apps.py:147
+msgid "Pauses the application"
+msgstr "Yn oedi'r rhaglen"
+
+#: superlight/page_apps.py:210 superlight/page_processes.py:157
+msgid "Search"
+msgstr "Chwilio"
+
+#: superlight/page_apps.py:336 superlight/page_processes.py:350
+#: superlight/page_storage.py:366 superlight/view_folders.py:349
+#: superlight/view_folders.py:372
+msgid "Cancel"
+msgstr "Diddymu"
+
+#: superlight/page_battery.py:18
+msgid "Uninterruptible Power Supply"
+msgstr "Cyflenwad Pŵer Di-dor"
+
+#: superlight/page_battery.py:18
+msgid "Mouse"
+msgstr "Llygoden"
+
+#: superlight/page_battery.py:19
+msgid "Keyboard"
+msgstr "Bysellfwrdd"
+
+#: superlight/page_battery.py:19
+msgid "Game Controller"
+msgstr "Rheolydd gêmau"
+
+#: superlight/page_battery.py:19
+msgid "Phone"
+msgstr "Ffôn"
+
+#: superlight/page_battery.py:20
+msgid "Tablet"
+msgstr "Tabled"
+
+#: superlight/page_battery.py:20
+msgid "Pen"
+msgstr "Pen"
+
+#: superlight/page_battery.py:20
+msgid "Touchpad"
+msgstr "Pad cyffwrdd"
+
+#: superlight/page_battery.py:21
+msgid "Headset"
+msgstr "Clustffonau"
+
+#: superlight/page_battery.py:21
+msgid "Headphones"
+msgstr "Clustffonau"
+
+#: superlight/page_battery.py:21
+msgid "Speakers"
+msgstr "Siaradwyr"
+
+#: superlight/page_battery.py:22
+msgid "Media Player"
+msgstr "Chwaraewr Cyfryngau"
+
+#: superlight/page_battery.py:22
+msgid "Personal Digital Assistant"
+msgstr "Cynorthwyydd Digidol Personol"
+
+#: superlight/page_battery.py:23
+msgid "Computer"
+msgstr "Cyfrifiadur"
+
+#: superlight/page_battery.py:23
+msgid "Remote Control"
+msgstr "Rheolydd Pell"
+
+#. Translators: Battery
+#: superlight/page_battery.py:26 superlight/page_battery.py:47
+msgid "Charging"
+msgstr "Yn gwefru"
+
+#. Translators: Battery
+#: superlight/page_battery.py:28 superlight/page_battery.py:45
+msgid "Discharging"
+msgstr "Yn dadwefru"
+
+#. Translators: Battery
+#: superlight/page_battery.py:30
+msgctxt "battery state"
+msgid "Empty"
+msgstr "Gwag"
+
+#. Translators: Battery
+#: superlight/page_battery.py:32
+msgid "Fully charged"
+msgstr "Wedi’i wefru’n llawn"
+
+#. Translators: Battery
+#: superlight/page_battery.py:34
+msgid "Waiting to charge"
+msgstr "Yn aros i wefru"
+
+#. Translators: Battery
+#: superlight/page_battery.py:36
+msgid "Waiting to discharge"
+msgstr "Yn aros i ollwng"
+
+#: superlight/page_battery.py:38
+msgid "Lithium Ion"
+msgstr "Ion Lithiwm"
+
+#: superlight/page_battery.py:38
+msgid "Lithium Polymer"
+msgstr "Polymer Lithiwm"
+
+#: superlight/page_battery.py:39
+msgid "Lithium Iron Phosphate"
+msgstr "Ffosffad Haearn Lithiwm"
+
+#: superlight/page_battery.py:40
+msgid "Lead acid"
+msgstr "Asid plwm"
+
+#: superlight/page_battery.py:40
+msgid "Nickel Cadmium"
+msgstr "Nicel Cadmiwm"
+
+#: superlight/page_battery.py:41
+msgid "Nickel metal hydride"
+msgstr "Nicel hydrid metel"
+
+#. Translators: Battery
+#: superlight/page_battery.py:49
+msgctxt "battery history"
+msgid "Idle"
+msgstr "Yn segur"
+
+#: superlight/page_battery.py:55
+msgid "30 minutes"
+msgstr "30 munud"
+
+#: superlight/page_battery.py:55
+msgid "3 hours"
+msgstr "3 awr"
+
+#: superlight/page_battery.py:55
+msgid "8 hours"
+msgstr "8 awr"
+
+#: superlight/page_battery.py:56
+msgid "1 day"
+msgstr "1 diwrnod"
+
+#: superlight/page_battery.py:56
+msgid "1 week"
+msgstr "1 wythnos"
+
+#: superlight/page_battery.py:57
+msgid "Charge"
+msgstr "Gwefru"
+
+#: superlight/page_battery.py:57 superlight/page_battery.py:217
+msgid "Power"
+msgstr "Pŵer"
+
+#: superlight/page_battery.py:69
+#, python-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d oriau"
+msgstr[1] "%d awr"
+msgstr[2] "%d awr"
+msgstr[3] "%d awr"
+
+#: superlight/page_battery.py:71
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d munudau"
+msgstr[1] "%d munud"
+msgstr[2] "%d funud"
+msgstr[3] "%d munud"
+
+#: superlight/page_battery.py:162
+#, python-format
+msgid "%d d"
+msgstr "%d d"
+
+#: superlight/page_battery.py:164
+#, python-format
+msgid "%s h"
+msgstr "%s a"
+
+#: superlight/page_battery.py:165
+#, python-format
+msgid "%d min"
+msgstr "%d munud"
+
+#: superlight/page_battery.py:205
+msgid "Details"
+msgstr "Manylion"
+
+#: superlight/page_battery.py:215
+msgid "Vendor"
+msgstr "Gwerthwr"
+
+#: superlight/page_battery.py:215
+msgid "Model"
+msgstr "Model"
+
+#: superlight/page_battery.py:215
+msgid "Technology"
+msgstr "Technoleg"
+
+#: superlight/page_battery.py:216
+msgid "Energy"
+msgstr "Ynni"
+
+#: superlight/page_battery.py:216
+msgid "Energy when full"
+msgstr "Ynni pan yn llawn"
+
+#: superlight/page_battery.py:217
+msgid "Health"
+msgstr "Iechyd"
+
+#: superlight/page_battery.py:217
+msgid "Voltage"
+msgstr "Foltedd"
+
+#: superlight/page_battery.py:218
+msgid "Charge cycles"
+msgstr "Cylchoedd gwefru"
+
+#: superlight/page_battery.py:218 superlight/page_resources.py:57
+msgid "Temperature"
+msgstr "Tymheredd"
+
+#: superlight/page_battery.py:245
+msgid "No history is available for this device yet"
+msgstr "Does dim hanes ar gael ar gyfer y ddyfais hon eto"
+
+#: superlight/page_battery.py:313
+#, python-format
+msgid "%(state)s, %(time)s remaining"
+msgstr "%(state)s, %(time)s yn weddill"
+
+#: superlight/page_battery.py:315
+#, python-format
+msgid "%(state)s, %(time)s until full"
+msgstr "%(state)s, %(time)s tan yn llawn"
+
+#: superlight/page_processes.py:17
+msgid "PID"
+msgstr "PID"
+
+#: superlight/page_processes.py:18 superlight/chunks/flatpak.py:132
+msgid "User"
+msgstr "Defnyddiwr"
+
+#: superlight/page_processes.py:19
+msgid "State"
+msgstr "Cyflwr"
+
+#: superlight/page_processes.py:20
+msgid "Priority"
+msgstr "Blaenoriaeth"
+
+#: superlight/page_processes.py:23
+msgid "Systemd Unit"
+msgstr "Uned Systemd"
+
+#: superlight/page_processes.py:24
+msgid "Command Line"
+msgstr "Llinell Orchymyn"
+
+#: superlight/page_processes.py:28
+msgid "Virtual Memory"
+msgstr "Cof Rhithwir"
+
+#: superlight/page_processes.py:29
+msgid "Resident Memory"
+msgstr "Cof Preswyl"
+
+#: superlight/page_processes.py:30
+msgid "Shared Memory"
+msgstr "Cof Sy'n Cael ei Rannu"
+
+#: superlight/page_processes.py:50 superlight/page_processes.py:51
+#: superlight/page_processes.py:174
+msgid "End Process"
+msgstr "Terfynu'r Broses"
+
+#: superlight/page_processes.py:51
+msgid "The process will be asked to quit. It may lose unsaved work."
+msgstr ""
+"Yn gofyn i'r broses orffen. Efallai byddan nhw'n colli gwaith heb ei gadw."
+
+#: superlight/page_processes.py:52
+msgid "Could not end the process"
+msgstr "Methu dod â'r broses i ben"
+
+#: superlight/page_processes.py:53 superlight/page_processes.py:54
+msgid "Kill Process"
+msgstr "Lladd Proses"
+
+#: superlight/page_processes.py:54
+msgid "The process will stop immediately. Unsaved work may be lost."
+msgstr ""
+"Bydd y broses yn stopio ar unwaith. Gallai gwaith heb ei gadw gael ei golli."
+
+#: superlight/page_processes.py:55
+msgid "Could not kill the process"
+msgstr "Methu lladd y broses"
+
+#: superlight/page_processes.py:56
+msgid "Stop Process"
+msgstr "Atal Proses"
+
+#: superlight/page_processes.py:56
+msgid "Could not stop the process"
+msgstr "Methu atal y broses"
+
+#: superlight/page_processes.py:57
+msgid "Continue Process"
+msgstr "Parhau â'r Broses"
+
+#: superlight/page_processes.py:58
+msgid "Could not continue the process"
+msgstr "Methu parhau â'r broses"
+
+#: superlight/page_processes.py:60
+msgid "All Processes"
+msgstr "Pob Proses"
+
+#: superlight/page_processes.py:60
+msgid "My Processes"
+msgstr "Fy Mhrosesau"
+
+#: superlight/page_processes.py:60
+msgid "Active Processes"
+msgstr "Prosesau Gweithredol"
+
+#: superlight/page_processes.py:70
+msgid "Pauses the process"
+msgstr "Oedi'r broses"
+
+#: superlight/page_processes.py:169
+msgid "Process tree"
+msgstr "Coeden brosesau"
+
+#: superlight/page_processes.py:170
+msgid "Show each process under the one that started it"
+msgstr "Dangos pob proses o dan yr un a'i cychwynnodd"
+
+#: superlight/page_processes.py:369
+msgid "The selected process has already exited."
+msgstr "Mae’r broses dewiswyd eisoes wedi dod i ben."
+
+#: superlight/page_resources.py:37 superlight/page_resources.py:55
+#: superlight/page_resources.py:61
+msgid "Collecting data…"
+msgstr "Yn casglu data…"
+
+#: superlight/page_resources.py:39
+msgid "Overall usage"
+msgstr "Defnydd cyffredinol"
+
+#: superlight/page_resources.py:43
+msgid "CPU cores"
+msgstr "Creiddiau CPU"
+
+#: superlight/page_resources.py:45
+msgid "Receiving"
+msgstr "Yn derbyn"
+
+#: superlight/page_resources.py:45
+msgid "Total Received"
+msgstr "Cyfanswm a Dderbyniwyd"
+
+#: superlight/page_resources.py:46
+msgid "Sending"
+msgstr "Anfon"
+
+#: superlight/page_resources.py:46
+msgid "Total Sent"
+msgstr "Cyfanswm a Anfonwyd"
+
+#: superlight/page_resources.py:47
+msgid "Network"
+msgstr "Rhwydwaith"
+
+#: superlight/page_resources.py:49
+msgid "Reading"
+msgstr "Yn Darllen"
+
+#: superlight/page_resources.py:49
+msgid "Total Read"
+msgstr "Cyfanswm a Ddarllenwyd"
+
+#: superlight/page_resources.py:50
+msgid "Writing"
+msgstr "Ysgrifennu"
+
+#: superlight/page_resources.py:50
+msgid "Total Written"
+msgstr "Cyfanswm a Ysgrifennwyd"
+
+#: superlight/page_resources.py:51
+msgid "Disk"
+msgstr "Disg"
+
+#: superlight/page_resources.py:63
+msgid "Fan Speed"
+msgstr "Cyflymder y Ffan"
+
+#: superlight/page_resources.py:120
+msgid "Offline"
+msgstr "All-lein"
+
+#: superlight/page_resources.py:133
+msgid "Usage unavailable from driver"
+msgstr "Dyw’r defnydd ddim ar gael gan y gyrrwr"
+
+#: superlight/page_resources.py:141
+msgid "Not configured"
+msgstr "Heb ei ffurfweddu"
+
+#: superlight/page_resources.py:146 superlight/page_resources.py:155
+msgid "Unavailable"
+msgstr "Ddim ar gael"
+
+#: superlight/page_storage.py:113 superlight/view_folders.py:41
+#: superlight/chunks/flatpak.py:50 superlight/chunks/steam.py:75
+msgid "Measure again"
+msgstr "Mesur eto"
+
+#: superlight/page_storage.py:237
+#, python-format
+msgid "used of %s"
+msgstr "wedi'i ddefnyddio o %s"
+
+#: superlight/page_storage.py:238
+#, python-format
+msgid "%s free"
+msgstr "%s yn rhydd"
+
+#: superlight/page_storage.py:241
+#, python-format
+msgid "%s are kept by the file system for the system and can't be used."
+msgstr ""
+"Mae %s yn cael eu cadw gan y system ffeiliau ar gyfer y system ac nid oes "
+"modd eu defnyddio."
+
+#: superlight/page_storage.py:290
+msgid "Measuring…"
+msgstr "Yn mesur…"
+
+#: superlight/page_storage.py:292
+msgid "There is nothing on this drive."
+msgstr "Does dim byd ar y ddisg hon."
+
+#: superlight/page_storage.py:410
+msgid "Some files could not be deleted"
+msgstr "Does dim modd dileu rhai ffeiliau"
+
+#: superlight/page_storage.py:421
+msgid "Explore Home Folder…"
+msgstr "Archwilio'r Ffolder Cartref…"
+
+#: superlight/page_storage.py:424
+msgid "Explore File System…"
+msgstr "Archwilio'r System Ffeiliau…"
+
+#: superlight/page_storage.py:424
+msgid "Explore Folders…"
+msgstr "Archwilio Ffolderi…"
+
+#: superlight/view_folders.py:29 superlight/chunks/flatpak.py:41
+msgid "Back to the overview"
+msgstr "Nôl i'r trosolwg"
+
+#: superlight/view_folders.py:75
+msgid "Share"
+msgstr "Rhannu"
+
+#: superlight/view_folders.py:80 superlight/chunks/flatpak.py:75
+#: superlight/chunks/steam.py:99
+msgid "Size"
+msgstr "Maint"
+
+#. Translators: File or folder
+#: superlight/view_folders.py:87
+msgid "Modified"
+msgstr "Wedi newid"
+
+#: superlight/view_folders.py:109
+msgid "Show in File Manager"
+msgstr "Dangos yn y Rheolwr Ffeiliau"
+
+#: superlight/view_folders.py:112 superlight/view_folders.py:290
+#: superlight/view_folders.py:350
+msgid "Move to Trash"
+msgstr "Symud i'r Sbwriel"
+
+#: superlight/view_folders.py:151
+msgid "Home"
+msgstr "Cartref"
+
+#: superlight/view_folders.py:155
+msgid "File System"
+msgstr "System Ffeiliau"
+
+#: superlight/view_folders.py:230
+msgid "There is nothing in this folder."
+msgstr "Does dim byd yn y ffolder hon."
+
+#: superlight/view_folders.py:233
+msgid "Folders you can't read are left out of the sizes."
+msgstr ""
+"Mae ffolderi nad oes modd eu darllen yn cael eu gadael allan o'r meintiau."
+
+#: superlight/view_folders.py:253
+msgid "Can't be read"
+msgstr "Methu ei ddarllen"
+
+#: superlight/view_folders.py:291 superlight/view_folders.py:373
+msgid "Delete"
+msgstr "Dileu"
+
+#: superlight/view_folders.py:331 superlight/chunks/flatpak.py:183
+#: superlight/chunks/steam.py:282
+#, python-format
+msgid "%(count)d selected, %(size)s"
+msgid_plural "%(count)d selected, %(size)s"
+msgstr[0] "%(count)d wedi'u dewis, %(size)s"
+msgstr[1] "%(count)d wedi'i ddewis, %(size)s"
+msgstr[2] "%(count)d wedi'u dewis, %(size)s"
+msgstr[3] "%(count)d wedi'u dewis, %(size)s"
+
+#: superlight/view_folders.py:334
+#, python-format
+msgid "%(count)d item, %(size)s"
+msgid_plural "%(count)d items, %(size)s"
+msgstr[0] "%(count)d eitemau, %(size)s"
+msgstr[1] "%(count)d eitem, %(size)s"
+msgstr[2] "%(count)d eitem, %(size)s"
+msgstr[3] "%(count)d eitem, %(size)s"
+
+#: superlight/view_folders.py:343
+#, python-format
+msgid "Move \"%s\" to the trash?"
+msgstr "Symud \"%s\" i'r sbwriel?"
+
+#: superlight/view_folders.py:345
+#, python-format
+msgid "Move %d item to the trash?"
+msgid_plural "Move %d items to the trash?"
+msgstr[0] "Symud %d eitemau i'r sbwriel?"
+msgstr[1] "Symud %d eitem i'r sbwriel?"
+msgstr[2] "Symud %d eitem i'r sbwriel?"
+msgstr[3] "Symud %d eitem i'r sbwriel?"
+
+#: superlight/view_folders.py:348
+#, python-format
+msgid "%s will be freed when the trash is emptied."
+msgstr "Bydd %s yn cael ei ryddhau pan gaiff y sbwriel ei wagio."
+
+#: superlight/view_folders.py:359
+msgid "Could not move it to the trash"
+msgstr "Methu ei symud i'r sbwriel"
+
+#: superlight/view_folders.py:366
+#, python-format
+msgid "Permanently delete \"%s\"?"
+msgstr "Dileu \"%s\" yn barhaol?"
+
+#: superlight/view_folders.py:368
+#, python-format
+msgid "Permanently delete %d item?"
+msgid_plural "Permanently delete %d items?"
+msgstr[0] "Dileu %d eitem yn barhaol?"
+msgstr[1] "Dileu %d eitem yn barhaol?"
+msgstr[2] "Dileu %d eitem yn barhaol?"
+msgstr[3] "Dileu %d eitem yn barhaol?"
+
+#: superlight/view_folders.py:371
+#, python-format
+msgid "%s will be freed. This can't be undone."
+msgstr "Bydd %s yn cael ei ryddhau. Nid oes modd dadwneud hyn."
+
+#: superlight/view_folders.py:382
+msgid "Could not delete it"
+msgstr "Methu ei ddileu"
+
+#: superlight/chunks/cache.py:10
+msgid "Cache"
+msgstr "Storfa"
+
+#: superlight/chunks/cache.py:20
+msgid "Clear Cache…"
+msgstr "Clirio'r Storfan…"
+
+#: superlight/chunks/cache.py:20
+msgid "Clear the cache?"
+msgstr "Clirio'r storfa?"
+
+#: superlight/chunks/cache.py:21
+#, python-format
+msgid ""
+"%s of temporary files will be deleted. Programs can be slower the first time "
+"they start afterwards."
+msgstr ""
+"Bydd %s o ffeiliau dros dro yn cael eu dileu. Gall rhaglenni fod yn arafach "
+"y tro cyntaf y byddan nhw'n cychwyn wedyn."
+
+#: superlight/chunks/cache.py:23
+msgid "Clear Cache"
+msgstr "Clirio'r Storfa"
+
+#: superlight/chunks/flatpak.py:44 superlight/chunks/flatpak.py:201
+msgid "Flatpak"
+msgstr "Flatpak"
+
+#: superlight/chunks/flatpak.py:70
+msgid "Type"
+msgstr "Math"
+
+#: superlight/chunks/flatpak.py:70
+msgid "Installation"
+msgstr "Gosodiad"
+
+#: superlight/chunks/flatpak.py:131
+msgid "App"
+msgstr "Ap"
+
+#: superlight/chunks/flatpak.py:131
+msgid "Runtime"
+msgstr "Amser rhedeg"
+
+#: superlight/chunks/flatpak.py:132
+msgid "System"
+msgstr "System"
+
+#: superlight/chunks/flatpak.py:187
+#, python-format
+msgid "%(count)d app, %(size)s"
+msgid_plural "%(count)d apps, %(size)s"
+msgstr[0] "%(count)d ap, %(size)s"
+msgstr[1] "%(count)d ap, %(size)s"
+msgstr[2] "%(count)d ap, %(size)s"
+msgstr[3] "%(count)d ap, %(size)s"
+
+#: superlight/chunks/hidden_files.py:12
+msgid "Hidden files"
+msgstr "Ffeiliau cudd"
+
+#: superlight/chunks/logs.py:8
+msgid "Log files"
+msgstr "Ffeiliau cofnod"
+
+#: superlight/chunks/other.py:10
+msgid "Other"
+msgstr "Arall"
+
+#: superlight/chunks/personal_files.py:14
+msgid "Personal files"
+msgstr "Ffeiliau personol"
+
+#: superlight/chunks/snapshots.py:14
+msgid "System Snapshots"
+msgstr "Cipluniau o'r System"
+
+#: superlight/chunks/steam.py:66
+msgid "Back"
+msgstr "Nôl"
+
+#: superlight/chunks/steam.py:69
+msgid "Steam games"
+msgstr "Gemau Steam"
+
+#: superlight/chunks/steam.py:95
+msgid "Drive"
+msgstr "Gyrru"
+
+#: superlight/chunks/steam.py:105
+msgid "Last played"
+msgstr "Chwaraewyd ddiwethaf"
+
+#: superlight/chunks/steam.py:215
+msgid "Left over from removed games"
+msgstr "Yn weddill o gemau wedi'u tynnu"
+
+#: superlight/chunks/steam.py:269
+msgid "Never"
+msgstr "Byth"
+
+#: superlight/chunks/steam.py:286
+#, python-format
+msgid "%(count)d game, %(size)s"
+msgid_plural "%(count)d games, %(size)s"
+msgstr[0] "%(count)d gêm, %(size)s"
+msgstr[1] "%(count)d gêm, %(size)s"
+msgstr[2] "%(count)d gêm, %(size)s"
+msgstr[3] "%(count)d gêm, %(size)s"
+
+#: superlight/chunks/steam.py:300
+msgid "Steam"
+msgstr "Steam"
+
+#: superlight/chunks/system_cache.py:8
+msgid "System cache"
+msgstr "Storfa system"
+
+#: superlight/chunks/temp_files.py:8
+msgid "Temp files"
+msgstr "Ffeiliau dros dro"
+
+#: superlight/chunks/trash.py:15
+msgid "Trash"
+msgstr "Sbwriel"
+
+#. Translators: Trash
+#: superlight/chunks/trash.py:50
+msgctxt "trash"
+msgid "Empty"
+msgstr "Gwag"
+
+#: superlight/chunks/trash.py:69
+msgid "Empty Trash…"
+msgstr "Gwagio’r Sbwriel…"
+
+#: superlight/chunks/trash.py:69
+msgid "Empty the trash?"
+msgstr "Gwagio’r sbwriel?"
+
+#: superlight/chunks/trash.py:70
+#, python-format
+msgid "%s will be deleted for good."
+msgstr "Bydd %s yn cael ei ddileu am byth."
+
+#: superlight/chunks/trash.py:70
+msgid "Empty Trash"
+msgstr "Gwagio’r Sbwriel"

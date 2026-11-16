@@ -1,0 +1,1012 @@
+# Chinese (Simplified) translation for linuxmint
+# Copyright (c) 2026 Rosetta Contributors and Canonical Ltd 2026
+# This file is distributed under the same license as the linuxmint package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: linuxmint\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2026-10-26 13:29+0000\n"
+"PO-Revision-Date: 2026-11-03 03:31+0000\n"
+"Last-Translator: 张鹏 <scbeta@qq.com>\n"
+"Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Launchpad-Export-Date: 2026-11-16 12:02+0000\n"
+"X-Generator: Launchpad (build 72ba15af7e009b17d4aa1467977127ac8392a4de)\n"
+
+#: data/org.x.superlight.desktop.in:2 superlight/application.py:22
+#: superlight/application.py:35 superlight/application.py:164
+#: superlight/application.py:174
+msgid "System Monitor"
+msgstr "系统监视器"
+
+#: data/org.x.superlight.desktop.in:3
+msgid "Monitor system resources and processes"
+msgstr "监控系统资源和进程"
+
+#: data/org.x.superlight.desktop.in:9
+msgid "system;monitor;resources;processes;cpu;memory;task manager;"
+msgstr "系统;监控;资源;进程;CPU;内存;任务管理器;"
+
+#: data/org.x.superlight.desktop.in:15 superlight/application.py:47
+msgid "Resources"
+msgstr "资源"
+
+#: data/org.x.superlight.desktop.in:19 superlight/application.py:51
+#: superlight/page_apps.py:18
+msgid "Processes"
+msgstr "进程"
+
+#: data/org.x.superlight.desktop.in:23 superlight/application.py:52
+msgid "Storage"
+msgstr "存储"
+
+#: superlight/application.py:37
+msgid "About"
+msgstr "关于"
+
+#: superlight/application.py:39
+msgid "Quit"
+msgstr "退出"
+
+#: superlight/application.py:49
+msgid "Apps"
+msgstr "应用"
+
+#: superlight/application.py:84 superlight/page_battery.py:18
+#: superlight/page_battery.py:273
+msgid "Battery"
+msgstr "电池"
+
+#: superlight/common_disk.py:70
+msgid "System drive"
+msgstr "系统盘"
+
+#: superlight/common_graphs.py:45
+msgid "< 1 kB/s"
+msgstr "< 1 kB/s"
+
+#: superlight/common_graphs.py:47 superlight/__init__.py:48
+#, python-format
+msgid "%s/s"
+msgstr "%s/s"
+
+#: superlight/common_graphs.py:138
+msgid "1 min"
+msgstr "1分钟"
+
+#: superlight/common_graphs.py:138
+#, python-format
+msgid "%d secs"
+msgstr "%d秒"
+
+#: superlight/common_graphs.py:458 superlight/page_resources.py:148
+#: superlight/page_resources.py:149
+#, python-format
+msgid "%d °C"
+msgstr "%d °C"
+
+#: superlight/common_graphs.py:479
+#, python-format
+msgid "Fan %d"
+msgstr "风扇 %d"
+
+#: superlight/common_graphs.py:495 superlight/page_resources.py:157
+#: superlight/page_resources.py:158
+#, python-format
+msgid "%d RPM"
+msgstr "%d 转/分钟"
+
+#: superlight/common_process.py:268
+msgid "Use Default"
+msgstr "使用默认值"
+
+#: superlight/common_proc.py:45 superlight/common_proc.py:50
+msgid "Unknown GPU"
+msgstr "未知的显卡"
+
+#. Translators: Priority
+#: superlight/__init__.py:56
+msgid "Very High"
+msgstr "非常高"
+
+#. Translators: Priority
+#: superlight/__init__.py:59
+msgid "High"
+msgstr "高"
+
+#. Translators: Priority
+#: superlight/__init__.py:62
+msgid "Normal"
+msgstr "正常"
+
+#. Translators: Priority
+#: superlight/__init__.py:65
+msgid "Low"
+msgstr "低"
+
+#. Translators: Priority
+#: superlight/__init__.py:67
+msgid "Very Low"
+msgstr "非常低"
+
+#: superlight/__init__.py:76
+#, python-format
+msgid "Today, %s"
+msgstr "今天, %s"
+
+#: superlight/__init__.py:78
+#, python-format
+msgid "Yesterday, %s"
+msgstr "昨天, %s"
+
+#. Translators: Process
+#: superlight/__init__.py:83
+msgid "Running"
+msgstr "正在运行"
+
+#. Translators: Process
+#: superlight/__init__.py:85
+msgid "Sleeping"
+msgstr "正在休眠"
+
+#: superlight/__init__.py:86
+msgid "Disk Sleep"
+msgstr "磁盘休眠"
+
+#. Translators: Process
+#: superlight/__init__.py:88
+msgid "Stopped"
+msgstr "已停止"
+
+#: superlight/__init__.py:89
+msgid "Tracing Stop"
+msgstr "正在跟踪停止"
+
+#: superlight/__init__.py:90
+msgid "Zombie"
+msgstr "僵死"
+
+#. Translators: Process
+#: superlight/__init__.py:92
+msgid "Dead"
+msgstr "已终止"
+
+#. Translators: Process
+#: superlight/__init__.py:94
+msgctxt "process state"
+msgid "Idle"
+msgstr "空闲"
+
+#: superlight/page_apps.py:17 superlight/page_processes.py:16
+#: superlight/view_folders.py:61 superlight/chunks/flatpak.py:64
+#: superlight/chunks/steam.py:89
+msgid "Name"
+msgstr "名称"
+
+#. Translators: Application
+#. Translators: Process
+#: superlight/page_apps.py:20 superlight/page_processes.py:22
+msgid "Started"
+msgstr "已启动"
+
+#: superlight/page_apps.py:21 superlight/page_processes.py:25
+#: superlight/page_resources.py:127
+msgid "CPU"
+msgstr "CPU"
+
+#: superlight/page_apps.py:22 superlight/page_processes.py:26
+msgid "CPU Time"
+msgstr "CPU 时间"
+
+#: superlight/page_apps.py:23 superlight/page_processes.py:27
+#: superlight/page_resources.py:134 superlight/page_resources.py:135
+msgid "Memory"
+msgstr "内存"
+
+#: superlight/page_apps.py:24 superlight/page_processes.py:31
+#: superlight/page_resources.py:137 superlight/page_resources.py:139
+#: superlight/page_resources.py:141 superlight/chunks/swap.py:11
+msgid "Swap"
+msgstr "交换空间"
+
+#: superlight/page_apps.py:25 superlight/page_processes.py:32
+msgid "Disk Read"
+msgstr "磁盘读取"
+
+#: superlight/page_apps.py:26 superlight/page_processes.py:33
+msgid "Disk Write"
+msgstr "磁盘写入"
+
+#: superlight/page_apps.py:27 superlight/page_processes.py:34
+msgid "Disk Read Total"
+msgstr "磁盘读取总计"
+
+#: superlight/page_apps.py:28 superlight/page_processes.py:35
+msgid "Disk Write Total"
+msgstr "磁盘写入总计"
+
+#: superlight/page_apps.py:29 superlight/page_processes.py:36
+#: superlight/page_resources.py:130 superlight/page_resources.py:131
+#: superlight/page_resources.py:133
+msgid "GPU"
+msgstr "GPU"
+
+#: superlight/page_apps.py:30 superlight/page_processes.py:37
+msgid "Video Memory"
+msgstr "显存"
+
+#: superlight/page_apps.py:31 superlight/page_processes.py:38
+msgid "Video Encoder"
+msgstr "视频编码器"
+
+#: superlight/page_apps.py:32 superlight/page_processes.py:39
+msgid "Video Decoder"
+msgstr "视频解码器"
+
+#: superlight/page_apps.py:48 superlight/page_apps.py:49
+#: superlight/page_apps.py:216
+msgid "End Application"
+msgstr "结束应用"
+
+#: superlight/page_apps.py:48 superlight/page_processes.py:50
+#, python-format
+msgid "End \"%s\"?"
+msgstr "结束 \"%s\"?"
+
+#: superlight/page_apps.py:49
+msgid "All its processes will be asked to quit. They may lose unsaved work."
+msgstr "它的所有进程都会被要求退出。它们可能会丢失未保存的工作。"
+
+#: superlight/page_apps.py:50
+msgid "Could not end the application"
+msgstr "无法结束应用程序"
+
+#: superlight/page_apps.py:51 superlight/page_apps.py:52
+msgid "Kill Application"
+msgstr "强制关闭应用程序"
+
+#: superlight/page_apps.py:51 superlight/page_processes.py:53
+#, python-format
+msgid "Kill \"%s\"?"
+msgstr "强制关闭 \"%s\"?"
+
+#: superlight/page_apps.py:52
+msgid "All its processes will stop immediately. Unsaved work may be lost."
+msgstr "它的所有进程会立即停止。未保存的工作可能会丢失。"
+
+#: superlight/page_apps.py:53
+msgid "Could not kill the application"
+msgstr "无法强制关闭应用程序"
+
+#: superlight/page_apps.py:54
+msgid "Stop Application"
+msgstr "停止应用程序"
+
+#: superlight/page_apps.py:54
+msgid "Could not stop the application"
+msgstr "无法停止应用程序"
+
+#: superlight/page_apps.py:55
+msgid "Continue Application"
+msgstr "继续应用程序"
+
+#: superlight/page_apps.py:56
+msgid "Could not continue the application"
+msgstr "无法继续应用程序"
+
+#: superlight/page_apps.py:147
+msgid "Pauses the application"
+msgstr "暂停应用程序"
+
+#: superlight/page_apps.py:210 superlight/page_processes.py:157
+msgid "Search"
+msgstr "搜索"
+
+#: superlight/page_apps.py:336 superlight/page_processes.py:350
+#: superlight/page_storage.py:366 superlight/view_folders.py:349
+#: superlight/view_folders.py:372
+msgid "Cancel"
+msgstr "取消"
+
+#: superlight/page_battery.py:18
+msgid "Uninterruptible Power Supply"
+msgstr "不间断电源"
+
+#: superlight/page_battery.py:18
+msgid "Mouse"
+msgstr "鼠标"
+
+#: superlight/page_battery.py:19
+msgid "Keyboard"
+msgstr "键盘"
+
+#: superlight/page_battery.py:19
+msgid "Game Controller"
+msgstr "游戏控制器"
+
+#: superlight/page_battery.py:19
+msgid "Phone"
+msgstr "电话"
+
+#: superlight/page_battery.py:20
+msgid "Tablet"
+msgstr "平板电脑"
+
+#: superlight/page_battery.py:20
+msgid "Pen"
+msgstr "笔"
+
+#: superlight/page_battery.py:20
+msgid "Touchpad"
+msgstr "触摸板"
+
+#: superlight/page_battery.py:21
+msgid "Headset"
+msgstr "耳麦"
+
+#: superlight/page_battery.py:21
+msgid "Headphones"
+msgstr "耳机"
+
+#: superlight/page_battery.py:21
+msgid "Speakers"
+msgstr "扬声器"
+
+#: superlight/page_battery.py:22
+msgid "Media Player"
+msgstr "媒体播放器"
+
+#: superlight/page_battery.py:22
+msgid "Personal Digital Assistant"
+msgstr "个人数字助手(PDA)"
+
+#: superlight/page_battery.py:23
+msgid "Computer"
+msgstr "计算机"
+
+#: superlight/page_battery.py:23
+msgid "Remote Control"
+msgstr "远程控制"
+
+#. Translators: Battery
+#: superlight/page_battery.py:26 superlight/page_battery.py:47
+msgid "Charging"
+msgstr "正在充电"
+
+#. Translators: Battery
+#: superlight/page_battery.py:28 superlight/page_battery.py:45
+msgid "Discharging"
+msgstr "正在放电"
+
+#. Translators: Battery
+#: superlight/page_battery.py:30
+msgctxt "battery state"
+msgid "Empty"
+msgstr "已耗尽"
+
+#. Translators: Battery
+#: superlight/page_battery.py:32
+msgid "Fully charged"
+msgstr "已充满"
+
+#. Translators: Battery
+#: superlight/page_battery.py:34
+msgid "Waiting to charge"
+msgstr "等待充电"
+
+#. Translators: Battery
+#: superlight/page_battery.py:36
+msgid "Waiting to discharge"
+msgstr "等待放电"
+
+#: superlight/page_battery.py:38
+msgid "Lithium Ion"
+msgstr "锂离子"
+
+#: superlight/page_battery.py:38
+msgid "Lithium Polymer"
+msgstr "锂离子聚合物"
+
+#: superlight/page_battery.py:39
+msgid "Lithium Iron Phosphate"
+msgstr "磷酸铁锂"
+
+#: superlight/page_battery.py:40
+msgid "Lead acid"
+msgstr "铅酸"
+
+#: superlight/page_battery.py:40
+msgid "Nickel Cadmium"
+msgstr "镍镉"
+
+#: superlight/page_battery.py:41
+msgid "Nickel metal hydride"
+msgstr "镍氢"
+
+#. Translators: Battery
+#: superlight/page_battery.py:49
+msgctxt "battery history"
+msgid "Idle"
+msgstr "空闲"
+
+#: superlight/page_battery.py:55
+msgid "30 minutes"
+msgstr "30 分钟"
+
+#: superlight/page_battery.py:55
+msgid "3 hours"
+msgstr "3小时"
+
+#: superlight/page_battery.py:55
+msgid "8 hours"
+msgstr "8小时"
+
+#: superlight/page_battery.py:56
+msgid "1 day"
+msgstr "1 天"
+
+#: superlight/page_battery.py:56
+msgid "1 week"
+msgstr "1 周"
+
+#: superlight/page_battery.py:57
+msgid "Charge"
+msgstr "费用"
+
+#: superlight/page_battery.py:57 superlight/page_battery.py:217
+msgid "Power"
+msgstr "功率"
+
+#: superlight/page_battery.py:69
+#, python-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d 小时"
+
+#: superlight/page_battery.py:71
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d 分钟"
+
+#: superlight/page_battery.py:162
+#, python-format
+msgid "%d d"
+msgstr "%d 天"
+
+#: superlight/page_battery.py:164
+#, python-format
+msgid "%s h"
+msgstr "%s 小时"
+
+#: superlight/page_battery.py:165
+#, python-format
+msgid "%d min"
+msgstr "%d 分钟"
+
+#: superlight/page_battery.py:205
+msgid "Details"
+msgstr "详情"
+
+#: superlight/page_battery.py:215
+msgid "Vendor"
+msgstr "厂商"
+
+#: superlight/page_battery.py:215
+msgid "Model"
+msgstr "型号"
+
+#: superlight/page_battery.py:215
+msgid "Technology"
+msgstr "技术"
+
+#: superlight/page_battery.py:216
+msgid "Energy"
+msgstr "能量"
+
+#: superlight/page_battery.py:216
+msgid "Energy when full"
+msgstr "满时能量"
+
+#: superlight/page_battery.py:217
+msgid "Health"
+msgstr "健康"
+
+#: superlight/page_battery.py:217
+msgid "Voltage"
+msgstr "电压"
+
+#: superlight/page_battery.py:218
+msgid "Charge cycles"
+msgstr "充电循环次数"
+
+#: superlight/page_battery.py:218 superlight/page_resources.py:57
+msgid "Temperature"
+msgstr "温度"
+
+#: superlight/page_battery.py:245
+msgid "No history is available for this device yet"
+msgstr "这个设备还没有历史记录"
+
+#: superlight/page_battery.py:313
+#, python-format
+msgid "%(state)s, %(time)s remaining"
+msgstr "%(state)s，剩余 %(time)s"
+
+#: superlight/page_battery.py:315
+#, python-format
+msgid "%(state)s, %(time)s until full"
+msgstr "%(state)s，距离充满还有%(time)s"
+
+#: superlight/page_processes.py:17
+msgid "PID"
+msgstr "PID"
+
+#: superlight/page_processes.py:18 superlight/chunks/flatpak.py:132
+msgid "User"
+msgstr "用户"
+
+#: superlight/page_processes.py:19
+msgid "State"
+msgstr "状态"
+
+#: superlight/page_processes.py:20
+msgid "Priority"
+msgstr "优先级"
+
+#: superlight/page_processes.py:23
+msgid "Systemd Unit"
+msgstr "Systemd 单元"
+
+#: superlight/page_processes.py:24
+msgid "Command Line"
+msgstr "命令行"
+
+#: superlight/page_processes.py:28
+msgid "Virtual Memory"
+msgstr "虚拟内存"
+
+#: superlight/page_processes.py:29
+msgid "Resident Memory"
+msgstr "驻留内存"
+
+#: superlight/page_processes.py:30
+msgid "Shared Memory"
+msgstr "共享内存"
+
+#: superlight/page_processes.py:50 superlight/page_processes.py:51
+#: superlight/page_processes.py:174
+msgid "End Process"
+msgstr "结束进程"
+
+#: superlight/page_processes.py:51
+msgid "The process will be asked to quit. It may lose unsaved work."
+msgstr "该进程将被要求退出。可能会丢失未保存的工作。"
+
+#: superlight/page_processes.py:52
+msgid "Could not end the process"
+msgstr "无法结束进程"
+
+#: superlight/page_processes.py:53 superlight/page_processes.py:54
+msgid "Kill Process"
+msgstr "终止进程"
+
+#: superlight/page_processes.py:54
+msgid "The process will stop immediately. Unsaved work may be lost."
+msgstr "无法结束进程 ..."
+
+#: superlight/page_processes.py:55
+msgid "Could not kill the process"
+msgstr "无法终止进程"
+
+#: superlight/page_processes.py:56
+msgid "Stop Process"
+msgstr "停止进程"
+
+#: superlight/page_processes.py:56
+msgid "Could not stop the process"
+msgstr "无法停止进程"
+
+#: superlight/page_processes.py:57
+msgid "Continue Process"
+msgstr "继续进程"
+
+#: superlight/page_processes.py:58
+msgid "Could not continue the process"
+msgstr "无法继续进程"
+
+#: superlight/page_processes.py:60
+msgid "All Processes"
+msgstr "全部进程"
+
+#: superlight/page_processes.py:60
+msgid "My Processes"
+msgstr "我的进程"
+
+#: superlight/page_processes.py:60
+msgid "Active Processes"
+msgstr "活动进程"
+
+#: superlight/page_processes.py:70
+msgid "Pauses the process"
+msgstr "暂停进程"
+
+#: superlight/page_processes.py:169
+msgid "Process tree"
+msgstr "进程树"
+
+#: superlight/page_processes.py:170
+msgid "Show each process under the one that started it"
+msgstr "显示每个进程在启动它的进程下面"
+
+#: superlight/page_processes.py:369
+msgid "The selected process has already exited."
+msgstr "选定的进程已经退出了。"
+
+#: superlight/page_resources.py:37 superlight/page_resources.py:55
+#: superlight/page_resources.py:61
+msgid "Collecting data…"
+msgstr "正在收集数据…"
+
+#: superlight/page_resources.py:39
+msgid "Overall usage"
+msgstr "总体使用情况"
+
+#: superlight/page_resources.py:43
+msgid "CPU cores"
+msgstr "CPU核心数"
+
+#: superlight/page_resources.py:45
+msgid "Receiving"
+msgstr "正在接收"
+
+#: superlight/page_resources.py:45
+msgid "Total Received"
+msgstr "总共接收"
+
+#: superlight/page_resources.py:46
+msgid "Sending"
+msgstr "正在发送"
+
+#: superlight/page_resources.py:46
+msgid "Total Sent"
+msgstr "总发送量"
+
+#: superlight/page_resources.py:47
+msgid "Network"
+msgstr "网络"
+
+#: superlight/page_resources.py:49
+msgid "Reading"
+msgstr "正在读取"
+
+#: superlight/page_resources.py:49
+msgid "Total Read"
+msgstr "总读取量"
+
+#: superlight/page_resources.py:50
+msgid "Writing"
+msgstr "正在写入"
+
+#: superlight/page_resources.py:50
+msgid "Total Written"
+msgstr "总写入量"
+
+#: superlight/page_resources.py:51
+msgid "Disk"
+msgstr "磁盘"
+
+#: superlight/page_resources.py:63
+msgid "Fan Speed"
+msgstr "风扇速度"
+
+#: superlight/page_resources.py:120
+msgid "Offline"
+msgstr "离线"
+
+#: superlight/page_resources.py:133
+msgid "Usage unavailable from driver"
+msgstr "驱动程序无法使用"
+
+#: superlight/page_resources.py:141
+msgid "Not configured"
+msgstr "未配置"
+
+#: superlight/page_resources.py:146 superlight/page_resources.py:155
+msgid "Unavailable"
+msgstr "不可用"
+
+#: superlight/page_storage.py:113 superlight/view_folders.py:41
+#: superlight/chunks/flatpak.py:50 superlight/chunks/steam.py:75
+msgid "Measure again"
+msgstr "再次测量"
+
+#: superlight/page_storage.py:237
+#, python-format
+msgid "used of %s"
+msgstr "已使用 %s"
+
+#: superlight/page_storage.py:238
+#, python-format
+msgid "%s free"
+msgstr "%s 可用"
+
+#: superlight/page_storage.py:241
+#, python-format
+msgid "%s are kept by the file system for the system and can't be used."
+msgstr "%s 被文件系统保留用于系统，不能使用。"
+
+#: superlight/page_storage.py:290
+msgid "Measuring…"
+msgstr "测量中..."
+
+#: superlight/page_storage.py:292
+msgid "There is nothing on this drive."
+msgstr "这个驱动器上什么都没有。"
+
+#: superlight/page_storage.py:410
+msgid "Some files could not be deleted"
+msgstr "有些文件无法被删除"
+
+#: superlight/page_storage.py:421
+msgid "Explore Home Folder…"
+msgstr "浏览主文件夹…"
+
+#: superlight/page_storage.py:424
+msgid "Explore File System…"
+msgstr "浏览文件系统…"
+
+#: superlight/page_storage.py:424
+msgid "Explore Folders…"
+msgstr "浏览文件夹…"
+
+#: superlight/view_folders.py:29 superlight/chunks/flatpak.py:41
+msgid "Back to the overview"
+msgstr "返回概览"
+
+#: superlight/view_folders.py:75
+msgid "Share"
+msgstr "分享"
+
+#: superlight/view_folders.py:80 superlight/chunks/flatpak.py:75
+#: superlight/chunks/steam.py:99
+msgid "Size"
+msgstr "大小"
+
+#. Translators: File or folder
+#: superlight/view_folders.py:87
+msgid "Modified"
+msgstr "已修改"
+
+#: superlight/view_folders.py:109
+msgid "Show in File Manager"
+msgstr "在文件管理器中显示"
+
+#: superlight/view_folders.py:112 superlight/view_folders.py:290
+#: superlight/view_folders.py:350
+msgid "Move to Trash"
+msgstr "移动到回收站"
+
+#: superlight/view_folders.py:151
+msgid "Home"
+msgstr "主文件夹"
+
+#: superlight/view_folders.py:155
+msgid "File System"
+msgstr "文件系统"
+
+#: superlight/view_folders.py:230
+msgid "There is nothing in this folder."
+msgstr "这个文件夹里什么都没有。"
+
+#: superlight/view_folders.py:233
+msgid "Folders you can't read are left out of the sizes."
+msgstr "你无法读取的文件夹不会计算在大小里。"
+
+#: superlight/view_folders.py:253
+msgid "Can't be read"
+msgstr "无法读取"
+
+#: superlight/view_folders.py:291 superlight/view_folders.py:373
+msgid "Delete"
+msgstr "删除"
+
+#: superlight/view_folders.py:331 superlight/chunks/flatpak.py:183
+#: superlight/chunks/steam.py:282
+#, python-format
+msgid "%(count)d selected, %(size)s"
+msgid_plural "%(count)d selected, %(size)s"
+msgstr[0] "已选择 %(count)d 个，共 %(size)s"
+
+#: superlight/view_folders.py:334
+#, python-format
+msgid "%(count)d item, %(size)s"
+msgid_plural "%(count)d items, %(size)s"
+msgstr[0] "%(count)d 个项目, %(size)s"
+
+#: superlight/view_folders.py:343
+#, python-format
+msgid "Move \"%s\" to the trash?"
+msgstr "把“%s”移到回收站吗？"
+
+#: superlight/view_folders.py:345
+#, python-format
+msgid "Move %d item to the trash?"
+msgid_plural "Move %d items to the trash?"
+msgstr[0] "把 %d 个项目移到回收站吗？"
+
+#: superlight/view_folders.py:348
+#, python-format
+msgid "%s will be freed when the trash is emptied."
+msgstr "当垃圾清空时，%s 会被释放。"
+
+#: superlight/view_folders.py:359
+msgid "Could not move it to the trash"
+msgstr "无法移到回收站"
+
+#: superlight/view_folders.py:366
+#, python-format
+msgid "Permanently delete \"%s\"?"
+msgstr "永久删除“%s”？"
+
+#: superlight/view_folders.py:368
+#, python-format
+msgid "Permanently delete %d item?"
+msgid_plural "Permanently delete %d items?"
+msgstr[0] "永久删除 %d 个项目？"
+
+#: superlight/view_folders.py:371
+#, python-format
+msgid "%s will be freed. This can't be undone."
+msgstr "%s 将被释放。这无法撤销。"
+
+#: superlight/view_folders.py:382
+msgid "Could not delete it"
+msgstr "无法删除它"
+
+#: superlight/chunks/cache.py:10
+msgid "Cache"
+msgstr "缓存"
+
+#: superlight/chunks/cache.py:20
+msgid "Clear Cache…"
+msgstr "清空缓存…"
+
+#: superlight/chunks/cache.py:20
+msgid "Clear the cache?"
+msgstr "清除缓存吗？"
+
+#: superlight/chunks/cache.py:21
+#, python-format
+msgid ""
+"%s of temporary files will be deleted. Programs can be slower the first time "
+"they start afterwards."
+msgstr "%s 的临时文件将被删除。之后程序首次启动时可能会较慢。"
+
+#: superlight/chunks/cache.py:23
+msgid "Clear Cache"
+msgstr "清除缓存"
+
+#: superlight/chunks/flatpak.py:44 superlight/chunks/flatpak.py:201
+msgid "Flatpak"
+msgstr "Flatpak"
+
+#: superlight/chunks/flatpak.py:70
+msgid "Type"
+msgstr "类型"
+
+#: superlight/chunks/flatpak.py:70
+msgid "Installation"
+msgstr "安装程序"
+
+#: superlight/chunks/flatpak.py:131
+msgid "App"
+msgstr "应用"
+
+#: superlight/chunks/flatpak.py:131
+msgid "Runtime"
+msgstr "运行时"
+
+#: superlight/chunks/flatpak.py:132
+msgid "System"
+msgstr "系统"
+
+#: superlight/chunks/flatpak.py:187
+#, python-format
+msgid "%(count)d app, %(size)s"
+msgid_plural "%(count)d apps, %(size)s"
+msgstr[0] "%(count)d 个应用, %(size)s"
+
+#: superlight/chunks/hidden_files.py:12
+msgid "Hidden files"
+msgstr "隐藏文件"
+
+#: superlight/chunks/logs.py:8
+msgid "Log files"
+msgstr "日志文件"
+
+#: superlight/chunks/other.py:10
+msgid "Other"
+msgstr "其他"
+
+#: superlight/chunks/personal_files.py:14
+msgid "Personal files"
+msgstr "个人文件"
+
+#: superlight/chunks/snapshots.py:14
+msgid "System Snapshots"
+msgstr "系统快照"
+
+#: superlight/chunks/steam.py:66
+msgid "Back"
+msgstr "返回"
+
+#: superlight/chunks/steam.py:69
+msgid "Steam games"
+msgstr "Steam游戏"
+
+#: superlight/chunks/steam.py:95
+msgid "Drive"
+msgstr "驱动器"
+
+#: superlight/chunks/steam.py:105
+msgid "Last played"
+msgstr "最近游玩"
+
+#: superlight/chunks/steam.py:215
+msgid "Left over from removed games"
+msgstr "移除游戏后的残余垃圾"
+
+#: superlight/chunks/steam.py:269
+msgid "Never"
+msgstr "从不"
+
+#: superlight/chunks/steam.py:286
+#, python-format
+msgid "%(count)d game, %(size)s"
+msgid_plural "%(count)d games, %(size)s"
+msgstr[0] "%(count)d 场游戏，%(size)s"
+
+#: superlight/chunks/steam.py:300
+msgid "Steam"
+msgstr "Steam"
+
+#: superlight/chunks/system_cache.py:8
+msgid "System cache"
+msgstr "系统缓存"
+
+#: superlight/chunks/temp_files.py:8
+msgid "Temp files"
+msgstr "临时文件"
+
+#: superlight/chunks/trash.py:15
+msgid "Trash"
+msgstr "回收站"
+
+#. Translators: Trash
+#: superlight/chunks/trash.py:50
+msgctxt "trash"
+msgid "Empty"
+msgstr "空的"
+
+#: superlight/chunks/trash.py:69
+msgid "Empty Trash…"
+msgstr "清空回收站…"
+
+#: superlight/chunks/trash.py:69
+msgid "Empty the trash?"
+msgstr "清空回收站?"
+
+#: superlight/chunks/trash.py:70
+#, python-format
+msgid "%s will be deleted for good."
+msgstr "%s 将被永久删除。"
+
+#: superlight/chunks/trash.py:70
+msgid "Empty Trash"
+msgstr "清空回收站"
