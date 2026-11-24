@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2026-10-26 13:29+0000\n"
-"PO-Revision-Date: 2026-10-16 11:31+0000\n"
-"Last-Translator: Rostyslav Haitkulov <Unknown>\n"
+"PO-Revision-Date: 2026-11-18 04:56+0000\n"
+"Last-Translator: Mykola Tkach <chistomov@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2026-11-16 12:02+0000\n"
-"X-Generator: Launchpad (build 72ba15af7e009b17d4aa1467977127ac8392a4de)\n"
+"X-Launchpad-Export-Date: 2026-11-24 12:02+0000\n"
+"X-Generator: Launchpad (build 012091084314157d19ae714f55ef4c582ff0feb5)\n"
 
 #: data/org.x.superlight.desktop.in:2 superlight/application.py:22
 #: superlight/application.py:35 superlight/application.py:164
@@ -499,7 +499,7 @@ msgstr "%d хв."
 
 #: superlight/page_battery.py:205
 msgid "Details"
-msgstr ""
+msgstr "Докладно"
 
 #: superlight/page_battery.py:215
 msgid "Vendor"
@@ -523,33 +523,33 @@ msgstr "Енергія при заповненні"
 
 #: superlight/page_battery.py:217
 msgid "Health"
-msgstr ""
+msgstr "Стан здоров'я"
 
 #: superlight/page_battery.py:217
 msgid "Voltage"
-msgstr ""
+msgstr "Напруга"
 
 #: superlight/page_battery.py:218
 msgid "Charge cycles"
-msgstr ""
+msgstr "Цикли заряджання"
 
 #: superlight/page_battery.py:218 superlight/page_resources.py:57
 msgid "Temperature"
-msgstr ""
+msgstr "Температура"
 
 #: superlight/page_battery.py:245
 msgid "No history is available for this device yet"
-msgstr ""
+msgstr "Для цього пристрою ще немає історії"
 
 #: superlight/page_battery.py:313
 #, python-format
 msgid "%(state)s, %(time)s remaining"
-msgstr ""
+msgstr "%(state)s, залишилося %(time)s"
 
 #: superlight/page_battery.py:315
 #, python-format
 msgid "%(state)s, %(time)s until full"
-msgstr ""
+msgstr "%(state)s, до повного заряду залишилося %(time)s"
 
 #: superlight/page_processes.py:17
 msgid "PID"
@@ -595,303 +595,312 @@ msgstr "Завершити процес"
 #: superlight/page_processes.py:51
 msgid "The process will be asked to quit. It may lose unsaved work."
 msgstr ""
+"Програмі буде надіслано запит на завершення роботи. Вона може втратити "
+"незбережені дані."
 
 #: superlight/page_processes.py:52
 msgid "Could not end the process"
-msgstr ""
+msgstr "Не вдалося завершити процес"
 
 #: superlight/page_processes.py:53 superlight/page_processes.py:54
 msgid "Kill Process"
-msgstr ""
+msgstr "Знищити процес"
 
 #: superlight/page_processes.py:54
 msgid "The process will stop immediately. Unsaved work may be lost."
-msgstr ""
+msgstr "Процес буде негайно зупинено. Незбережену роботу може бути втрачено."
 
 #: superlight/page_processes.py:55
 msgid "Could not kill the process"
-msgstr ""
+msgstr "Не вдалося примусово завершити процес ("
 
 #: superlight/page_processes.py:56
 msgid "Stop Process"
-msgstr ""
+msgstr "Зупинити процес"
 
 #: superlight/page_processes.py:56
 msgid "Could not stop the process"
-msgstr ""
+msgstr "Не вдалося зупинити процес"
 
 #: superlight/page_processes.py:57
 msgid "Continue Process"
-msgstr ""
+msgstr "Продовжити процес"
 
 #: superlight/page_processes.py:58
 msgid "Could not continue the process"
-msgstr ""
+msgstr "Не вдалося продовжити процес"
 
 #: superlight/page_processes.py:60
 msgid "All Processes"
-msgstr ""
+msgstr "Усі процеси"
 
 #: superlight/page_processes.py:60
 msgid "My Processes"
-msgstr ""
+msgstr "Мої процеси"
 
 #: superlight/page_processes.py:60
 msgid "Active Processes"
-msgstr ""
+msgstr "Активні процеси"
 
 #: superlight/page_processes.py:70
 msgid "Pauses the process"
-msgstr ""
+msgstr "Призупинити процес"
 
 #: superlight/page_processes.py:169
 msgid "Process tree"
-msgstr ""
+msgstr "Дерево процесів"
 
 #: superlight/page_processes.py:170
 msgid "Show each process under the one that started it"
-msgstr ""
+msgstr "Показувати кожен процес під тим, який його запустив"
 
 #: superlight/page_processes.py:369
 msgid "The selected process has already exited."
-msgstr ""
+msgstr "Вибраний процес уже завершився"
 
 #: superlight/page_resources.py:37 superlight/page_resources.py:55
 #: superlight/page_resources.py:61
 msgid "Collecting data…"
-msgstr ""
+msgstr "Збір даних…"
 
 #: superlight/page_resources.py:39
 msgid "Overall usage"
-msgstr ""
+msgstr "Загальне використання"
 
 #: superlight/page_resources.py:43
 msgid "CPU cores"
-msgstr ""
+msgstr "Ядра процесора"
 
 #: superlight/page_resources.py:45
 msgid "Receiving"
-msgstr ""
+msgstr "Отримання"
 
 #: superlight/page_resources.py:45
 msgid "Total Received"
-msgstr ""
+msgstr "Всього отримано"
 
 #: superlight/page_resources.py:46
 msgid "Sending"
-msgstr ""
+msgstr "Надсилання"
 
 #: superlight/page_resources.py:46
 msgid "Total Sent"
-msgstr ""
+msgstr "Всього надіслано"
 
 #: superlight/page_resources.py:47
 msgid "Network"
-msgstr ""
+msgstr "Мережа"
 
 #: superlight/page_resources.py:49
 msgid "Reading"
-msgstr ""
+msgstr "Читання"
 
 #: superlight/page_resources.py:49
 msgid "Total Read"
-msgstr ""
+msgstr "Загалом прочитано"
 
 #: superlight/page_resources.py:50
 msgid "Writing"
-msgstr ""
+msgstr "Запис"
 
 #: superlight/page_resources.py:50
 msgid "Total Written"
-msgstr ""
+msgstr "Загалом записано"
 
 #: superlight/page_resources.py:51
 msgid "Disk"
-msgstr ""
+msgstr "Диск"
 
 #: superlight/page_resources.py:63
 msgid "Fan Speed"
-msgstr ""
+msgstr "Швидкість вентиляторів"
 
 #: superlight/page_resources.py:120
 msgid "Offline"
-msgstr ""
+msgstr "Поза мережею"
 
 #: superlight/page_resources.py:133
 msgid "Usage unavailable from driver"
-msgstr ""
+msgstr "Використання недоступне з драйвера"
 
 #: superlight/page_resources.py:141
 msgid "Not configured"
-msgstr ""
+msgstr "Не налаштовано"
 
 #: superlight/page_resources.py:146 superlight/page_resources.py:155
 msgid "Unavailable"
-msgstr ""
+msgstr "Недоступно"
 
 #: superlight/page_storage.py:113 superlight/view_folders.py:41
 #: superlight/chunks/flatpak.py:50 superlight/chunks/steam.py:75
 msgid "Measure again"
-msgstr ""
+msgstr "Виміряти знову"
 
 #: superlight/page_storage.py:237
 #, python-format
 msgid "used of %s"
-msgstr ""
+msgstr "використання %s"
 
 #: superlight/page_storage.py:238
 #, python-format
 msgid "%s free"
-msgstr ""
+msgstr "%s вільно"
 
 #: superlight/page_storage.py:241
 #, python-format
 msgid "%s are kept by the file system for the system and can't be used."
 msgstr ""
+"%s резервуються файловою системою для потреб системи й не можуть "
+"використовуватися"
 
 #: superlight/page_storage.py:290
 msgid "Measuring…"
-msgstr ""
+msgstr "Вимірювання…"
 
 #: superlight/page_storage.py:292
 msgid "There is nothing on this drive."
-msgstr ""
+msgstr "На цьому диску нічого немає"
 
 #: superlight/page_storage.py:410
 msgid "Some files could not be deleted"
-msgstr ""
+msgstr "Деякі файли не вдалося вилучити"
 
 #: superlight/page_storage.py:421
 msgid "Explore Home Folder…"
-msgstr ""
+msgstr "Переглянути домашню теку"
 
 #: superlight/page_storage.py:424
 msgid "Explore File System…"
-msgstr ""
+msgstr "Огляд файлової системи…"
 
 #: superlight/page_storage.py:424
 msgid "Explore Folders…"
-msgstr ""
+msgstr "Огляд файлової системи…"
 
 #: superlight/view_folders.py:29 superlight/chunks/flatpak.py:41
 msgid "Back to the overview"
-msgstr ""
+msgstr "Назад до огляду"
 
 #: superlight/view_folders.py:75
 msgid "Share"
-msgstr ""
+msgstr "Поділитися"
 
 #: superlight/view_folders.py:80 superlight/chunks/flatpak.py:75
 #: superlight/chunks/steam.py:99
 msgid "Size"
-msgstr ""
+msgstr "Розмір"
 
 #. Translators: File or folder
 #: superlight/view_folders.py:87
 msgid "Modified"
-msgstr ""
+msgstr "Змінено"
 
 #: superlight/view_folders.py:109
 msgid "Show in File Manager"
-msgstr ""
+msgstr "Показати у файловому менеджері"
 
 #: superlight/view_folders.py:112 superlight/view_folders.py:290
 #: superlight/view_folders.py:350
 msgid "Move to Trash"
-msgstr ""
+msgstr "Пересунути до смітника"
 
 #: superlight/view_folders.py:151
 msgid "Home"
-msgstr ""
+msgstr "Домівка"
 
 #: superlight/view_folders.py:155
 msgid "File System"
-msgstr ""
+msgstr "Файлова Система"
 
 #: superlight/view_folders.py:230
 msgid "There is nothing in this folder."
-msgstr ""
+msgstr "У цій теці нічого немає"
 
 #: superlight/view_folders.py:233
 msgid "Folders you can't read are left out of the sizes."
 msgstr ""
+"Теки, до яких ви не маєте дозволу на читання, не враховуються у розмірах"
 
 #: superlight/view_folders.py:253
 msgid "Can't be read"
-msgstr ""
+msgstr "Неможливо прочитати"
 
 #: superlight/view_folders.py:291 superlight/view_folders.py:373
 msgid "Delete"
-msgstr ""
+msgstr "Вилучити"
 
 #: superlight/view_folders.py:331 superlight/chunks/flatpak.py:183
 #: superlight/chunks/steam.py:282
 #, python-format
 msgid "%(count)d selected, %(size)s"
 msgid_plural "%(count)d selected, %(size)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Вибрано: %(count)d, %(size)s"
+msgstr[1] "Вибрано: %(count)d, %(size)s"
+msgstr[2] "Вибрано: %(count)d, %(size)s"
 
 #: superlight/view_folders.py:334
 #, python-format
 msgid "%(count)d item, %(size)s"
 msgid_plural "%(count)d items, %(size)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)d елемент, %(size)s"
+msgstr[1] "%(count)d елементи, %(size)s"
+msgstr[2] "%(count)d елементів, %(size)s"
 
 #: superlight/view_folders.py:343
 #, python-format
 msgid "Move \"%s\" to the trash?"
-msgstr ""
+msgstr "Перенести «%s» до смітника?"
 
 #: superlight/view_folders.py:345
 #, python-format
 msgid "Move %d item to the trash?"
 msgid_plural "Move %d items to the trash?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Перенести %d елемент до смітника?"
+msgstr[1] "Перенести %d елементи до смітника?"
+msgstr[2] "Перенести %d елементів до смітника?"
 
 #: superlight/view_folders.py:348
 #, python-format
 msgid "%s will be freed when the trash is emptied."
-msgstr ""
+msgstr "%s буде звільнено після очищення смітника"
 
 #: superlight/view_folders.py:359
 msgid "Could not move it to the trash"
-msgstr ""
+msgstr "Не вдалося перенести до смітника"
 
 #: superlight/view_folders.py:366
 #, python-format
 msgid "Permanently delete \"%s\"?"
-msgstr ""
+msgstr "Остаточно вилучити «%s»?"
 
 #: superlight/view_folders.py:368
 #, python-format
 msgid "Permanently delete %d item?"
 msgid_plural "Permanently delete %d items?"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Остаточно вилучити %d елемент?"
+msgstr[1] "Остаточно вилучити %d елементи?"
+msgstr[2] "Остаточно вилучити %d елементів?"
 
 #: superlight/view_folders.py:371
 #, python-format
 msgid "%s will be freed. This can't be undone."
-msgstr ""
+msgstr "Буде звільнено %s. Цю дію неможливо скасувати"
 
 #: superlight/view_folders.py:382
 msgid "Could not delete it"
-msgstr ""
+msgstr "Не вдалося вилучити"
 
 #: superlight/chunks/cache.py:10
 msgid "Cache"
-msgstr ""
+msgstr "Кеш"
 
 #: superlight/chunks/cache.py:20
 msgid "Clear Cache…"
-msgstr ""
+msgstr "Очистити кеш…"
 
 #: superlight/chunks/cache.py:20
 msgid "Clear the cache?"
-msgstr ""
+msgstr "Очистити кеш?"
 
 #: superlight/chunks/cache.py:21
 #, python-format
@@ -899,128 +908,132 @@ msgid ""
 "%s of temporary files will be deleted. Programs can be slower the first time "
 "they start afterwards."
 msgstr ""
+"Буде вилучено тимчасових файлів: %s. Після цього програми можуть працювати "
+"повільніше під час першого запуску"
 
 #: superlight/chunks/cache.py:23
 msgid "Clear Cache"
-msgstr ""
+msgstr "Очистити кеш"
 
 #: superlight/chunks/flatpak.py:44 superlight/chunks/flatpak.py:201
 msgid "Flatpak"
-msgstr ""
+msgstr "Flatpak"
 
 #: superlight/chunks/flatpak.py:70
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: superlight/chunks/flatpak.py:70
 msgid "Installation"
-msgstr ""
+msgstr "Встановлення"
 
 #: superlight/chunks/flatpak.py:131
 msgid "App"
-msgstr ""
+msgstr "Застосунок"
 
 #: superlight/chunks/flatpak.py:131
 msgid "Runtime"
-msgstr ""
+msgstr "Виконання"
 
 #: superlight/chunks/flatpak.py:132
 msgid "System"
-msgstr ""
+msgstr "Система"
 
 #: superlight/chunks/flatpak.py:187
 #, python-format
 msgid "%(count)d app, %(size)s"
 msgid_plural "%(count)d apps, %(size)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)d застосунок, %(size)s"
+msgstr[1] "%(count)d застосунки, %(size)s"
+msgstr[2] "%(count)d застосунків, %(size)s"
 
 #: superlight/chunks/hidden_files.py:12
 msgid "Hidden files"
-msgstr ""
+msgstr "Приховані файли"
 
 #: superlight/chunks/logs.py:8
 msgid "Log files"
-msgstr ""
+msgstr "Журнали подій"
 
 #: superlight/chunks/other.py:10
 msgid "Other"
-msgstr ""
+msgstr "Інше"
 
 #: superlight/chunks/personal_files.py:14
 msgid "Personal files"
-msgstr ""
+msgstr "Особисті файли"
 
 #: superlight/chunks/snapshots.py:14
 msgid "System Snapshots"
-msgstr ""
+msgstr "Системні знятки"
 
 #: superlight/chunks/steam.py:66
 msgid "Back"
-msgstr ""
+msgstr "Назад"
 
 #: superlight/chunks/steam.py:69
 msgid "Steam games"
-msgstr ""
+msgstr "Ігри Steam"
 
 #: superlight/chunks/steam.py:95
 msgid "Drive"
-msgstr ""
+msgstr "Диск"
 
 #: superlight/chunks/steam.py:105
 msgid "Last played"
-msgstr ""
+msgstr "Востаннє відтворено"
 
 #: superlight/chunks/steam.py:215
 msgid "Left over from removed games"
-msgstr ""
+msgstr "Зайві файли ігор"
 
 #: superlight/chunks/steam.py:269
 msgid "Never"
-msgstr ""
+msgstr "Ніколи"
 
 #: superlight/chunks/steam.py:286
 #, python-format
 msgid "%(count)d game, %(size)s"
 msgid_plural "%(count)d games, %(size)s"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)d гра, %(size)s"
+msgstr[1] "%(count)d ігри, %(size)s"
+msgstr[2] "%(count)d ігор, %(size)s"
 
 #: superlight/chunks/steam.py:300
 msgid "Steam"
-msgstr ""
+msgstr "Steam"
 
 #: superlight/chunks/system_cache.py:8
 msgid "System cache"
-msgstr ""
+msgstr "Системний кеш"
 
 #: superlight/chunks/temp_files.py:8
 msgid "Temp files"
-msgstr ""
+msgstr "Тимчасові файли"
 
 #: superlight/chunks/trash.py:15
 msgid "Trash"
-msgstr ""
+msgstr "Смітник"
 
 #. Translators: Trash
 #: superlight/chunks/trash.py:50
 msgctxt "trash"
 msgid "Empty"
-msgstr ""
+msgstr "Порожній"
 
 #: superlight/chunks/trash.py:69
 msgid "Empty Trash…"
-msgstr ""
+msgstr "Спорожнити смітник…"
 
 #: superlight/chunks/trash.py:69
 msgid "Empty the trash?"
-msgstr ""
+msgstr "Очистити вміст смітника"
 
 #: superlight/chunks/trash.py:70
 #, python-format
 msgid "%s will be deleted for good."
-msgstr ""
+msgstr "%s буде стерто безповоротно"
 
 #: superlight/chunks/trash.py:70
 msgid "Empty Trash"
-msgstr ""
+msgstr "Спорожнити смітник"

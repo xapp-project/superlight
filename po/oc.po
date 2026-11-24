@@ -8,26 +8,26 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2026-10-26 13:29+0000\n"
-"PO-Revision-Date: 2026-10-27 11:08+0000\n"
+"PO-Revision-Date: 2026-11-21 12:28+0000\n"
 "Last-Translator: Quentin PAGÈS <Unknown>\n"
 "Language-Team: Occitan (post 1500) <oc@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Launchpad-Export-Date: 2026-11-16 12:02+0000\n"
-"X-Generator: Launchpad (build 72ba15af7e009b17d4aa1467977127ac8392a4de)\n"
+"X-Launchpad-Export-Date: 2026-11-24 12:02+0000\n"
+"X-Generator: Launchpad (build 012091084314157d19ae714f55ef4c582ff0feb5)\n"
 "Language: oc\n"
 
 #: data/org.x.superlight.desktop.in:2 superlight/application.py:22
 #: superlight/application.py:35 superlight/application.py:164
 #: superlight/application.py:174
 msgid "System Monitor"
-msgstr "Monitor sistèma"
+msgstr "Monitor del sistèma"
 
 #: data/org.x.superlight.desktop.in:3
 msgid "Monitor system resources and processes"
-msgstr "Susvelhar las ressorsas e procèssus sistèma"
+msgstr "Susvelhar las ressorsas e procèssus del sistèma"
 
 #: data/org.x.superlight.desktop.in:9
 msgid "system;monitor;resources;processes;cpu;memory;task manager;"
@@ -342,7 +342,7 @@ msgstr "Telefòn"
 
 #: superlight/page_battery.py:20
 msgid "Tablet"
-msgstr "Tauleta grafica"
+msgstr "Tauleta"
 
 #: superlight/page_battery.py:20
 msgid "Pen"
@@ -504,7 +504,7 @@ msgstr "Detalhs"
 
 #: superlight/page_battery.py:215
 msgid "Vendor"
-msgstr "Constructor"
+msgstr "Fabricant"
 
 #: superlight/page_battery.py:215
 msgid "Model"

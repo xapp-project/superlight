@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2026-10-26 13:29+0000\n"
-"PO-Revision-Date: 2026-10-30 22:11+0000\n"
-"Last-Translator: Peyu Yovev <Unknown>\n"
+"PO-Revision-Date: 2026-11-22 11:18+0000\n"
+"Last-Translator: Salif Mehmed <mail@salif.eu>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2026-11-16 12:02+0000\n"
-"X-Generator: Launchpad (build 72ba15af7e009b17d4aa1467977127ac8392a4de)\n"
+"X-Launchpad-Export-Date: 2026-11-24 12:02+0000\n"
+"X-Generator: Launchpad (build 012091084314157d19ae714f55ef4c582ff0feb5)\n"
 
 #: data/org.x.superlight.desktop.in:2 superlight/application.py:22
 #: superlight/application.py:35 superlight/application.py:164
@@ -103,7 +103,7 @@ msgstr "%d RPM"
 
 #: superlight/common_process.py:268
 msgid "Use Default"
-msgstr "Използване на стандарто"
+msgstr "Използване на стандартно"
 
 #: superlight/common_proc.py:45 superlight/common_proc.py:50
 msgid "Unknown GPU"
@@ -262,7 +262,7 @@ msgstr "Край на \"%s\"?"
 msgid "All its processes will be asked to quit. They may lose unsaved work."
 msgstr ""
 "Всички свързани процеси ще се опита да бъдат спрени. Може да загубите "
-"незапасани файлове."
+"незапазени файлове."
 
 #: superlight/page_apps.py:50
 msgid "Could not end the application"
@@ -281,7 +281,7 @@ msgstr "Да убия ли \"%s\"?"
 msgid "All its processes will stop immediately. Unsaved work may be lost."
 msgstr ""
 "Всички свързани процеси ще бъдат спрени незабавно. Може да загубите "
-"незапасани файлове."
+"незапазени файлове."
 
 #: superlight/page_apps.py:53
 msgid "Could not kill the application"
@@ -301,7 +301,7 @@ msgstr "Нека приложението да продължи"
 
 #: superlight/page_apps.py:56
 msgid "Could not continue the application"
-msgstr "Продължението не може да продължи"
+msgstr "Приложението не може да продължи"
 
 #: superlight/page_apps.py:147
 msgid "Pauses the application"
@@ -537,12 +537,12 @@ msgstr "Температура"
 
 #: superlight/page_battery.py:245
 msgid "No history is available for this device yet"
-msgstr "Все още нама налична история за това усройство"
+msgstr "Все още няма налична история за това устройство"
 
 #: superlight/page_battery.py:313
 #, python-format
 msgid "%(state)s, %(time)s remaining"
-msgstr "остават  %(state)s, %(time)s"
+msgstr "%(state)s, остават %(time)s"
 
 #: superlight/page_battery.py:315
 #, python-format
@@ -593,7 +593,7 @@ msgstr "Спиране на процеса"
 #: superlight/page_processes.py:51
 msgid "The process will be asked to quit. It may lose unsaved work."
 msgstr ""
-"От процеса ще бъде поискане да спре. Възможно е загуба на незапасани данни."
+"От процеса ще бъде поискано да спре. Възможна е загуба на незапазени данни."
 
 #: superlight/page_processes.py:52
 msgid "Could not end the process"
@@ -606,7 +606,7 @@ msgstr "Убий процеса"
 #: superlight/page_processes.py:54
 msgid "The process will stop immediately. Unsaved work may be lost."
 msgstr ""
-"Процеса ще бъде прекратен незабавно. Незаписаните данни може да бъдат "
+"Процесът ще бъде прекратен незабавно. Незаписаните данни може да бъдат "
 "изгубени."
 
 #: superlight/page_processes.py:55
@@ -627,7 +627,7 @@ msgstr "Продължи процеса"
 
 #: superlight/page_processes.py:58
 msgid "Could not continue the process"
-msgstr "Процеса не може да продължи"
+msgstr "Процесът не може да продължи"
 
 #: superlight/page_processes.py:60
 msgid "All Processes"
@@ -655,12 +655,12 @@ msgstr "Показвай всеки процес под този, който г�
 
 #: superlight/page_processes.py:369
 msgid "The selected process has already exited."
-msgstr "Избраният процес вече съществува"
+msgstr "Избраният процес вече е приключил."
 
 #: superlight/page_resources.py:37 superlight/page_resources.py:55
 #: superlight/page_resources.py:61
 msgid "Collecting data…"
-msgstr "Събиране на данни"
+msgstr "Събират се данни…"
 
 #: superlight/page_resources.py:39
 msgid "Overall usage"
@@ -738,7 +738,7 @@ msgstr "Измери отново"
 #: superlight/page_storage.py:237
 #, python-format
 msgid "used of %s"
-msgstr "Използвано на %s"
+msgstr "използвано от %s"
 
 #: superlight/page_storage.py:238
 #, python-format
@@ -752,7 +752,7 @@ msgstr "%s са запазени за системата и не може да �
 
 #: superlight/page_storage.py:290
 msgid "Measuring…"
-msgstr "Изнерване..."
+msgstr "Измерване…"
 
 #: superlight/page_storage.py:292
 msgid "There is nothing on this drive."
@@ -764,11 +764,11 @@ msgstr "Някои файлове не могат да бъдат изтрити
 
 #: superlight/page_storage.py:421
 msgid "Explore Home Folder…"
-msgstr "Изследване на домашната папка...."
+msgstr "Изследване на домашната папка…"
 
 #: superlight/page_storage.py:424
 msgid "Explore File System…"
-msgstr "Изследване на файловата система..."
+msgstr "Изследване на файловата система…"
 
 #: superlight/page_storage.py:424
 msgid "Explore Folders…"
@@ -811,7 +811,7 @@ msgstr "Файлова система"
 
 #: superlight/view_folders.py:230
 msgid "There is nothing in this folder."
-msgstr "В тази папка няма нищо"
+msgstr "В тази папка няма нищо."
 
 #: superlight/view_folders.py:233
 msgid "Folders you can't read are left out of the sizes."
@@ -855,7 +855,7 @@ msgstr[1] "Да изместя ли %d елемента в кошчето?"
 #: superlight/view_folders.py:348
 #, python-format
 msgid "%s will be freed when the trash is emptied."
-msgstr "%s ще бъдат освободени, когато коша се изпразни."
+msgstr "%s ще бъдат освободени, когато кошчето се изпразни."
 
 #: superlight/view_folders.py:359
 msgid "Could not move it to the trash"
@@ -870,8 +870,8 @@ msgstr "Окончателно изтриване на \"%s\"?"
 #, python-format
 msgid "Permanently delete %d item?"
 msgid_plural "Permanently delete %d items?"
-msgstr[0] "Окончателно изтриване на  %d елемент?"
-msgstr[1] "Окончателно изтриване на  %d елемента?"
+msgstr[0] "Окончателно изтриване на %d елемент?"
+msgstr[1] "Окончателно изтриване на %d елемента?"
 
 #: superlight/view_folders.py:371
 #, python-format
@@ -1022,7 +1022,7 @@ msgstr "Да изпразня ли кошчето?"
 #: superlight/chunks/trash.py:70
 #, python-format
 msgid "%s will be deleted for good."
-msgstr "%s ще бъде изтрито завинаги"
+msgstr "%s ще бъде изтрито завинаги."
 
 #: superlight/chunks/trash.py:70
 msgid "Empty Trash"

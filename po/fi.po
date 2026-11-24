@@ -8,31 +8,29 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2026-10-26 13:29+0000\n"
-"PO-Revision-Date: 2026-10-27 15:23+0000\n"
-"Last-Translator: Kimmo Kujansuu <Unknown>\n"
+"PO-Revision-Date: 2026-11-20 13:10+0000\n"
+"Last-Translator: Hiiri522 <hhiiri522@gmail.com>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2026-11-16 12:02+0000\n"
-"X-Generator: Launchpad (build 72ba15af7e009b17d4aa1467977127ac8392a4de)\n"
+"X-Launchpad-Export-Date: 2026-11-24 12:02+0000\n"
+"X-Generator: Launchpad (build 012091084314157d19ae714f55ef4c582ff0feb5)\n"
 
 #: data/org.x.superlight.desktop.in:2 superlight/application.py:22
 #: superlight/application.py:35 superlight/application.py:164
 #: superlight/application.py:174
 msgid "System Monitor"
-msgstr "Valvonta"
+msgstr "Järjestelmän valvonta"
 
 #: data/org.x.superlight.desktop.in:3
 msgid "Monitor system resources and processes"
-msgstr "Resurssien ja prosessien valvonta"
+msgstr "Valvo tietokoneen resursseja ja prosesseja"
 
 #: data/org.x.superlight.desktop.in:9
 msgid "system;monitor;resources;processes;cpu;memory;task manager;"
-msgstr ""
-"system;monitor;resources;processes;cpu;memory;task "
-"manager;järjestelmän;valvonta;tehtävienhallinta;resurssi;muisti;"
+msgstr "tietokone;valvoa;resurssit;prosessit;cpu;muisti;tehtävienhallinta"
 
 #: data/org.x.superlight.desktop.in:15 superlight/application.py:47
 msgid "Resources"
@@ -53,7 +51,7 @@ msgstr "Tietoja"
 
 #: superlight/application.py:39
 msgid "Quit"
-msgstr "Sulje"
+msgstr "Lopeta"
 
 #: superlight/application.py:49
 msgid "Apps"
@@ -66,7 +64,7 @@ msgstr "Akku"
 
 #: superlight/common_disk.py:70
 msgid "System drive"
-msgstr "Kiintolevy"
+msgstr "Järjestelmälevy"
 
 #: superlight/common_graphs.py:45
 msgid "< 1 kB/s"
@@ -79,7 +77,7 @@ msgstr "%s/s"
 
 #: superlight/common_graphs.py:138
 msgid "1 min"
-msgstr "1 min"
+msgstr "1 minuutti"
 
 #: superlight/common_graphs.py:138
 #, python-format
@@ -101,7 +99,7 @@ msgstr "Tuuletin %d"
 #: superlight/page_resources.py:158
 #, python-format
 msgid "%d RPM"
-msgstr "%d rpm"
+msgstr "%d RPM"
 
 #: superlight/common_process.py:268
 msgid "Use Default"
@@ -109,7 +107,7 @@ msgstr "Käytä oletusta"
 
 #: superlight/common_proc.py:45 superlight/common_proc.py:50
 msgid "Unknown GPU"
-msgstr "Tuntematon GPU"
+msgstr "Tuntematon näytönohjain"
 
 #. Translators: Priority
 #: superlight/__init__.py:56
@@ -182,7 +180,7 @@ msgstr "Kuollut"
 #: superlight/__init__.py:94
 msgctxt "process state"
 msgid "Idle"
-msgstr "Jouten"
+msgstr "Käyttämättömänä"
 
 #: superlight/page_apps.py:17 superlight/page_processes.py:16
 #: superlight/view_folders.py:61 superlight/chunks/flatpak.py:64
@@ -240,7 +238,7 @@ msgstr "GPU"
 
 #: superlight/page_apps.py:30 superlight/page_processes.py:37
 msgid "Video Memory"
-msgstr "Videomuisti"
+msgstr "Näyttömuisti"
 
 #: superlight/page_apps.py:31 superlight/page_processes.py:38
 msgid "Video Encoder"
@@ -263,12 +261,12 @@ msgstr "Lopetetaanko \"%s\"?"
 #: superlight/page_apps.py:49
 msgid "All its processes will be asked to quit. They may lose unsaved work."
 msgstr ""
-"Kaikkia sen prosesseja pyydetään lopettamaan toimintansa. Tallentamaton työ "
-"saattaa hävitä."
+"Kaikkia sen prosesseja pyydetään lopettamaan itsensä. Tallentamattomat "
+"tiedostot saattavat hävitä."
 
 #: superlight/page_apps.py:50
 msgid "Could not end the application"
-msgstr "Ohjelmaa ei voitu sulkea"
+msgstr "Ohjelman lopettaminen epäonnistui"
 
 #: superlight/page_apps.py:51 superlight/page_apps.py:52
 msgid "Kill Application"
@@ -282,12 +280,12 @@ msgstr "Tapetaanko \"%s\"?"
 #: superlight/page_apps.py:52
 msgid "All its processes will stop immediately. Unsaved work may be lost."
 msgstr ""
-"Kaikki sen prosessit pysähtyvät välittömästi. Tallentamaton työ saattaa "
-"hävitä."
+"Kaikki sen prosessit pysähtyvät välittömästi. Tallentamattomat tiedostot "
+"saattavat hävitä."
 
 #: superlight/page_apps.py:53
 msgid "Could not kill the application"
-msgstr "Ohjelmaa ei voitu tappaa"
+msgstr "Ohjelman tappaminen epäonnistui"
 
 #: superlight/page_apps.py:54
 msgid "Stop Application"
@@ -295,15 +293,15 @@ msgstr "Pysäytä ohjelma"
 
 #: superlight/page_apps.py:54
 msgid "Could not stop the application"
-msgstr "Ohjelmaa ei voitu pysäyttää"
+msgstr "Ohjelman pysäyttäminen epäonnistui"
 
 #: superlight/page_apps.py:55
 msgid "Continue Application"
-msgstr "Jatka suoritusta"
+msgstr "Jatka ohjelman suoritusta"
 
 #: superlight/page_apps.py:56
 msgid "Could not continue the application"
-msgstr "Ohjelmaa ei voitu jatkaa"
+msgstr "Ohjelman suorittamisen jatkaminen epäonnistui"
 
 #: superlight/page_apps.py:147
 msgid "Pauses the application"
@@ -311,7 +309,7 @@ msgstr "Keskeyttää ohjelman"
 
 #: superlight/page_apps.py:210 superlight/page_processes.py:157
 msgid "Search"
-msgstr "Haku"
+msgstr "Etsi"
 
 #: superlight/page_apps.py:336 superlight/page_processes.py:350
 #: superlight/page_storage.py:366 superlight/view_folders.py:349
@@ -321,7 +319,7 @@ msgstr "Peru"
 
 #: superlight/page_battery.py:18
 msgid "Uninterruptible Power Supply"
-msgstr "UPS"
+msgstr "UPS (keskeytymätön virransyöttö)"
 
 #: superlight/page_battery.py:18
 msgid "Mouse"
@@ -398,7 +396,7 @@ msgstr "Tyhjä"
 #. Translators: Battery
 #: superlight/page_battery.py:32
 msgid "Fully charged"
-msgstr "Täyteen ladattu"
+msgstr "Ladattu täyteen"
 
 #. Translators: Battery
 #: superlight/page_battery.py:34
@@ -438,7 +436,7 @@ msgstr "Nikkeli-metallihydridi"
 #: superlight/page_battery.py:49
 msgctxt "battery history"
 msgid "Idle"
-msgstr "Jouten"
+msgstr "Käyttämättömänä"
 
 #: superlight/page_battery.py:55
 msgid "30 minutes"
@@ -503,7 +501,7 @@ msgstr "Tiedot"
 
 #: superlight/page_battery.py:215
 msgid "Vendor"
-msgstr "Toimittaja"
+msgstr "Valmistaja"
 
 #: superlight/page_battery.py:215
 msgid "Model"
@@ -515,11 +513,11 @@ msgstr "Tekniikka"
 
 #: superlight/page_battery.py:216
 msgid "Energy"
-msgstr "Kapasiteetti"
+msgstr "Alkuperäinen kapasiteetti"
 
 #: superlight/page_battery.py:216
 msgid "Energy when full"
-msgstr "Kapasiteetti kun täynnä"
+msgstr "Nykyinen kapasiteetti"
 
 #: superlight/page_battery.py:217
 msgid "Health"
@@ -531,7 +529,7 @@ msgstr "Jännite"
 
 #: superlight/page_battery.py:218
 msgid "Charge cycles"
-msgstr "Lataussykli"
+msgstr "Lataussyklit"
 
 #: superlight/page_battery.py:218 superlight/page_resources.py:57
 msgid "Temperature"
@@ -539,7 +537,7 @@ msgstr "Lämpötila"
 
 #: superlight/page_battery.py:245
 msgid "No history is available for this device yet"
-msgstr "Laitteelle ei ole vielä historiaa"
+msgstr "Laitteen historia ei ole vielä saatavilla"
 
 #: superlight/page_battery.py:313
 #, python-format
@@ -569,7 +567,7 @@ msgstr "Prioriteetti"
 
 #: superlight/page_processes.py:23
 msgid "Systemd Unit"
-msgstr "Systemd Unit"
+msgstr "Systemd-yksikkö"
 
 #: superlight/page_processes.py:24
 msgid "Command Line"
@@ -594,12 +592,11 @@ msgstr "Lopeta prosessi"
 
 #: superlight/page_processes.py:51
 msgid "The process will be asked to quit. It may lose unsaved work."
-msgstr ""
-"Prosessi pyydetään lopettamaan. Se voi kadottaa työn jota ei ole tallennettu."
+msgstr "Prosessi pyydetään lopettamaan. Tallentamaton työ menetetään."
 
 #: superlight/page_processes.py:52
 msgid "Could not end the process"
-msgstr "Prosessia ei voitu lopettaa"
+msgstr "Prosessin lopettaminen epäonnistui"
 
 #: superlight/page_processes.py:53 superlight/page_processes.py:54
 msgid "Kill Process"
@@ -607,12 +604,11 @@ msgstr "Tapa prosessi"
 
 #: superlight/page_processes.py:54
 msgid "The process will stop immediately. Unsaved work may be lost."
-msgstr ""
-"Prosessi pysähtyy välittömästi. Se voi kadottaa työn jota ei ole tallennettu."
+msgstr "Prosessi pysähtyy välittömästi. Tallentamattomat tiedot menetetään."
 
 #: superlight/page_processes.py:55
 msgid "Could not kill the process"
-msgstr "Prosessia ei voitu tappaa"
+msgstr "Prosessin tappaminen epäonnistui"
 
 #: superlight/page_processes.py:56
 msgid "Stop Process"
@@ -620,7 +616,7 @@ msgstr "Pysäytä prosessi"
 
 #: superlight/page_processes.py:56
 msgid "Could not stop the process"
-msgstr "Prosessia ei voitu pysäyttää"
+msgstr "Prosessin pysäytys epäonnistui"
 
 #: superlight/page_processes.py:57
 msgid "Continue Process"
@@ -628,7 +624,7 @@ msgstr "Jatka prosessia"
 
 #: superlight/page_processes.py:58
 msgid "Could not continue the process"
-msgstr "Prosessia ei voitu jatkaa"
+msgstr "Prosessin jatkaminen epäonnistui"
 
 #: superlight/page_processes.py:60
 msgid "All Processes"
@@ -636,7 +632,7 @@ msgstr "Kaikki prosessit"
 
 #: superlight/page_processes.py:60
 msgid "My Processes"
-msgstr "Minun prosessit"
+msgstr "Minun prosessini"
 
 #: superlight/page_processes.py:60
 msgid "Active Processes"
@@ -644,7 +640,7 @@ msgstr "Aktiiviset prosessit"
 
 #: superlight/page_processes.py:70
 msgid "Pauses the process"
-msgstr "Pysäytetyt prosessit"
+msgstr "Pysäyttää prosessin"
 
 #: superlight/page_processes.py:169
 msgid "Process tree"
@@ -661,7 +657,7 @@ msgstr "Valittu prosessi on jo poistunut."
 #: superlight/page_resources.py:37 superlight/page_resources.py:55
 #: superlight/page_resources.py:61
 msgid "Collecting data…"
-msgstr "Kerätään dataa…"
+msgstr "Kerätään tietoa..."
 
 #: superlight/page_resources.py:39
 msgid "Overall usage"
@@ -669,7 +665,7 @@ msgstr "Käyttömäärä"
 
 #: superlight/page_resources.py:43
 msgid "CPU cores"
-msgstr "Ytimet"
+msgstr "Suoritinytimet"
 
 #: superlight/page_resources.py:45
 msgid "Receiving"
@@ -717,11 +713,11 @@ msgstr "Tuulettimen nopeus"
 
 #: superlight/page_resources.py:120
 msgid "Offline"
-msgstr "Ei yhteyttä"
+msgstr "Ei verkkoyhteyttä"
 
 #: superlight/page_resources.py:133
 msgid "Usage unavailable from driver"
-msgstr "Käyttötietoa ei saatavilla ajurilta"
+msgstr "Käyttömäärä ei ole ajurin saatavilla"
 
 #: superlight/page_resources.py:141
 msgid "Not configured"
@@ -739,7 +735,7 @@ msgstr "Mittaa uudelleen"
 #: superlight/page_storage.py:237
 #, python-format
 msgid "used of %s"
-msgstr "käytetty %s"
+msgstr "käytetty / %s"
 
 #: superlight/page_storage.py:238
 #, python-format
@@ -749,7 +745,7 @@ msgstr "%s vapaana"
 #: superlight/page_storage.py:241
 #, python-format
 msgid "%s are kept by the file system for the system and can't be used."
-msgstr "Tiedostojärjestelmälle varattu %s, eikä sitä voi käyttää."
+msgstr "Tiedostojärjestelmälle on varattu %s. Sitä ei voi käyttää itse."
 
 #: superlight/page_storage.py:290
 msgid "Measuring…"
@@ -761,7 +757,7 @@ msgstr "Asemalla ei ole mitään."
 
 #: superlight/page_storage.py:410
 msgid "Some files could not be deleted"
-msgstr "Joitakin tiedostoja ei voitu poistaa"
+msgstr "Joidenkin tiedostojen poistaminen epäonnistui"
 
 #: superlight/page_storage.py:421
 msgid "Explore Home Folder…"
@@ -777,7 +773,7 @@ msgstr "Selaa kansioita…"
 
 #: superlight/view_folders.py:29 superlight/chunks/flatpak.py:41
 msgid "Back to the overview"
-msgstr "Takaisin näkymään"
+msgstr "Palaa päänäkymään"
 
 #: superlight/view_folders.py:75
 msgid "Share"
@@ -808,7 +804,7 @@ msgstr "Koti"
 
 #: superlight/view_folders.py:155
 msgid "File System"
-msgstr "Järjestelmä"
+msgstr "Tiedostojärjestelmä"
 
 #: superlight/view_folders.py:230
 msgid "There is nothing in this folder."
@@ -816,11 +812,11 @@ msgstr "Kansiossa ei ole mitään."
 
 #: superlight/view_folders.py:233
 msgid "Folders you can't read are left out of the sizes."
-msgstr "Kansiot joita et voi lukea, jätetään pois laskennasta."
+msgstr "Laskennasta jätetään pois kansiot, joita et voi lukea."
 
 #: superlight/view_folders.py:253
 msgid "Can't be read"
-msgstr "Ei voi lukea"
+msgstr "Lukeminen ei onnistu"
 
 #: superlight/view_folders.py:291 superlight/view_folders.py:373
 msgid "Delete"
@@ -832,14 +828,14 @@ msgstr "Poista"
 msgid "%(count)d selected, %(size)s"
 msgid_plural "%(count)d selected, %(size)s"
 msgstr[0] "%(count)d valittu, %(size)s"
-msgstr[1] "%(count)d valittua, %(size)s"
+msgstr[1] "%(count)d valittua, yhteensä %(size)s"
 
 #: superlight/view_folders.py:334
 #, python-format
 msgid "%(count)d item, %(size)s"
 msgid_plural "%(count)d items, %(size)s"
 msgstr[0] "%(count)d kohde, %(size)s"
-msgstr[1] "%(count)d kohdetta, %(size)s"
+msgstr[1] "%(count)d kohdetta, yhteensä %(size)s"
 
 #: superlight/view_folders.py:343
 #, python-format
@@ -850,38 +846,38 @@ msgstr "Siirretäänkö \"%s\" roskakoriin?"
 #, python-format
 msgid "Move %d item to the trash?"
 msgid_plural "Move %d items to the trash?"
-msgstr[0] "Siirretäänkö %d roskakoriin?"
+msgstr[0] "Siirretäänkö %d kohde roskakoriin?"
 msgstr[1] "Siirretäänkö %d kohdetta roskakoriin?"
 
 #: superlight/view_folders.py:348
 #, python-format
 msgid "%s will be freed when the trash is emptied."
-msgstr "%s tilaa, kun roskakori tyhjennetään."
+msgstr "Kun roskakori tyhjennetään, tilaa vapautuu %s."
 
 #: superlight/view_folders.py:359
 msgid "Could not move it to the trash"
-msgstr "Ei voitu siirtää roskakoriin"
+msgstr "Roskakoriin siirtäminen epäonnistui"
 
 #: superlight/view_folders.py:366
 #, python-format
 msgid "Permanently delete \"%s\"?"
-msgstr "Poistetaanko ”%s” pysyvästi?"
+msgstr "Oletko varma, että haluat poistaa kohteen \"%s\" pysyvästi?"
 
 #: superlight/view_folders.py:368
 #, python-format
 msgid "Permanently delete %d item?"
 msgid_plural "Permanently delete %d items?"
-msgstr[0] "Poistetaanko %d pysyvästi?"
-msgstr[1] "Poistetaanko %d kohdetta pysyvästi?"
+msgstr[0] "Oletko varma, että haluat poistaa %d kohteen pysyvästi?"
+msgstr[1] "Oletko varma, että haluat poistaa %d kohdetta pysyvästi?"
 
 #: superlight/view_folders.py:371
 #, python-format
 msgid "%s will be freed. This can't be undone."
-msgstr "%s tilaa vapautetaan. Tätä ei voi perua."
+msgstr "Tilaa vapautuu %s. Tätä ei voi perua."
 
 #: superlight/view_folders.py:382
 msgid "Could not delete it"
-msgstr "Sitä ei voitu poistaa."
+msgstr "Sen poistaminen epäonnistui."
 
 #: superlight/chunks/cache.py:10
 msgid "Cache"
@@ -901,7 +897,7 @@ msgid ""
 "%s of temporary files will be deleted. Programs can be slower the first time "
 "they start afterwards."
 msgstr ""
-"%s väliaikaisia ​​tiedostoja poistetaan. Ohjelmat saattavat käynnistyä "
+"Väliaikaisia tiedostoja poistetaan %s. Ohjelmat saattavat käynnistyä "
 "hitaammin ensimmäisellä kerralla tämän jälkeen."
 
 #: superlight/chunks/cache.py:23
@@ -926,7 +922,7 @@ msgstr "Sovellus"
 
 #: superlight/chunks/flatpak.py:131
 msgid "Runtime"
-msgstr "Suoritusympäristö"
+msgstr "Suoritusaika"
 
 #: superlight/chunks/flatpak.py:132
 msgid "System"
@@ -937,7 +933,7 @@ msgstr "Järjestelmä"
 msgid "%(count)d app, %(size)s"
 msgid_plural "%(count)d apps, %(size)s"
 msgstr[0] "%(count)d sovellus, %(size)s"
-msgstr[1] "%(count)d sovellusta, %(size)s"
+msgstr[1] "%(count)d sovellusta, yhteensä %(size)s"
 
 #: superlight/chunks/hidden_files.py:12
 msgid "Hidden files"
@@ -945,11 +941,11 @@ msgstr "Piilotiedostot"
 
 #: superlight/chunks/logs.py:8
 msgid "Log files"
-msgstr "Lokit"
+msgstr "Lokitiedostot"
 
 #: superlight/chunks/other.py:10
 msgid "Other"
-msgstr "Muu"
+msgstr "Muut"
 
 #: superlight/chunks/personal_files.py:14
 msgid "Personal files"
@@ -965,7 +961,7 @@ msgstr "Takaisin"
 
 #: superlight/chunks/steam.py:69
 msgid "Steam games"
-msgstr "Steam pelit"
+msgstr "Steam-pelit"
 
 #: superlight/chunks/steam.py:95
 msgid "Drive"
@@ -973,7 +969,7 @@ msgstr "Asema"
 
 #: superlight/chunks/steam.py:105
 msgid "Last played"
-msgstr "Viimeksi soitettu"
+msgstr "Viimeksi toistettu"
 
 #: superlight/chunks/steam.py:215
 msgid "Left over from removed games"
@@ -988,7 +984,7 @@ msgstr "Ei koskaan"
 msgid "%(count)d game, %(size)s"
 msgid_plural "%(count)d games, %(size)s"
 msgstr[0] "%(count)d peli, %(size)s"
-msgstr[1] "%(count)d peliä, %(size)s"
+msgstr[1] "%(count)d peliä, yhteensä %(size)s"
 
 #: superlight/chunks/steam.py:300
 msgid "Steam"
@@ -996,11 +992,11 @@ msgstr "Steam"
 
 #: superlight/chunks/system_cache.py:8
 msgid "System cache"
-msgstr "Välimuisti"
+msgstr "Järjestelmän välimuisti"
 
 #: superlight/chunks/temp_files.py:8
 msgid "Temp files"
-msgstr "Tilapäistiedostot"
+msgstr "Väliaikaistiedostot"
 
 #: superlight/chunks/trash.py:15
 msgid "Trash"
@@ -1018,7 +1014,7 @@ msgstr "Tyhjennä roskakori…"
 
 #: superlight/chunks/trash.py:69
 msgid "Empty the trash?"
-msgstr "Tyhjennetäänkö roskakori?"
+msgstr "Oletko varma, että haluat tyhjentää roskakorin?"
 
 #: superlight/chunks/trash.py:70
 #, python-format

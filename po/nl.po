@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: linuxmint\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2026-10-26 13:29+0000\n"
-"PO-Revision-Date: 2026-10-26 18:38+0000\n"
+"PO-Revision-Date: 2026-11-18 21:30+0000\n"
 "Last-Translator: Pjotr12345 <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Launchpad-Export-Date: 2026-11-16 12:02+0000\n"
-"X-Generator: Launchpad (build 72ba15af7e009b17d4aa1467977127ac8392a4de)\n"
+"X-Launchpad-Export-Date: 2026-11-24 12:02+0000\n"
+"X-Generator: Launchpad (build 012091084314157d19ae714f55ef4c582ff0feb5)\n"
 
 #: data/org.x.superlight.desktop.in:2 superlight/application.py:22
 #: superlight/application.py:35 superlight/application.py:164
@@ -26,17 +26,17 @@ msgstr "Systeembewaker"
 
 #: data/org.x.superlight.desktop.in:3
 msgid "Monitor system resources and processes"
-msgstr "Systeembelasting en -processen bewaken"
+msgstr "Systeembronnen en -processen bewaken"
 
 #: data/org.x.superlight.desktop.in:9
 msgid "system;monitor;resources;processes;cpu;memory;task manager;"
 msgstr ""
 "systeem;bewaker;monitor;belasting;processen;cpu;geheugen;taakbeheerder;taakbe"
-"heer;"
+"heer;bronnen;systeembronnen;"
 
 #: data/org.x.superlight.desktop.in:15 superlight/application.py:47
 msgid "Resources"
-msgstr "Systeemvermogen"
+msgstr "Systeembronnen"
 
 #: data/org.x.superlight.desktop.in:19 superlight/application.py:51
 #: superlight/page_apps.py:18
@@ -163,7 +163,7 @@ msgstr "Slaapstand schijf"
 #. Translators: Process
 #: superlight/__init__.py:88
 msgid "Stopped"
-msgstr "Stilgezet"
+msgstr "Gestaakt"
 
 #: superlight/__init__.py:89
 msgid "Tracing Stop"
@@ -218,19 +218,19 @@ msgstr "Wisselgeheugen"
 
 #: superlight/page_apps.py:25 superlight/page_processes.py:32
 msgid "Disk Read"
-msgstr "Schijf leesacties"
+msgstr "Leesacties op schijf"
 
 #: superlight/page_apps.py:26 superlight/page_processes.py:33
 msgid "Disk Write"
-msgstr "Schijf schrijfacties"
+msgstr "Schrijfacties op schijf"
 
 #: superlight/page_apps.py:27 superlight/page_processes.py:34
 msgid "Disk Read Total"
-msgstr "Totaal leesacties schijf"
+msgstr "Totaal leesacties op schijf"
 
 #: superlight/page_apps.py:28 superlight/page_processes.py:35
 msgid "Disk Write Total"
-msgstr "Totaal schrijfacties schijf"
+msgstr "Totaal schrijfacties op schijf"
 
 #: superlight/page_apps.py:29 superlight/page_processes.py:36
 #: superlight/page_resources.py:130 superlight/page_resources.py:131
@@ -382,12 +382,12 @@ msgstr "Afstandsbediening"
 #. Translators: Battery
 #: superlight/page_battery.py:26 superlight/page_battery.py:47
 msgid "Charging"
-msgstr "Aan het opladen"
+msgstr "Opladen"
 
 #. Translators: Battery
 #: superlight/page_battery.py:28 superlight/page_battery.py:45
 msgid "Discharging"
-msgstr "Aan het ontladen"
+msgstr "Ontladen"
 
 #. Translators: Battery
 #: superlight/page_battery.py:30
@@ -466,7 +466,7 @@ msgstr "Lading"
 
 #: superlight/page_battery.py:57 superlight/page_battery.py:217
 msgid "Power"
-msgstr "Stroom"
+msgstr "Stroomgebruik"
 
 #: superlight/page_battery.py:69
 #, python-format
@@ -515,11 +515,11 @@ msgstr "Technologie"
 
 #: superlight/page_battery.py:216
 msgid "Energy"
-msgstr "Energie"
+msgstr "Huidige lading"
 
 #: superlight/page_battery.py:216
 msgid "Energy when full"
-msgstr "Energie wanneer vol"
+msgstr "Lading wanneer vol"
 
 #: superlight/page_battery.py:217
 msgid "Health"

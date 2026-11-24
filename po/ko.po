@@ -1,0 +1,1012 @@
+# Korean translation for linuxmint
+# Copyright (c) 2026 Rosetta Contributors and Canonical Ltd 2026
+# This file is distributed under the same license as the linuxmint package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: linuxmint\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2026-10-26 13:29+0000\n"
+"PO-Revision-Date: 2026-11-23 20:15+0000\n"
+"Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
+"Language-Team: Korean <ko@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Launchpad-Export-Date: 2026-11-24 12:02+0000\n"
+"X-Generator: Launchpad (build 012091084314157d19ae714f55ef4c582ff0feb5)\n"
+
+#: data/org.x.superlight.desktop.in:2 superlight/application.py:22
+#: superlight/application.py:35 superlight/application.py:164
+#: superlight/application.py:174
+msgid "System Monitor"
+msgstr "시스템 모니터"
+
+#: data/org.x.superlight.desktop.in:3
+msgid "Monitor system resources and processes"
+msgstr "시스템 자원 및 프로세스를 모니터링합니다"
+
+#: data/org.x.superlight.desktop.in:9
+msgid "system;monitor;resources;processes;cpu;memory;task manager;"
+msgstr "시스템;모니터;자원;프로세스;cpu;메모리;task manager;"
+
+#: data/org.x.superlight.desktop.in:15 superlight/application.py:47
+msgid "Resources"
+msgstr "자원"
+
+#: data/org.x.superlight.desktop.in:19 superlight/application.py:51
+#: superlight/page_apps.py:18
+msgid "Processes"
+msgstr "프로세스"
+
+#: data/org.x.superlight.desktop.in:23 superlight/application.py:52
+msgid "Storage"
+msgstr "저장 장치"
+
+#: superlight/application.py:37
+msgid "About"
+msgstr "정보"
+
+#: superlight/application.py:39
+msgid "Quit"
+msgstr "끝내기"
+
+#: superlight/application.py:49
+msgid "Apps"
+msgstr "앱"
+
+#: superlight/application.py:84 superlight/page_battery.py:18
+#: superlight/page_battery.py:273
+msgid "Battery"
+msgstr "배터리"
+
+#: superlight/common_disk.py:70
+msgid "System drive"
+msgstr "시스템 드라이브"
+
+#: superlight/common_graphs.py:45
+msgid "< 1 kB/s"
+msgstr "< 1 kB/s"
+
+#: superlight/common_graphs.py:47 superlight/__init__.py:48
+#, python-format
+msgid "%s/s"
+msgstr "%s/s"
+
+#: superlight/common_graphs.py:138
+msgid "1 min"
+msgstr "1분"
+
+#: superlight/common_graphs.py:138
+#, python-format
+msgid "%d secs"
+msgstr "%d초"
+
+#: superlight/common_graphs.py:458 superlight/page_resources.py:148
+#: superlight/page_resources.py:149
+#, python-format
+msgid "%d °C"
+msgstr "%d °C"
+
+#: superlight/common_graphs.py:479
+#, python-format
+msgid "Fan %d"
+msgstr "팬 %d"
+
+#: superlight/common_graphs.py:495 superlight/page_resources.py:157
+#: superlight/page_resources.py:158
+#, python-format
+msgid "%d RPM"
+msgstr "%d RPM"
+
+#: superlight/common_process.py:268
+msgid "Use Default"
+msgstr "기본값 사용"
+
+#: superlight/common_proc.py:45 superlight/common_proc.py:50
+msgid "Unknown GPU"
+msgstr "알 수 없는 GPU"
+
+#. Translators: Priority
+#: superlight/__init__.py:56
+msgid "Very High"
+msgstr "매우 높음"
+
+#. Translators: Priority
+#: superlight/__init__.py:59
+msgid "High"
+msgstr "높음"
+
+#. Translators: Priority
+#: superlight/__init__.py:62
+msgid "Normal"
+msgstr "보통"
+
+#. Translators: Priority
+#: superlight/__init__.py:65
+msgid "Low"
+msgstr "낮음"
+
+#. Translators: Priority
+#: superlight/__init__.py:67
+msgid "Very Low"
+msgstr "매우 낮음"
+
+#: superlight/__init__.py:76
+#, python-format
+msgid "Today, %s"
+msgstr "오늘, %s"
+
+#: superlight/__init__.py:78
+#, python-format
+msgid "Yesterday, %s"
+msgstr "어제, %s"
+
+#. Translators: Process
+#: superlight/__init__.py:83
+msgid "Running"
+msgstr "실행 중"
+
+#. Translators: Process
+#: superlight/__init__.py:85
+msgid "Sleeping"
+msgstr "대기 중"
+
+#: superlight/__init__.py:86
+msgid "Disk Sleep"
+msgstr "디스크 대기 중"
+
+#. Translators: Process
+#: superlight/__init__.py:88
+msgid "Stopped"
+msgstr "중지됨"
+
+#: superlight/__init__.py:89
+msgid "Tracing Stop"
+msgstr "추적 중지"
+
+#: superlight/__init__.py:90
+msgid "Zombie"
+msgstr "좀비"
+
+#. Translators: Process
+#: superlight/__init__.py:92
+msgid "Dead"
+msgstr "종료됨"
+
+#. Translators: Process
+#: superlight/__init__.py:94
+msgctxt "process state"
+msgid "Idle"
+msgstr "유휴 상태"
+
+#: superlight/page_apps.py:17 superlight/page_processes.py:16
+#: superlight/view_folders.py:61 superlight/chunks/flatpak.py:64
+#: superlight/chunks/steam.py:89
+msgid "Name"
+msgstr "이름"
+
+#. Translators: Application
+#. Translators: Process
+#: superlight/page_apps.py:20 superlight/page_processes.py:22
+msgid "Started"
+msgstr "시작함"
+
+#: superlight/page_apps.py:21 superlight/page_processes.py:25
+#: superlight/page_resources.py:127
+msgid "CPU"
+msgstr "CPU"
+
+#: superlight/page_apps.py:22 superlight/page_processes.py:26
+msgid "CPU Time"
+msgstr "CPU 시간"
+
+#: superlight/page_apps.py:23 superlight/page_processes.py:27
+#: superlight/page_resources.py:134 superlight/page_resources.py:135
+msgid "Memory"
+msgstr "메모리"
+
+#: superlight/page_apps.py:24 superlight/page_processes.py:31
+#: superlight/page_resources.py:137 superlight/page_resources.py:139
+#: superlight/page_resources.py:141 superlight/chunks/swap.py:11
+msgid "Swap"
+msgstr "스왑"
+
+#: superlight/page_apps.py:25 superlight/page_processes.py:32
+msgid "Disk Read"
+msgstr "디스크 읽기"
+
+#: superlight/page_apps.py:26 superlight/page_processes.py:33
+msgid "Disk Write"
+msgstr "디스크 쓰기"
+
+#: superlight/page_apps.py:27 superlight/page_processes.py:34
+msgid "Disk Read Total"
+msgstr "총 디스크 읽기"
+
+#: superlight/page_apps.py:28 superlight/page_processes.py:35
+msgid "Disk Write Total"
+msgstr "총 디스크 쓰기"
+
+#: superlight/page_apps.py:29 superlight/page_processes.py:36
+#: superlight/page_resources.py:130 superlight/page_resources.py:131
+#: superlight/page_resources.py:133
+msgid "GPU"
+msgstr "GPU"
+
+#: superlight/page_apps.py:30 superlight/page_processes.py:37
+msgid "Video Memory"
+msgstr "비디오 메모리"
+
+#: superlight/page_apps.py:31 superlight/page_processes.py:38
+msgid "Video Encoder"
+msgstr "비디오 인코더"
+
+#: superlight/page_apps.py:32 superlight/page_processes.py:39
+msgid "Video Decoder"
+msgstr "비디오 디코더"
+
+#: superlight/page_apps.py:48 superlight/page_apps.py:49
+#: superlight/page_apps.py:216
+msgid "End Application"
+msgstr "애플리케이션 끝내기"
+
+#: superlight/page_apps.py:48 superlight/page_processes.py:50
+#, python-format
+msgid "End \"%s\"?"
+msgstr "\"%s\" 끝낼까요?"
+
+#: superlight/page_apps.py:49
+msgid "All its processes will be asked to quit. They may lose unsaved work."
+msgstr "모든 관련 프로세스에 종료를 요청합니다. 저장하지 않은 작업은 잃을 수 있습니다."
+
+#: superlight/page_apps.py:50
+msgid "Could not end the application"
+msgstr "애플리케이션을 끝낼 수 없습니다"
+
+#: superlight/page_apps.py:51 superlight/page_apps.py:52
+msgid "Kill Application"
+msgstr "애플리케이션 강제 종료"
+
+#: superlight/page_apps.py:51 superlight/page_processes.py:53
+#, python-format
+msgid "Kill \"%s\"?"
+msgstr "\"%s\" 강제 종료할까요?"
+
+#: superlight/page_apps.py:52
+msgid "All its processes will stop immediately. Unsaved work may be lost."
+msgstr "모든 프로세스를 바로 멈출 겁니다. 저장하지 않은 작업은 잃을 수 있습니다."
+
+#: superlight/page_apps.py:53
+msgid "Could not kill the application"
+msgstr "애플리케이션 강제 종료를 할 수 없습니다"
+
+#: superlight/page_apps.py:54
+msgid "Stop Application"
+msgstr "애플리케이션 중지"
+
+#: superlight/page_apps.py:54
+msgid "Could not stop the application"
+msgstr "애플리케이션을 멈출 수 없습니다"
+
+#: superlight/page_apps.py:55
+msgid "Continue Application"
+msgstr "애플리케이션 계속 실행"
+
+#: superlight/page_apps.py:56
+msgid "Could not continue the application"
+msgstr "애플리케이션을 계속 실행할 수 없습니다"
+
+#: superlight/page_apps.py:147
+msgid "Pauses the application"
+msgstr "애플리케이션 일시 정지"
+
+#: superlight/page_apps.py:210 superlight/page_processes.py:157
+msgid "Search"
+msgstr "검색"
+
+#: superlight/page_apps.py:336 superlight/page_processes.py:350
+#: superlight/page_storage.py:366 superlight/view_folders.py:349
+#: superlight/view_folders.py:372
+msgid "Cancel"
+msgstr "취소"
+
+#: superlight/page_battery.py:18
+msgid "Uninterruptible Power Supply"
+msgstr "무정전 전원 장치"
+
+#: superlight/page_battery.py:18
+msgid "Mouse"
+msgstr "마우스"
+
+#: superlight/page_battery.py:19
+msgid "Keyboard"
+msgstr "키보드"
+
+#: superlight/page_battery.py:19
+msgid "Game Controller"
+msgstr "게임 컨트롤러"
+
+#: superlight/page_battery.py:19
+msgid "Phone"
+msgstr "전화기"
+
+#: superlight/page_battery.py:20
+msgid "Tablet"
+msgstr "태블릿"
+
+#: superlight/page_battery.py:20
+msgid "Pen"
+msgstr "펜"
+
+#: superlight/page_battery.py:20
+msgid "Touchpad"
+msgstr "터치패드"
+
+#: superlight/page_battery.py:21
+msgid "Headset"
+msgstr "헤드셋"
+
+#: superlight/page_battery.py:21
+msgid "Headphones"
+msgstr "헤드폰"
+
+#: superlight/page_battery.py:21
+msgid "Speakers"
+msgstr "스피커"
+
+#: superlight/page_battery.py:22
+msgid "Media Player"
+msgstr "미디어 플레이어"
+
+#: superlight/page_battery.py:22
+msgid "Personal Digital Assistant"
+msgstr "PDA"
+
+#: superlight/page_battery.py:23
+msgid "Computer"
+msgstr "컴퓨터"
+
+#: superlight/page_battery.py:23
+msgid "Remote Control"
+msgstr "리모콘"
+
+#. Translators: Battery
+#: superlight/page_battery.py:26 superlight/page_battery.py:47
+msgid "Charging"
+msgstr "충전 중"
+
+#. Translators: Battery
+#: superlight/page_battery.py:28 superlight/page_battery.py:45
+msgid "Discharging"
+msgstr "방전 중"
+
+#. Translators: Battery
+#: superlight/page_battery.py:30
+msgctxt "battery state"
+msgid "Empty"
+msgstr "비어 있음"
+
+#. Translators: Battery
+#: superlight/page_battery.py:32
+msgid "Fully charged"
+msgstr "완전히 충전됨"
+
+#. Translators: Battery
+#: superlight/page_battery.py:34
+msgid "Waiting to charge"
+msgstr "충전 대기 중"
+
+#. Translators: Battery
+#: superlight/page_battery.py:36
+msgid "Waiting to discharge"
+msgstr "방전 대기 중"
+
+#: superlight/page_battery.py:38
+msgid "Lithium Ion"
+msgstr "리튬 이온"
+
+#: superlight/page_battery.py:38
+msgid "Lithium Polymer"
+msgstr "리튬 폴리머"
+
+#: superlight/page_battery.py:39
+msgid "Lithium Iron Phosphate"
+msgstr "리튬 인산철"
+
+#: superlight/page_battery.py:40
+msgid "Lead acid"
+msgstr "납축전지"
+
+#: superlight/page_battery.py:40
+msgid "Nickel Cadmium"
+msgstr "니켈 카드뮴"
+
+#: superlight/page_battery.py:41
+msgid "Nickel metal hydride"
+msgstr "니켈 수소"
+
+#. Translators: Battery
+#: superlight/page_battery.py:49
+msgctxt "battery history"
+msgid "Idle"
+msgstr "유휴 상태"
+
+#: superlight/page_battery.py:55
+msgid "30 minutes"
+msgstr "30분"
+
+#: superlight/page_battery.py:55
+msgid "3 hours"
+msgstr "3시간"
+
+#: superlight/page_battery.py:55
+msgid "8 hours"
+msgstr "8시간"
+
+#: superlight/page_battery.py:56
+msgid "1 day"
+msgstr "1일"
+
+#: superlight/page_battery.py:56
+msgid "1 week"
+msgstr "1주"
+
+#: superlight/page_battery.py:57
+msgid "Charge"
+msgstr "충전"
+
+#: superlight/page_battery.py:57 superlight/page_battery.py:217
+msgid "Power"
+msgstr "전력"
+
+#: superlight/page_battery.py:69
+#, python-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d시간"
+
+#: superlight/page_battery.py:71
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d분"
+
+#: superlight/page_battery.py:162
+#, python-format
+msgid "%d d"
+msgstr "%d일"
+
+#: superlight/page_battery.py:164
+#, python-format
+msgid "%s h"
+msgstr "%s시간"
+
+#: superlight/page_battery.py:165
+#, python-format
+msgid "%d min"
+msgstr "%d분"
+
+#: superlight/page_battery.py:205
+msgid "Details"
+msgstr "상세 정보"
+
+#: superlight/page_battery.py:215
+msgid "Vendor"
+msgstr "제조사"
+
+#: superlight/page_battery.py:215
+msgid "Model"
+msgstr "모델"
+
+#: superlight/page_battery.py:215
+msgid "Technology"
+msgstr "기술"
+
+#: superlight/page_battery.py:216
+msgid "Energy"
+msgstr "에너지"
+
+#: superlight/page_battery.py:216
+msgid "Energy when full"
+msgstr "완전 충전 시 전력량"
+
+#: superlight/page_battery.py:217
+msgid "Health"
+msgstr "배터리 상태"
+
+#: superlight/page_battery.py:217
+msgid "Voltage"
+msgstr "전압"
+
+#: superlight/page_battery.py:218
+msgid "Charge cycles"
+msgstr "충전 주기"
+
+#: superlight/page_battery.py:218 superlight/page_resources.py:57
+msgid "Temperature"
+msgstr "온도"
+
+#: superlight/page_battery.py:245
+msgid "No history is available for this device yet"
+msgstr "이 장비에는 아직 기록이 없습니다"
+
+#: superlight/page_battery.py:313
+#, python-format
+msgid "%(state)s, %(time)s remaining"
+msgstr "%(state)s, %(time)s 남음"
+
+#: superlight/page_battery.py:315
+#, python-format
+msgid "%(state)s, %(time)s until full"
+msgstr "%(state)s, 완전 충전까지 %(time)s 남음"
+
+#: superlight/page_processes.py:17
+msgid "PID"
+msgstr "PID"
+
+#: superlight/page_processes.py:18 superlight/chunks/flatpak.py:132
+msgid "User"
+msgstr "사용자"
+
+#: superlight/page_processes.py:19
+msgid "State"
+msgstr "상태"
+
+#: superlight/page_processes.py:20
+msgid "Priority"
+msgstr "우선 순위"
+
+#: superlight/page_processes.py:23
+msgid "Systemd Unit"
+msgstr "Systemd 유닛"
+
+#: superlight/page_processes.py:24
+msgid "Command Line"
+msgstr "명령문"
+
+#: superlight/page_processes.py:28
+msgid "Virtual Memory"
+msgstr "가상 메모리"
+
+#: superlight/page_processes.py:29
+msgid "Resident Memory"
+msgstr "상주 메모리"
+
+#: superlight/page_processes.py:30
+msgid "Shared Memory"
+msgstr "공유 메모리"
+
+#: superlight/page_processes.py:50 superlight/page_processes.py:51
+#: superlight/page_processes.py:174
+msgid "End Process"
+msgstr "프로세스 끝내기"
+
+#: superlight/page_processes.py:51
+msgid "The process will be asked to quit. It may lose unsaved work."
+msgstr "프로세스 종료를 요청합니다. 저장하지 않은 작업은 잃을 수 있습니다."
+
+#: superlight/page_processes.py:52
+msgid "Could not end the process"
+msgstr "프로세스를 끝낼 수 없습니다"
+
+#: superlight/page_processes.py:53 superlight/page_processes.py:54
+msgid "Kill Process"
+msgstr "프로세스 강제 종료"
+
+#: superlight/page_processes.py:54
+msgid "The process will stop immediately. Unsaved work may be lost."
+msgstr "프로세스를 즉시 멈춥니다. 저장하지 않은 작업은 잃을 수 있습니다."
+
+#: superlight/page_processes.py:55
+msgid "Could not kill the process"
+msgstr "프로세스 강제 종료를 할 수 없습니다"
+
+#: superlight/page_processes.py:56
+msgid "Stop Process"
+msgstr "프로세스 중지"
+
+#: superlight/page_processes.py:56
+msgid "Could not stop the process"
+msgstr "프로세스를 멈출 수 없습니다"
+
+#: superlight/page_processes.py:57
+msgid "Continue Process"
+msgstr "프로세스 계속 실행"
+
+#: superlight/page_processes.py:58
+msgid "Could not continue the process"
+msgstr "프로세스를 계속할 수 없습니다"
+
+#: superlight/page_processes.py:60
+msgid "All Processes"
+msgstr "모든 프로세스"
+
+#: superlight/page_processes.py:60
+msgid "My Processes"
+msgstr "내 프로세스"
+
+#: superlight/page_processes.py:60
+msgid "Active Processes"
+msgstr "활성 프로세스"
+
+#: superlight/page_processes.py:70
+msgid "Pauses the process"
+msgstr "프로세스 일시 중지"
+
+#: superlight/page_processes.py:169
+msgid "Process tree"
+msgstr "프로세스 트리"
+
+#: superlight/page_processes.py:170
+msgid "Show each process under the one that started it"
+msgstr "각 프로세스를 시작한 프로세스 아래에 표시합니다"
+
+#: superlight/page_processes.py:369
+msgid "The selected process has already exited."
+msgstr "선택하신 프로세스는 이미 종료되었습니다."
+
+#: superlight/page_resources.py:37 superlight/page_resources.py:55
+#: superlight/page_resources.py:61
+msgid "Collecting data…"
+msgstr "데이터 수집 중…"
+
+#: superlight/page_resources.py:39
+msgid "Overall usage"
+msgstr "전체 사용량"
+
+#: superlight/page_resources.py:43
+msgid "CPU cores"
+msgstr "CPU 코어"
+
+#: superlight/page_resources.py:45
+msgid "Receiving"
+msgstr "수신"
+
+#: superlight/page_resources.py:45
+msgid "Total Received"
+msgstr "전체 수신량"
+
+#: superlight/page_resources.py:46
+msgid "Sending"
+msgstr "보내기"
+
+#: superlight/page_resources.py:46
+msgid "Total Sent"
+msgstr "전체 송신량"
+
+#: superlight/page_resources.py:47
+msgid "Network"
+msgstr "네트워크"
+
+#: superlight/page_resources.py:49
+msgid "Reading"
+msgstr "읽기"
+
+#: superlight/page_resources.py:49
+msgid "Total Read"
+msgstr "전체 읽기량"
+
+#: superlight/page_resources.py:50
+msgid "Writing"
+msgstr "기록"
+
+#: superlight/page_resources.py:50
+msgid "Total Written"
+msgstr "전체 쓰기량"
+
+#: superlight/page_resources.py:51
+msgid "Disk"
+msgstr "디스크"
+
+#: superlight/page_resources.py:63
+msgid "Fan Speed"
+msgstr "팬 속도"
+
+#: superlight/page_resources.py:120
+msgid "Offline"
+msgstr "오프라인"
+
+#: superlight/page_resources.py:133
+msgid "Usage unavailable from driver"
+msgstr "드라이버에서 사용량 정보를 제공하지 않음"
+
+#: superlight/page_resources.py:141
+msgid "Not configured"
+msgstr "설정되지 않음"
+
+#: superlight/page_resources.py:146 superlight/page_resources.py:155
+msgid "Unavailable"
+msgstr "사용할 수 없음"
+
+#: superlight/page_storage.py:113 superlight/view_folders.py:41
+#: superlight/chunks/flatpak.py:50 superlight/chunks/steam.py:75
+msgid "Measure again"
+msgstr "다시 측정"
+
+#: superlight/page_storage.py:237
+#, python-format
+msgid "used of %s"
+msgstr "전체 %s 중 사용량"
+
+#: superlight/page_storage.py:238
+#, python-format
+msgid "%s free"
+msgstr "%s 남음"
+
+#: superlight/page_storage.py:241
+#, python-format
+msgid "%s are kept by the file system for the system and can't be used."
+msgstr "%s는 파일 시스템이 시스템을 위해 예약해 둔 공간이므로 사용할 수 없습니다."
+
+#: superlight/page_storage.py:290
+msgid "Measuring…"
+msgstr "측정 중…"
+
+#: superlight/page_storage.py:292
+msgid "There is nothing on this drive."
+msgstr "이 드라이브에는 아무것도 없습니다."
+
+#: superlight/page_storage.py:410
+msgid "Some files could not be deleted"
+msgstr "일부 파일을 삭제할 수 없습니다"
+
+#: superlight/page_storage.py:421
+msgid "Explore Home Folder…"
+msgstr "홈 폴더 탐색…"
+
+#: superlight/page_storage.py:424
+msgid "Explore File System…"
+msgstr "파일 시스템 탐색…"
+
+#: superlight/page_storage.py:424
+msgid "Explore Folders…"
+msgstr "폴더 탐색…"
+
+#: superlight/view_folders.py:29 superlight/chunks/flatpak.py:41
+msgid "Back to the overview"
+msgstr "개요로 돌아가기"
+
+#: superlight/view_folders.py:75
+msgid "Share"
+msgstr "공유"
+
+#: superlight/view_folders.py:80 superlight/chunks/flatpak.py:75
+#: superlight/chunks/steam.py:99
+msgid "Size"
+msgstr "크기"
+
+#. Translators: File or folder
+#: superlight/view_folders.py:87
+msgid "Modified"
+msgstr "수정일"
+
+#: superlight/view_folders.py:109
+msgid "Show in File Manager"
+msgstr "파일 파니저에서 보기"
+
+#: superlight/view_folders.py:112 superlight/view_folders.py:290
+#: superlight/view_folders.py:350
+msgid "Move to Trash"
+msgstr "휴지통으로 보내기"
+
+#: superlight/view_folders.py:151
+msgid "Home"
+msgstr "홈"
+
+#: superlight/view_folders.py:155
+msgid "File System"
+msgstr "파일 시스템"
+
+#: superlight/view_folders.py:230
+msgid "There is nothing in this folder."
+msgstr "이 폴더에는 아무것도 없습니다."
+
+#: superlight/view_folders.py:233
+msgid "Folders you can't read are left out of the sizes."
+msgstr "읽을 수 없는 폴더는 용량 계산에서 제외됩니다."
+
+#: superlight/view_folders.py:253
+msgid "Can't be read"
+msgstr "읽을 수 없음"
+
+#: superlight/view_folders.py:291 superlight/view_folders.py:373
+msgid "Delete"
+msgstr "지우기"
+
+#: superlight/view_folders.py:331 superlight/chunks/flatpak.py:183
+#: superlight/chunks/steam.py:282
+#, python-format
+msgid "%(count)d selected, %(size)s"
+msgid_plural "%(count)d selected, %(size)s"
+msgstr[0] "%(count)d개 선택함, %(size)s"
+
+#: superlight/view_folders.py:334
+#, python-format
+msgid "%(count)d item, %(size)s"
+msgid_plural "%(count)d items, %(size)s"
+msgstr[0] "%(count)d개 항목, %(size)s"
+
+#: superlight/view_folders.py:343
+#, python-format
+msgid "Move \"%s\" to the trash?"
+msgstr "\"%s\" 휴지통으로 보낼까요?"
+
+#: superlight/view_folders.py:345
+#, python-format
+msgid "Move %d item to the trash?"
+msgid_plural "Move %d items to the trash?"
+msgstr[0] "%d개 항목을 휴지통으로 보낼까요?"
+
+#: superlight/view_folders.py:348
+#, python-format
+msgid "%s will be freed when the trash is emptied."
+msgstr "휴지통을 비우면 %s의 공간이 확보됩니다."
+
+#: superlight/view_folders.py:359
+msgid "Could not move it to the trash"
+msgstr "휴지통으로 보낼 수 없습니다"
+
+#: superlight/view_folders.py:366
+#, python-format
+msgid "Permanently delete \"%s\"?"
+msgstr "\"%s\" 완전히 지울까요?"
+
+#: superlight/view_folders.py:368
+#, python-format
+msgid "Permanently delete %d item?"
+msgid_plural "Permanently delete %d items?"
+msgstr[0] "%d개 항목을 완전히 지울까요?"
+
+#: superlight/view_folders.py:371
+#, python-format
+msgid "%s will be freed. This can't be undone."
+msgstr "%s의 공간이 확보됩니다. 이 작업은 되돌릴 수 없습니다."
+
+#: superlight/view_folders.py:382
+msgid "Could not delete it"
+msgstr "지울 수 없습니다"
+
+#: superlight/chunks/cache.py:10
+msgid "Cache"
+msgstr "캐시"
+
+#: superlight/chunks/cache.py:20
+msgid "Clear Cache…"
+msgstr "캐시 비우기…"
+
+#: superlight/chunks/cache.py:20
+msgid "Clear the cache?"
+msgstr "캐시를 비울까요?"
+
+#: superlight/chunks/cache.py:21
+#, python-format
+msgid ""
+"%s of temporary files will be deleted. Programs can be slower the first time "
+"they start afterwards."
+msgstr "%s의 임시 파일이 삭제됩니다. 이후 프로그램을 처음 시작할 때 실행 속도가 느려질 수 있습니다."
+
+#: superlight/chunks/cache.py:23
+msgid "Clear Cache"
+msgstr "캐시 비우기"
+
+#: superlight/chunks/flatpak.py:44 superlight/chunks/flatpak.py:201
+msgid "Flatpak"
+msgstr "Flatpak"
+
+#: superlight/chunks/flatpak.py:70
+msgid "Type"
+msgstr "종류"
+
+#: superlight/chunks/flatpak.py:70
+msgid "Installation"
+msgstr "설치"
+
+#: superlight/chunks/flatpak.py:131
+msgid "App"
+msgstr "앱"
+
+#: superlight/chunks/flatpak.py:131
+msgid "Runtime"
+msgstr "런타임"
+
+#: superlight/chunks/flatpak.py:132
+msgid "System"
+msgstr "시스템"
+
+#: superlight/chunks/flatpak.py:187
+#, python-format
+msgid "%(count)d app, %(size)s"
+msgid_plural "%(count)d apps, %(size)s"
+msgstr[0] "%(count)d개 앱, %(size)s"
+
+#: superlight/chunks/hidden_files.py:12
+msgid "Hidden files"
+msgstr "숨김 파일"
+
+#: superlight/chunks/logs.py:8
+msgid "Log files"
+msgstr "로그 파일"
+
+#: superlight/chunks/other.py:10
+msgid "Other"
+msgstr "기타"
+
+#: superlight/chunks/personal_files.py:14
+msgid "Personal files"
+msgstr "개인 파일"
+
+#: superlight/chunks/snapshots.py:14
+msgid "System Snapshots"
+msgstr "시스템 스냅샷"
+
+#: superlight/chunks/steam.py:66
+msgid "Back"
+msgstr "뒤로"
+
+#: superlight/chunks/steam.py:69
+msgid "Steam games"
+msgstr "스팀 게임"
+
+#: superlight/chunks/steam.py:95
+msgid "Drive"
+msgstr "드라이브"
+
+#: superlight/chunks/steam.py:105
+msgid "Last played"
+msgstr "마지막 플레이"
+
+#: superlight/chunks/steam.py:215
+msgid "Left over from removed games"
+msgstr "제거된 게임에서 남음"
+
+#: superlight/chunks/steam.py:269
+msgid "Never"
+msgstr "안 함"
+
+#: superlight/chunks/steam.py:286
+#, python-format
+msgid "%(count)d game, %(size)s"
+msgid_plural "%(count)d games, %(size)s"
+msgstr[0] "%(count)d개 게임, %(size)s"
+
+#: superlight/chunks/steam.py:300
+msgid "Steam"
+msgstr "Steam"
+
+#: superlight/chunks/system_cache.py:8
+msgid "System cache"
+msgstr "시스템 캐시"
+
+#: superlight/chunks/temp_files.py:8
+msgid "Temp files"
+msgstr "임시 파일"
+
+#: superlight/chunks/trash.py:15
+msgid "Trash"
+msgstr "휴지통"
+
+#. Translators: Trash
+#: superlight/chunks/trash.py:50
+msgctxt "trash"
+msgid "Empty"
+msgstr "비우기"
+
+#: superlight/chunks/trash.py:69
+msgid "Empty Trash…"
+msgstr "휴지통 비우기…"
+
+#: superlight/chunks/trash.py:69
+msgid "Empty the trash?"
+msgstr "휴지통을 비울까요?"
+
+#: superlight/chunks/trash.py:70
+#, python-format
+msgid "%s will be deleted for good."
+msgstr "%s 항목이 완전히 삭제됩니다."
+
+#: superlight/chunks/trash.py:70
+msgid "Empty Trash"
+msgstr "휴지통 비우기"
