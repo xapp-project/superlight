@@ -1,3 +1,9 @@
+superlight (1.0.4) adrien; urgency=medium
+
+  * l10n: Update translations
+
+ -- Clement Lefebvre <root@linuxmint.com>  Tue, 24 Nov 2026 16:29:47 +0000
+
 superlight (1.0.3) adrien; urgency=medium
 
   * l10n: Update translations
