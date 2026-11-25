@@ -103,17 +103,30 @@ def group_apps(processes, user, catalog):
     """Returns the running applications of a user, with their processes, as {id: (app, [process, ..])}.
 
     A process belongs to an application if it runs in the unit of the application, if it is the program of the
-    application, or if its parent process belongs to the application."""
-    mine = {process.key: process for process in processes if process.user == user}
-    by_pid = {process.pid: process for process in mine.values()}
+    application, or if its parent process belongs to the application. A process of another user, like an
+    application that asked for administrator rights, only counts if it was started from a process of the user, and
+    is never matched by its program."""
+    by_pid = {process.pid: process for process in processes}
     known = {}
+
+    def started_by_user(process):
+        seen = set()
+        while process is not None and process.key not in seen:
+            if process.user == user:
+                return True
+            seen.add(process.key)
+            process = by_pid.get(process.parent)
+        return False
 
     def app_of(process):
         if process.key in known:
             return known[process.key]
         known[process.key] = None   # stops the search from going around in circles
+        if process.user != user and not started_by_user(process):
+            return None
         app = catalog.from_unit(process.unit) if process.unit else None
-        app = app or catalog.from_process(process)
+        if process.user == user:
+            app = app or catalog.from_process(process)
         if app is None:
             parent = by_pid.get(process.parent)
             if parent is not None and parent is not process:
@@ -122,7 +135,7 @@ def group_apps(processes, user, catalog):
         return app
 
     groups = {}
-    for process in mine.values():
+    for process in processes:
         app = app_of(process)
         if app is not None:
             groups.setdefault(app.id, (app, []))[1].append(process)
