@@ -27,6 +27,7 @@ install_data(
   'superlight/application.py',
   'superlight/common_disk.py',
   'superlight/common_graphs.py',
+  'superlight/common_nvml.py',
   'superlight/common_proc.py',
   'superlight/common_process.py',
   'superlight/page_apps.py',
