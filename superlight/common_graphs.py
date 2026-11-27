@@ -10,7 +10,7 @@ gi.require_version("Gtk", "3.0")
 gi.require_version("PangoCairo", "1.0")
 from gi.repository import GLib, Gtk, PangoCairo
 
-from superlight import _, format_size, rgb
+from superlight import _, common_nvml, format_size, rgb
 from superlight.common_proc import (TEMPERATURE_CHIPS, gpu_name, read_core_times, read_cpu_times, read_disk_bytes,
                                     read_fans, read_memory_usage, read_network_bytes, read_temperature, read_text)
 
@@ -272,6 +272,8 @@ class CpuGraph(Graph):
         # residency counter lets us derive the proportion of time the GPU was
         # awake between refreshes instead.
         self.previous_gpu_rc6 = {}
+        # The NVIDIA driver doesn't report the usage of its GPUs like the others do. NVML does.
+        self.nvml = common_nvml.get()
 
     def refresh(self):
         idle, total = read_cpu_times()
@@ -319,6 +321,9 @@ class CpuGraph(Graph):
                         readings.append((100 * (elapsed - sleep) / elapsed, gpu_name(path)))
                 except (OSError, ValueError):
                     continue
+        # The NVIDIA driver has no gpu_busy_percent. NVML reports the usage of those GPUs instead.
+        if self.nvml is not None:
+            readings.extend(self.nvml.usage())
         self.gpu_usage = max(readings) if readings else (None, None)
         self.add_sample((max(0, min(100, usage)),
                          self.gpu_usage[0],
@@ -430,19 +435,29 @@ class TemperatureGraph(Graph):
                         chosen = matches[0]
                         break
                 self.sensors[kind].append(f"{directory}/{chosen}")
+        # The NVIDIA driver has no hwmon sensors. NVML reports the temperature of those GPUs instead, but only
+        # when no other driver already reports a GPU temperature.
+        self.nvml = None if self.sensors["gpu"] else common_nvml.get()
         # Do not reserve a legend entry or a graph line for hardware which
         # does not report this kind of temperature.
         self.temperature_kinds = []
         series = []
         current_usage = []
         for kind in TEMPERATURE_CHIPS:
-            value = read_temperature(self.sensors[kind])
+            value = self.current_temperature(kind)
             if value is not None:
                 self.temperature_kinds.append(kind)
                 series.append(TEMPERATURE_SERIES[kind])
                 current_usage.append(value)
         super().__init__(series)
         self.current_usage = current_usage
+
+    def current_temperature(self, kind):
+        """Returns the highest temperature of a kind of sensor in degrees Celsius, or None if it can't be read."""
+        value = read_temperature(self.sensors[kind])
+        if value is None and kind == "gpu" and self.nvml is not None:
+            value = self.nvml.temperature()
+        return value
 
     def available(self):
         """Returns True if at least one temperature could be read."""
@@ -451,7 +466,7 @@ class TemperatureGraph(Graph):
     def refresh(self):
         current_usage = []
         for kind in self.temperature_kinds:
-            current_usage.append(read_temperature(self.sensors[kind]))
+            current_usage.append(self.current_temperature(kind))
         self.add_sample(current_usage)
 
     def format_tick(self, value):
@@ -459,8 +474,8 @@ class TemperatureGraph(Graph):
 
 
 class FanGraph(Graph):
-    """Speed in revolutions per minute of each fan found in /sys/class/hwmon, one series per fan. The vertical
-    scale follows the highest speed. Use available() to know if any fan was found."""
+    """Speed in revolutions per minute of each fan found in /sys/class/hwmon and in NVML, one series per fan. The
+    vertical scale follows the highest speed. Use available() to know if any fan was found."""
 
     def __init__(self):
         # (name, file) for each fan. The name is the label of the fan, or "Fan <number>" if it has none.
@@ -477,16 +492,28 @@ class FanGraph(Graph):
                 except OSError:
                     label = ""
                 self.fans.append((label or _("Fan %d") % (len(self.fans) + 1), f"{directory}/{f}"))
+        # The NVIDIA driver doesn't use hwmon. NVML reports the speed of its fans instead.
+        self.nvml = common_nvml.get()
+        self.nvml_fans = self.nvml.fans() if self.nvml is not None else []
         super().__init__(tuple((name, colorsys.hsv_to_rgb((index * 0.61803398875 + 0.55) % 1, 0.65, 0.75))
-                               for index, (name, _path) in enumerate(self.fans)))
-        self.current_usage = read_fans(self.fans)
+                               for index, (name, _speed) in enumerate(self.fans + self.nvml_fans)))
+        self.current_usage = self.current_speeds()
+
+    def current_speeds(self):
+        """Returns the speed of each fan in revolutions per minute, or None for a fan that can't be read."""
+        speeds = read_fans(self.fans)
+        if self.nvml is not None:
+            speeds += tuple(self.nvml.fan_speeds())
+        # A fan that disappears must keep the number of values that the series expect
+        speeds = speeds[:len(self.series)]
+        return speeds + (None,) * (len(self.series) - len(speeds))
 
     def available(self):
         """Returns True if at least one fan was found."""
-        return bool(self.fans)
+        return bool(self.fans or self.nvml_fans)
 
     def refresh(self):
-        self.add_sample(read_fans(self.fans))
+        self.add_sample(self.current_speeds())
 
     def axis_maximum(self):
         return nice_maximum(self.largest_sample(), MINIMUM_SPEED)

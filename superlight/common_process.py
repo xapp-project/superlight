@@ -7,7 +7,7 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import GLib, Gtk
 from xapp.threading import run_async, run_idle
 
-from superlight import _
+from superlight import _, common_nvml
 from superlight.common_proc import boot_time, process_stat, username
 
 # Everything we know about a process. Rates are measured since the previous scan. -1 means not known.
@@ -18,6 +18,8 @@ Process = namedtuple("Process", (
 
 # The GPU engines for each kind of work. For each kind, the busiest engine is the one that counts.
 GPU_ENGINES = {"gpu": ("gfx", "render", "compute"), "video-encoder": ("enc",), "video-decoder": ("dec",)}
+# Marks a GPU usage read from NVML instead of the engine times of the clients in fdinfo
+NVML_GPU = "nvml"
 GAP = 5_000_000   # microseconds. After this long without a scan, rates start again from zero
 UNITS = {"B": 1, "KiB": 1024, "MiB": 1024 ** 2, "GiB": 1024 ** 3}
 
@@ -63,6 +65,13 @@ class ProcessScanner:
         page_size = os.sysconf("SC_PAGE_SIZE")
         ticks_per_second = os.sysconf("SC_CLK_TCK")
         started_at = boot_time()
+        # What each process uses of the NVIDIA GPUs. The driver doesn't report it in fdinfo, so NVML is asked once
+        # for all the processes instead.
+        nvml_gpus = {}
+        if "gpu" in features:
+            nvml = common_nvml.get()
+            if nvml is not None:
+                nvml_gpus = nvml.processes()
         found = []
         for entry in os.scandir("/proc"):
             if not entry.name.isdecimal():
@@ -164,6 +173,12 @@ class ProcessScanner:
                                 except ValueError:
                                     continue
                         gpu = engines, video_memory
+                # The NVIDIA driver doesn't report the work of the clients in fdinfo. NVML reports the percentage
+                # of the GPU that each process uses instead.
+                if nvml_gpus and (gpu is None or not gpu[0]):
+                    values = nvml_gpus.get(pid)
+                    if values is not None:
+                        gpu = NVML_GPU, values
                 found.append((pid, start, parent, name, executable, username(entry.stat().st_uid), state, nice, ticks,
                               ticks / ticks_per_second, started_at + int(start) // ticks_per_second,
                               max(0, resident - shared) * page_size, virtual, resident * page_size,
@@ -209,14 +224,18 @@ class ProcessScanner:
             else:
                 io_rates = (-1.0, -1.0)
             if gpu is not None:
-                engines, video_memory = gpu
-                engines_now[key] = engines
-                old = self.previous_engines.get(key, engines)
-                busy = {engine: min(100.0, max(0, ns - old.get(engine, ns)) / wall * 100)
-                        for engine, ns in engines.items()}
-                busiest = {kind: max((busy.get(engine, 0) for engine in names), default=0)
-                           for kind, names in GPU_ENGINES.items()}
-                gpu_values = (busiest["gpu"], video_memory, busiest["video-encoder"], busiest["video-decoder"])
+                if gpu[0] == NVML_GPU:
+                    # NVML gives the percentages of use directly, there is nothing to compare with
+                    gpu_values = gpu[1]
+                else:
+                    engines, video_memory = gpu
+                    engines_now[key] = engines
+                    old = self.previous_engines.get(key, engines)
+                    busy = {engine: min(100.0, max(0, ns - old.get(engine, ns)) / wall * 100)
+                            for engine, ns in engines.items()}
+                    busiest = {kind: max((busy.get(engine, 0) for engine in names), default=0)
+                               for kind, names in GPU_ENGINES.items()}
+                    gpu_values = (busiest["gpu"], video_memory, busiest["video-encoder"], busiest["video-decoder"])
             else:
                 gpu_values = (-1.0, -1, -1.0, -1.0)
             processes.append(Process(key, start, pid, parent, name, executable, user, state, nice, cpu, cpu_time,
